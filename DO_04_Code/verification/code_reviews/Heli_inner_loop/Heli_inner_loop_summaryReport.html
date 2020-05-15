@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<head>
+<style type="text/css">
+body {color:black;}
+table.T1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; border-spacing:0;padding:2px;border-collapse:collapse;}table.T0 {border-style:hidden; }TH.th1 { background-color:#EEEEFF;text-align:left;border-style:solid ;border-color:#EEEEFF;border-width:1px; padding:2px;}TD.d1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; text-align:left;padding:2px;}TD.d0 {text-align: left;border-style:none;padding:2px;}.indented {margin-left:25px;}span.ERROR {color:red}
+span.FAILED {color:red}
+span.FAILED_TO_TRACE {color:red}
+span.FAILED_TO_VERIFY {color:red}
+span.NON_FUNCTIONAL {color:black}
+span.NOT_PROCESSED {color:black}
+span.PARTIALLY_PROCESSED {color:#caad00}
+span.PARTIALLY_TRACED {color:#caad00}
+span.PARTIALLY_VERIFIED {color:#caad00}
+span.PASSED {color:green}
+span.TRACED {color:green}
+span.UNABLE_TO_PROCESS {color:#caad00}
+span.UNKNOWN {color:black}
+span.VERIFIED {color:green}
+span.WARNING {color:#caad00}
+span.CODE { white-space: pre;  }
+span.FORMATTED_MSG { white-space: pre;  }
+</style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript"> 
+ function rtwTableShrink(o, category)
+ {
+    var indent = document.getElementById(category + "_indent");
+    var fileTable = document.getElementById(category + "_table");
+    if (fileTable.style.display == "none") {
+        fileTable.style.display = "";
+        indent.style.display = "";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[-] </span>';
+    } else {
+        fileTable.style.display = "none";
+        indent.style.display = "none";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[+] </span>';
+    } 
+ }
+ </script><title>Simulink Code Inspector Summary Report for <a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop</a></title></head>
+<body>
+<div style="text-align:center"> <h2>Simulink Code Inspector Summary Report for <a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop</a></h2></div><hr>
+<table class="T1"><TR >
+<TH class="th1">
+Model</TH>
+<TH class="th1">
+Code inspection status</TH>
+<TH class="th1">
+Report</TH>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop</a></TD>
+<TD class="d1">
+<span class="PASSED">Passed</span></TD>
+<TD class="d1">
+<a href ="Heli_inner_loop_report.html">Heli_inner_loop_report.html</a></TD>
+</TR>
+</table></body></html>

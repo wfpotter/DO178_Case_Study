@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="0" Icon="" File="tools/utilities/openMLX.m" Name="openMLX">
+    <Extension Value="2cb45ac3-a454-4a38-8f74-fc5b96409ae9" Name="StartUpPrev" />
+</Info>

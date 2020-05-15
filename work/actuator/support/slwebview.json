@@ -1,0 +1,25 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":1,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"actuator",
+   "name":"actuator",
+   "fullname":"actuator",
+   "label":"actuator",
+   "parent":0,
+   "descendants":[
+   ],
+   "hierarchyUrl":"support/slwebview_files/actuator_h_1.json",
+   "backingUrl":"support/slwebview_files/actuator_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":false
+ },
+ "iconsUrl":"support/slwebview_files/actuator_icons.css"
+}

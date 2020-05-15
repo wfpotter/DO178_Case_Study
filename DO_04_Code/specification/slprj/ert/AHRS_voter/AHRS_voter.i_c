@@ -1,0 +1,1750 @@
+#ifndef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+unsigned int* __mw_instrum_AHRS_voter_ModelRefSIL_phits;
+
+#define __MW_INSTRUM_RECORD_HIT_NO_TEST(id) ((void) ++__mw_instrum_AHRS_voter_ModelRefSIL_phits[id - 1U])
+#define __MW_INSTRUM_RECORD_HIT(id) (__mw_instrum_AHRS_voter_ModelRefSIL_phits ? __MW_INSTRUM_RECORD_HIT_NO_TEST(id) : (void) 0)
+
+static unsigned int *__mw_instrum_AHRS_voter_ModelRefSIL_ptruth_tables;
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+unsigned int *__MW_INSTRUM_AHRS_voter_ModelRefSIL_INIT_FILE(unsigned int decCovId);
+
+
+#define __MW_INSTRUM_FCN_ENTER_1() 
+#define __MW_INSTRUM_FCN_ENTER_2() 
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+double __mw_instrum_AHRS_voter_ModelRefSIL_abs_tol;
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+double __mw_instrum_AHRS_voter_ModelRefSIL_rel_tol;
+
+#define __MW_INSTRUM_ABS(a) ((a) < 0 ? -(a) : (a))
+#define __MW_INSTRUM_MAX(lhs, rhs) ((lhs) < (rhs) ? (rhs) : (lhs))
+#define __MW_INSTRUM_TOL(lhs, rhs) __MW_INSTRUM_MAX(__mw_instrum_AHRS_voter_ModelRefSIL_abs_tol, __mw_instrum_AHRS_voter_ModelRefSIL_rel_tol * __MW_INSTRUM_MAX(__MW_INSTRUM_ABS(lhs), __MW_INSTRUM_ABS(rhs)))
+
+#define __MW_INSTRUM_NODE_1() \
+  ((__mw_instrum_AHRS_voter_ModelRefSIL_ptruth_tables ? \
+    ((void) 0) : \
+    ((void) (__mw_instrum_AHRS_voter_ModelRefSIL_ptruth_tables = __MW_INSTRUM_AHRS_voter_ModelRefSIL_INIT_FILE(0)))), \
+   __MW_INSTRUM_RECORD_HIT(1U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_2(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(2U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(3U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_2(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(2U), 1) : (__MW_INSTRUM_RECORD_HIT(3U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_4(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(4U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(5U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_4(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(4U), 1) : (__MW_INSTRUM_RECORD_HIT(5U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_6(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(6U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(7U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_6(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(6U), 1) : (__MW_INSTRUM_RECORD_HIT(7U), 0))
+#endif
+#define __MW_INSTRUM_NODE_8() \
+  (__MW_INSTRUM_RECORD_HIT(8U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_9(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(9U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(10U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_9(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(9U), 1) : (__MW_INSTRUM_RECORD_HIT(10U), 0))
+#endif
+#define __MW_INSTRUM_NODE_10() \
+  (__MW_INSTRUM_RECORD_HIT(10U))
+#define __MW_INSTRUM_NODE_11() \
+  (__MW_INSTRUM_RECORD_HIT(11U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_12(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(12U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(13U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_12(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(12U), 1) : (__MW_INSTRUM_RECORD_HIT(13U), 0))
+#endif
+#define __MW_INSTRUM_NODE_13() \
+  (__MW_INSTRUM_RECORD_HIT(13U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_14(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(14U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(15U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_14(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(14U), 1) : (__MW_INSTRUM_RECORD_HIT(15U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_16(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(16U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(17U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_16(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(16U), 1) : (__MW_INSTRUM_RECORD_HIT(17U), 0))
+#endif
+#define __MW_INSTRUM_NODE_17() \
+  (__MW_INSTRUM_RECORD_HIT(17U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_18(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(18U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(19U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_18(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(18U), 1) : (__MW_INSTRUM_RECORD_HIT(19U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_20(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(20U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(21U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_20(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(20U), 1) : (__MW_INSTRUM_RECORD_HIT(21U), 0))
+#endif
+#define __MW_INSTRUM_NODE_21() \
+  (__MW_INSTRUM_RECORD_HIT(21U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_22(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(22U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(23U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_22(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(22U), 1) : (__MW_INSTRUM_RECORD_HIT(23U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_24(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(24U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(25U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_24(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(24U), 1) : (__MW_INSTRUM_RECORD_HIT(25U), 0))
+#endif
+#define __MW_INSTRUM_NODE_25() \
+  (__MW_INSTRUM_RECORD_HIT(25U))
+#define __MW_INSTRUM_NODE_26() \
+  (__MW_INSTRUM_RECORD_HIT(26U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_27(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(27U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(28U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_27(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(27U), 1) : (__MW_INSTRUM_RECORD_HIT(28U), 0))
+#endif
+#define __MW_INSTRUM_NODE_28() \
+  (__MW_INSTRUM_RECORD_HIT(28U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_29(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(29U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(30U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_29(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(29U), 1) : (__MW_INSTRUM_RECORD_HIT(30U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_31(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(31U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(32U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_31(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(31U), 1) : (__MW_INSTRUM_RECORD_HIT(32U), 0))
+#endif
+#define __MW_INSTRUM_NODE_32() \
+  (__MW_INSTRUM_RECORD_HIT(32U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_33(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(33U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(34U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_33(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(33U), 1) : (__MW_INSTRUM_RECORD_HIT(34U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_35(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(35U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(36U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_35(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(35U), 1) : (__MW_INSTRUM_RECORD_HIT(36U), 0))
+#endif
+#define __MW_INSTRUM_NODE_36() \
+  (__MW_INSTRUM_RECORD_HIT(36U))
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_37(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(37U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(38U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_37(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(37U), 1) : (__MW_INSTRUM_RECORD_HIT(38U), 0))
+#endif
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_39(...) ((__VA_ARGS__) ? (__MW_INSTRUM_RECORD_HIT(39U), (1 == 1)) : (__MW_INSTRUM_RECORD_HIT(40U), (0 == 1)))
+#else
+#define __MW_INSTRUM_NODE_39(expr) ((expr) ? (__MW_INSTRUM_RECORD_HIT(39U), 1) : (__MW_INSTRUM_RECORD_HIT(40U), 0))
+#endif
+#define __MW_INSTRUM_NODE_40() \
+  (__MW_INSTRUM_RECORD_HIT(40U))
+#define __MW_INSTRUM_NODE_41() \
+  (__MW_INSTRUM_RECORD_HIT(41U))
+#define __MW_INSTRUM_NODE_42() \
+  (__MW_INSTRUM_RECORD_HIT(42U))
+#define __MW_INSTRUM_NODE_43() \
+  (__MW_INSTRUM_RECORD_HIT(43U))
+#define __MW_INSTRUM_NODE_44() \
+  (__MW_INSTRUM_RECORD_HIT(44U))
+#define __MW_INSTRUM_NODE_45() \
+  (__MW_INSTRUM_RECORD_HIT(45U))
+#define __MW_INSTRUM_NODE_46() \
+  (__MW_INSTRUM_RECORD_HIT(46U))
+#define __MW_INSTRUM_NODE_47() \
+  (__MW_INSTRUM_RECORD_HIT(47U))
+#define __MW_INSTRUM_NODE_48() \
+  (__MW_INSTRUM_RECORD_HIT(48U))
+#define __MW_INSTRUM_NODE_49() \
+  (__MW_INSTRUM_RECORD_HIT(49U))
+#define __MW_INSTRUM_NODE_50() \
+  (__MW_INSTRUM_RECORD_HIT(50U))
+#define __MW_INSTRUM_NODE_51() \
+  (__MW_INSTRUM_RECORD_HIT(51U))
+#define __MW_INSTRUM_NODE_52() \
+  (__MW_INSTRUM_RECORD_HIT(52U))
+#define __MW_INSTRUM_NODE_53() \
+  (__MW_INSTRUM_RECORD_HIT(53U))
+#define __MW_INSTRUM_NODE_54() \
+  (__MW_INSTRUM_RECORD_HIT(54U))
+#define __MW_INSTRUM_NODE_55() \
+  (__MW_INSTRUM_RECORD_HIT(55U))
+#define __MW_INSTRUM_NODE_56() \
+  (__MW_INSTRUM_RECORD_HIT(56U))
+#define __MW_INSTRUM_NODE_57() \
+  (__MW_INSTRUM_RECORD_HIT(57U))
+#define __MW_INSTRUM_NODE_58() \
+  (__MW_INSTRUM_RECORD_HIT(58U))
+#define __MW_INSTRUM_NODE_59() \
+  (__MW_INSTRUM_RECORD_HIT(59U))
+#define __MW_INSTRUM_NODE_60() \
+  (__MW_INSTRUM_RECORD_HIT(60U))
+#define __MW_INSTRUM_NODE_61() \
+  (__MW_INSTRUM_RECORD_HIT(61U))
+#define __MW_INSTRUM_NODE_62() \
+  (__MW_INSTRUM_RECORD_HIT(62U))
+#define __MW_INSTRUM_NODE_63() \
+  (__MW_INSTRUM_RECORD_HIT(63U))
+#define __MW_INSTRUM_NODE_64() \
+  (__MW_INSTRUM_RECORD_HIT(64U))
+#define __MW_INSTRUM_NODE_65() \
+  (__MW_INSTRUM_RECORD_HIT(65U))
+#define __MW_INSTRUM_NODE_66() \
+  (__MW_INSTRUM_RECORD_HIT(66U))
+#define __MW_INSTRUM_NODE_67() \
+  (__MW_INSTRUM_RECORD_HIT(67U))
+#define __MW_INSTRUM_NODE_68() \
+  ((__mw_instrum_AHRS_voter_ModelRefSIL_ptruth_tables ? \
+    ((void) 0) : \
+    ((void) (__mw_instrum_AHRS_voter_ModelRefSIL_ptruth_tables = __MW_INSTRUM_AHRS_voter_ModelRefSIL_INIT_FILE(0)))), \
+   __MW_INSTRUM_RECORD_HIT(68U))
+#define __MW_INSTRUM_NODE_69() \
+  (__MW_INSTRUM_RECORD_HIT(69U))
+
+#else /* __MW_INTERNAL_SLDV_PS_ANALYSIS__ */
+
+#define __MW_INSTRUM_FCN_ENTER_1() 
+
+#define __MW_INSTRUM_FCN_ENTER_2() 
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_1EZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_1() __MW_INSTRUM_RECORD_HIT_1EZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_2DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_2(...) (__MW_INSTRUM_RECORD_HIT_2DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_2(exp) (__MW_INSTRUM_RECORD_HIT_2DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_4DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_4(...) (__MW_INSTRUM_RECORD_HIT_4DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_4(exp) (__MW_INSTRUM_RECORD_HIT_4DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_6DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_6(...) (__MW_INSTRUM_RECORD_HIT_6DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_6(exp) (__MW_INSTRUM_RECORD_HIT_6DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_8DZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_8() __MW_INSTRUM_RECORD_HIT_8DZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_9DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_9(...) (__MW_INSTRUM_RECORD_HIT_9DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_9(exp) (__MW_INSTRUM_RECORD_HIT_9DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_10() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_11DZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_11() __MW_INSTRUM_RECORD_HIT_11DZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_12DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_12(...) (__MW_INSTRUM_RECORD_HIT_12DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_12(exp) (__MW_INSTRUM_RECORD_HIT_12DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_13() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_14DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_14(...) (__MW_INSTRUM_RECORD_HIT_14DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_14(exp) (__MW_INSTRUM_RECORD_HIT_14DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_16DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_16(...) (__MW_INSTRUM_RECORD_HIT_16DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_16(exp) (__MW_INSTRUM_RECORD_HIT_16DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_17() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_18DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_18(...) (__MW_INSTRUM_RECORD_HIT_18DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_18(exp) (__MW_INSTRUM_RECORD_HIT_18DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_20DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_20(...) (__MW_INSTRUM_RECORD_HIT_20DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_20(exp) (__MW_INSTRUM_RECORD_HIT_20DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_21() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_22DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_22(...) (__MW_INSTRUM_RECORD_HIT_22DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_22(exp) (__MW_INSTRUM_RECORD_HIT_22DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_24DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_24(...) (__MW_INSTRUM_RECORD_HIT_24DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_24(exp) (__MW_INSTRUM_RECORD_HIT_24DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_25() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_26DZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_26() __MW_INSTRUM_RECORD_HIT_26DZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_27DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_27(...) (__MW_INSTRUM_RECORD_HIT_27DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_27(exp) (__MW_INSTRUM_RECORD_HIT_27DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_28() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_29DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_29(...) (__MW_INSTRUM_RECORD_HIT_29DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_29(exp) (__MW_INSTRUM_RECORD_HIT_29DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_31DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_31(...) (__MW_INSTRUM_RECORD_HIT_31DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_31(exp) (__MW_INSTRUM_RECORD_HIT_31DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_32() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_33DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_33(...) (__MW_INSTRUM_RECORD_HIT_33DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_33(exp) (__MW_INSTRUM_RECORD_HIT_33DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_35DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_35(...) (__MW_INSTRUM_RECORD_HIT_35DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_35(exp) (__MW_INSTRUM_RECORD_HIT_35DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_36() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_37DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_37(...) (__MW_INSTRUM_RECORD_HIT_37DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_37(exp) (__MW_INSTRUM_RECORD_HIT_37DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+int __MW_INSTRUM_RECORD_HIT_39DZ_AHRS__voter_0020_0028ModelRefSIL_0029(int condValue) { return condValue; }
+#ifdef __cplusplus
+#define __MW_INSTRUM_NODE_39(...) (__MW_INSTRUM_RECORD_HIT_39DZ_AHRS__voter_0020_0028ModelRefSIL_0029(__VA_ARGS__))
+#else
+#define __MW_INSTRUM_NODE_39(exp) (__MW_INSTRUM_RECORD_HIT_39DZ_AHRS__voter_0020_0028ModelRefSIL_0029(exp))
+#endif
+
+#define __MW_INSTRUM_NODE_40() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_41DZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_41() __MW_INSTRUM_RECORD_HIT_41DZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#define __MW_INSTRUM_NODE_42() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_43() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_44() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_45() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_46() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_47() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_48() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_49() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_50() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_51() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_52() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_53() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_54() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_55() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_56() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_57() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_58() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_59() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_60() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_61() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_62() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_63() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_64() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_65() ((void)0)
+
+
+#define __MW_INSTRUM_NODE_66() ((void)0)
+
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_67XZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_67() __MW_INSTRUM_RECORD_HIT_67XZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_68EZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_68() __MW_INSTRUM_RECORD_HIT_68EZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#ifdef __cplusplus
+extern "C"
+#else
+extern
+#endif
+void __MW_INSTRUM_RECORD_HIT_69XZ_AHRS__voter_0020_0028ModelRefSIL_0029(void) { }
+#define __MW_INSTRUM_NODE_69() __MW_INSTRUM_RECORD_HIT_69XZ_AHRS__voter_0020_0028ModelRefSIL_0029()
+
+#endif /* __MW_INTERNAL_SLDV_PS_ANALYSIS__ */
+
+#line 1 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\AHRS_voter\\AHRS_voter.c"
+#line 16 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\AHRS_voter\\AHRS_voter.h"
+#ifndef RTW_HEADER_AHRS_voter_h_
+#define RTW_HEADER_AHRS_voter_h_
+#line 11 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\_sharedutils\\rtwtypes.h"
+#ifndef RTWTYPES_H
+#define RTWTYPES_H
+
+
+
+#ifndef false
+#define false (0U)
+#endif /* false */
+
+#ifndef true
+#define true (1U)
+#endif /* true */
+#line 51
+typedef char int8_T; 
+typedef unsigned char uint8_T; 
+typedef short int16_T; 
+typedef unsigned short uint16_T; 
+typedef int int32_T; 
+typedef unsigned uint32_T; 
+typedef float real32_T; 
+typedef double real64_T; 
+#line 64
+typedef double real_T; 
+typedef double time_T; 
+typedef unsigned char boolean_T; 
+typedef int int_T; 
+typedef unsigned uint_T; 
+typedef unsigned ulong_T; 
+typedef char char_T; 
+typedef unsigned char uchar_T; 
+typedef char_T byte_T; 
+#line 115
+typedef 
+#line 112
+struct { 
+real32_T re; 
+real32_T im; 
+} creal32_T; 
+
+
+
+
+typedef 
+#line 117
+struct { 
+real64_T re; 
+real64_T im; 
+} creal64_T; 
+
+
+
+
+typedef 
+#line 122
+struct { 
+real_T re; 
+real_T im; 
+} creal_T; 
+#line 132
+typedef 
+#line 129
+struct { 
+int8_T re; 
+int8_T im; 
+} cint8_T; 
+#line 139
+typedef 
+#line 136
+struct { 
+uint8_T re; 
+uint8_T im; 
+} cuint8_T; 
+#line 146
+typedef 
+#line 143
+struct { 
+int16_T re; 
+int16_T im; 
+} cint16_T; 
+#line 153
+typedef 
+#line 150
+struct { 
+uint16_T re; 
+uint16_T im; 
+} cuint16_T; 
+#line 160
+typedef 
+#line 157
+struct { 
+int32_T re; 
+int32_T im; 
+} cint32_T; 
+#line 167
+typedef 
+#line 164
+struct { 
+uint32_T re; 
+uint32_T im; 
+} cuint32_T; 
+#line 185
+typedef void *pointer_T; 
+
+#endif /* RTWTYPES_H */
+#line 8 "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.10240.0\\ucrt\\math.h"
+#ifndef _INC_MATH
+#define _INC_MATH
+#line 21 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vcruntime.h"
+#ifndef _UCRT
+#define _UCRT
+#endif /* _UCRT */
+#line 42
+#ifndef _VCRUNTIME_H
+#define _VCRUNTIME_H
+#line 148 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\sal.h"
+#ifndef _SAL_VERSION
+#define _SAL_VERSION 20
+#endif /* _SAL_VERSION */
+
+#ifndef __SAL_H_VERSION
+#define __SAL_H_VERSION 180000000
+#endif /* __SAL_H_VERSION */
+#line 182
+#ifndef _USE_DECLSPECS_FOR_SAL
+#define _USE_DECLSPECS_FOR_SAL 0
+#endif /* _USE_DECLSPECS_FOR_SAL */
+#ifndef _USE_ATTRIBUTES_FOR_SAL
+#define _USE_ATTRIBUTES_FOR_SAL 0
+#endif /* _USE_ATTRIBUTES_FOR_SAL */
+#line 224
+#ifndef _SAL_L_Source_
+#define _SAL_L_Source_(Name,args,annotes) _SA_annotes3(SAL_name, #Name, "", "2") _Group_(annotes _SAL_nop_impl_)
+
+#endif /* _SAL_L_Source_ */
+#line 2363
+#ifndef __nothrow
+#define __nothrow
+#endif /* __nothrow */
+#line 2879
+#ifndef __fallthrough
+#define __fallthrough __inner_fallthrough
+
+#endif /* __fallthrough */
+#line 16 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\ConcurrencySal.h"
+#ifndef CONCURRENCYSAL_H
+#define CONCURRENCYSAL_H
+#line 266
+#ifndef _Interlocked_operand_
+#define _Interlocked_operand_
+#endif /* _Interlocked_operand_ */
+#line 357
+#endif /* CONCURRENCYSAL_H */
+#line 25 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vadefs.h"
+#ifndef _UINTPTR_T_DEFINED
+#define _UINTPTR_T_DEFINED
+#line 708 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\sal.h"
+#pragma region Input Buffer SAL 1 compatibility macros
+#line 1472
+#pragma endregion Input Buffer SAL 1 compatibility macros
+#line 15 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vadefs.h"
+#pragma pack ( push, 8 )
+#line 28
+typedef unsigned __int64 uintptr_t; 
+
+
+
+#endif /* _UINTPTR_T_DEFINED */
+
+#ifndef _VA_LIST_DEFINED
+#define _VA_LIST_DEFINED
+
+
+
+typedef char *va_list; 
+
+#endif /* _VA_LIST_DEFINED */
+#line 106
+void __cdecl __va_start(va_list *, ...); 
+#line 85 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vcruntime.h"
+#ifndef _HAS_EXCEPTIONS
+#define _HAS_EXCEPTIONS 1
+#endif /* _HAS_EXCEPTIONS */
+#line 157 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vadefs.h"
+#pragma pack ( pop )
+#line 81 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vcruntime.h"
+__pragma( pack ( push, 8 )) 
+#line 194
+typedef unsigned __int64 size_t; 
+typedef __int64 ptrdiff_t; 
+typedef __int64 intptr_t; 
+#line 210
+typedef _Bool __vcrt_bool; 
+
+
+
+#ifndef _SIZE_T_DEFINED
+#define _SIZE_T_DEFINED
+#endif /* _SIZE_T_DEFINED */
+
+#ifndef _PTRDIFF_T_DEFINED
+#define _PTRDIFF_T_DEFINED
+#endif /* _PTRDIFF_T_DEFINED */
+
+#ifndef _INTPTR_T_DEFINED
+#define _INTPTR_T_DEFINED
+#endif /* _INTPTR_T_DEFINED */
+
+
+#ifndef _WCHAR_T_DEFINED
+#define _WCHAR_T_DEFINED
+typedef unsigned short wchar_t; 
+#endif /* _WCHAR_T_DEFINED */
+#line 298
+void __cdecl __security_init_cookie(void); 
+#line 304
+void __cdecl __security_check_cookie(uintptr_t _StackCookie); 
+__declspec(noreturn) void __cdecl __report_gsfailure(uintptr_t _StackCookie); 
+
+
+
+extern uintptr_t __security_cookie; 
+#line 319
+#endif /* _VCRUNTIME_H */
+#line 33 "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.10240.0\\ucrt\\corecrt.h"
+#ifndef _ACRTIMP_ALT
+#define _ACRTIMP_ALT _ACRTIMP
+#endif /* _ACRTIMP_ALT */
+#line 317 "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\INCLUDE\\vcruntime.h"
+__pragma( pack ( pop )) 
+#line 12 "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.10240.0\\ucrt\\corecrt.h"
+__pragma( pack ( push, 8 )) 
+#line 135
+typedef _Bool __crt_bool; 
+#line 146
+#ifndef _STATIC_ASSERT
+#define _STATIC_ASSERT(expr) typedef char __static_assert_t[(expr) != 0]
+#endif /* _STATIC_ASSERT */
+#line 162
+#ifndef _CRT_UNUSED
+#define _CRT_UNUSED(x) (void)x
+#endif /* _CRT_UNUSED */
+#line 190
+#ifndef _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE
+#define _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE 0
+#endif /* _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE */
+#line 226
+void __cdecl _invalid_parameter_noinfo(void); 
+__declspec(noreturn) void __cdecl _invalid_parameter_noinfo_noreturn(void); 
+
+__declspec(noreturn) void __cdecl 
+_invoke_watson(const wchar_t *, const wchar_t *, const wchar_t *, unsigned, uintptr_t); 
+#line 342
+#ifndef __STDC_WANT_SECURE_LIB__
+#define __STDC_WANT_SECURE_LIB__ 1
+#endif /* __STDC_WANT_SECURE_LIB__ */
+#line 437
+#ifndef _CRT_SECURE_CPP_NOTHROW
+#define _CRT_SECURE_CPP_NOTHROW throw()
+#endif /* _CRT_SECURE_CPP_NOTHROW */
+#line 448
+typedef int errno_t; 
+typedef unsigned short wint_t; 
+typedef unsigned short wctype_t; 
+typedef long __time32_t; 
+typedef __int64 __time64_t; 
+#line 459
+typedef 
+#line 454
+struct __crt_locale_data_public { 
+
+const unsigned short *_locale_pctype; 
+int _locale_mb_cur_max; 
+unsigned _locale_lc_codepage; 
+} __crt_locale_data_public; 
+#line 465
+typedef 
+#line 461
+struct __crt_locale_pointers { 
+
+struct __crt_locale_data *locinfo; 
+struct __crt_multibyte_data *mbcinfo; 
+} __crt_locale_pointers; 
+
+typedef __crt_locale_pointers *_locale_t; 
+#line 473
+typedef 
+#line 469
+struct _Mbstatet { 
+
+unsigned long _Wchar; 
+unsigned short _Byte, _State; 
+} _Mbstatet; 
+
+typedef _Mbstatet mbstate_t; 
+#line 489
+typedef __time64_t time_t; 
+
+
+
+
+#ifndef _TIME_T_DEFINED
+#define _TIME_T_DEFINED
+#endif /* _TIME_T_DEFINED */
+
+
+typedef size_t rsize_t; 
+#line 1901
+__pragma( pack ( pop )) 
+#line 13 "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.10240.0\\ucrt\\math.h"
+__pragma( pack ( push, 8 )) 
+
+
+
+#pragma warning(push)
+#pragma warning(disable:4738)
+#pragma warning(disable:4820)
+#line 26
+struct _exception { 
+
+int type; 
+char *name; 
+double arg1; 
+double arg2; 
+double retval; 
+}; 
+
+
+
+#ifndef _COMPLEX_DEFINED
+#define _COMPLEX_DEFINED
+
+struct _complex { 
+
+double x, y; 
+}; 
+
+
+
+
+
+#endif /* _COMPLEX_DEFINED */
+
+
+typedef float float_t; 
+typedef double double_t; 
+#line 68
+extern const double _HUGE; 
+
+
+
+
+
+#ifndef _HUGE_ENUF
+#define _HUGE_ENUF 1e+300
+#endif /* _HUGE_ENUF */
+#line 85
+#define _FINITE (-1)
+#define _INFCODE 1
+#define _NANCODE 2
+
+#define FP_INFINITE _INFCODE
+#define FP_NAN _NANCODE
+#define FP_NORMAL _FINITE
+#line 159
+void __cdecl _fperrraise(int _Except); 
+
+short __cdecl _dclass(double _X); 
+short __cdecl _ldclass(long double _X); 
+short __cdecl _fdclass(float _X); 
+
+int __cdecl _dsign(double _X); 
+int __cdecl _ldsign(long double _X); 
+int __cdecl _fdsign(float _X); 
+
+int __cdecl _dpcomp(double _X, double _Y); 
+int __cdecl _ldpcomp(long double _X, long double _Y); 
+int __cdecl _fdpcomp(float _X, float _Y); 
+
+short __cdecl _dtest(double * _Px); 
+short __cdecl _ldtest(long double * _Px); 
+short __cdecl _fdtest(float * _Px); 
+
+short __cdecl _d_int(double * _Px, short _Xexp); 
+short __cdecl _ld_int(long double * _Px, short _Xexp); 
+short __cdecl _fd_int(float * _Px, short _Xexp); 
+
+short __cdecl _dscale(double * _Px, long _Lexp); 
+short __cdecl _ldscale(long double * _Px, long _Lexp); 
+short __cdecl _fdscale(float * _Px, long _Lexp); 
+
+short __cdecl _dunscale(short * _Pex, double * _Px); 
+short __cdecl _ldunscale(short * _Pex, long double * _Px); 
+short __cdecl _fdunscale(short * _Pex, float * _Px); 
+
+short __cdecl _dexp(double * _Px, double _Y, long _Eoff); 
+short __cdecl _ldexp(long double * _Px, long double _Y, long _Eoff); 
+short __cdecl _fdexp(float * _Px, float _Y, long _Eoff); 
+
+short __cdecl _dnorm(unsigned short * _Ps); 
+short __cdecl _fdnorm(unsigned short * _Ps); 
+
+double __cdecl _dpoly(double _X, const double * _Tab, int _N); 
+long double __cdecl _ldpoly(long double _X, const long double * _Tab, int _N); 
+float __cdecl _fdpoly(float _X, const float * _Tab, int _N); 
+
+double __cdecl _dlog(double _X, int _Baseflag); 
+long double __cdecl _ldlog(long double _X, int _Baseflag); 
+float __cdecl _fdlog(float _X, int _Baseflag); 
+
+double __cdecl _dsin(double _X, unsigned _Qoff); 
+long double __cdecl _ldsin(long double _X, unsigned _Qoff); 
+float __cdecl _fdsin(float _X, unsigned _Qoff); 
+#line 213
+typedef 
+#line 210
+union { 
+unsigned short _Sh[4]; 
+double _Val; 
+} _double_val; 
+#line 220
+typedef 
+#line 217
+union { 
+unsigned short _Sh[2]; 
+float _Val; 
+} _float_val; 
+#line 227
+typedef 
+#line 224
+union { 
+unsigned short _Sh[4]; 
+long double _Val; 
+} _ldouble_val; 
+#line 235
+typedef 
+#line 230
+union { 
+unsigned short _Word[4]; 
+float _Float; 
+double _Double; 
+long double _Long_double; 
+} _float_const; 
+
+extern const _float_const _Denorm_C, _Inf_C, _Nan_C, _Snan_C, _Hugeval_C; 
+extern const _float_const _FDenorm_C, _FInf_C, _FNan_C, _FSnan_C; 
+extern const _float_const _LDenorm_C, _LInf_C, _LNan_C, _LSnan_C; 
+
+extern const _float_const _Eps_C, _Rteps_C; 
+extern const _float_const _FEps_C, _FRteps_C; 
+extern const _float_const _LEps_C, _LRteps_C; 
+
+extern const double _Zero_C, _Xbig_C; 
+extern const float _FZero_C, _FXbig_C; 
+extern const long double _LZero_C, _LXbig_C; 
+
+
+
+
+
+
+
+#define _CLASS_ARG(_Val) __pragma(warning(suppress:6334))(sizeof ((_Val) + (float)0) == sizeof (float) ? 'f' : sizeof ((_Val) + (double)0) == sizeof (double) ? 'd' : 'l')
+#define _CLASSIFY(_Val,_FFunc,_DFunc,_LDFunc) (_CLASS_ARG(_Val) == 'f' ? _FFunc((float)(_Val)) : _CLASS_ARG(_Val) == 'd' ? _DFunc((double)(_Val)) : _LDFunc((long double)(_Val)))
+
+
+#define fpclassify(_Val) (_CLASSIFY(_Val, _fdclass, _dclass, _ldclass))
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define isfinite(_Val) __builtin_mw_isfinite(_Val)
+#else
+#line 262
+#define isfinite(_Val) (fpclassify(_Val) <= 0)
+#endif
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define isinf(_Val) __builtin_mw_isinf(_Val)
+#else
+#line 263
+#define isinf(_Val) (fpclassify(_Val) == FP_INFINITE)
+#endif
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define isnan(_Val) __builtin_mw_isnan(_Val)
+#else
+#line 264
+#define isnan(_Val) (fpclassify(_Val) == FP_NAN)
+#endif
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define isnormal(_Val) __builtin_mw_isnormal(_Val)
+#else
+#line 265
+#define isnormal(_Val) (fpclassify(_Val) == FP_NORMAL)
+#endif
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define signbit(_Val) __builtin_mw_signbit(_Val)
+#else
+#line 266
+#define signbit(_Val) (_CLASSIFY(_Val, _fdsign, _dsign, _ldsign))
+#endif
+#line 454
+int __cdecl abs(int _X); 
+long __cdecl labs(long _X); 
+__int64 __cdecl llabs(__int64 _X); 
+
+double __cdecl acos(double _X); 
+double __cdecl asin(double _X); 
+double __cdecl atan(double _X); 
+double __cdecl atan2(double _Y, double _X); 
+
+double __cdecl cos(double _X); 
+double __cdecl cosh(double _X); 
+double __cdecl exp(double _X); 
+double __cdecl fabs(double _X); 
+double __cdecl fmod(double _X, double _Y); 
+double __cdecl log(double _X); 
+double __cdecl log10(double _X); 
+double __cdecl pow(double _X, double _Y); 
+double __cdecl sin(double _X); 
+double __cdecl sinh(double _X); 
+double __cdecl sqrt(double _X); 
+double __cdecl tan(double _X); 
+double __cdecl tanh(double _X); 
+
+double __cdecl acosh(double _X); 
+double __cdecl asinh(double _X); 
+double __cdecl atanh(double _X); 
+double __cdecl atof(const char * _String); 
+double __cdecl _atof_l(const char * _String, _locale_t _Locale); 
+double __cdecl _cabs(struct _complex _Complex_value); 
+double __cdecl cbrt(double _X); 
+double __cdecl ceil(double _X); 
+double __cdecl _chgsign(double _X); 
+double __cdecl copysign(double _Number, double _Sign); 
+double __cdecl _copysign(double _Number, double _Sign); 
+double __cdecl erf(double _X); 
+double __cdecl erfc(double _X); 
+double __cdecl exp2(double _X); 
+double __cdecl expm1(double _X); 
+double __cdecl fdim(double _X, double _Y); 
+double __cdecl floor(double _X); 
+double __cdecl fma(double _X, double _Y, double _Z); 
+double __cdecl fmax(double _X, double _Y); 
+double __cdecl fmin(double _X, double _Y); 
+double __cdecl frexp(double _X, int * _Y); 
+double __cdecl hypot(double _X, double _Y); 
+double __cdecl _hypot(double _X, double _Y); 
+int __cdecl ilogb(double _X); 
+double __cdecl ldexp(double _X, int _Y); 
+double __cdecl lgamma(double _X); 
+__int64 __cdecl llrint(double _X); 
+__int64 __cdecl llround(double _X); 
+double __cdecl log1p(double _X); 
+double __cdecl log2(double _X); 
+double __cdecl logb(double _X); 
+long __cdecl lrint(double _X); 
+long __cdecl lround(double _X); 
+
+int __cdecl _matherr(struct _exception * _Except); 
+
+double __cdecl modf(double _X, double * _Y); 
+double __cdecl nan(const char *); 
+double __cdecl nearbyint(double _X); 
+double __cdecl nextafter(double _X, double _Y); 
+double __cdecl nexttoward(double _X, long double _Y); 
+double __cdecl remainder(double _X, double _Y); 
+double __cdecl remquo(double _X, double _Y, int * _Z); 
+double __cdecl rint(double _X); 
+double __cdecl round(double _X); 
+double __cdecl scalbln(double _X, long _Y); 
+double __cdecl scalbn(double _X, int _Y); 
+double __cdecl tgamma(double _X); 
+double __cdecl trunc(double _X); 
+double __cdecl _j0(double _X); 
+double __cdecl _j1(double _X); 
+double __cdecl _jn(int _X, double _Y); 
+double __cdecl _y0(double _X); 
+double __cdecl _y1(double _X); 
+double __cdecl _yn(int _X, double _Y); 
+
+float __cdecl acoshf(float _X); 
+float __cdecl asinhf(float _X); 
+float __cdecl atanhf(float _X); 
+float __cdecl cbrtf(float _X); 
+float __cdecl _chgsignf(float _X); 
+float __cdecl copysignf(float _Number, float _Sign); 
+float __cdecl _copysignf(float _Number, float _Sign); 
+float __cdecl erff(float _X); 
+float __cdecl erfcf(float _X); 
+float __cdecl expm1f(float _X); 
+float __cdecl exp2f(float _X); 
+float __cdecl fdimf(float _X, float _Y); 
+float __cdecl fmaf(float _X, float _Y, float _Z); 
+float __cdecl fmaxf(float _X, float _Y); 
+float __cdecl fminf(float _X, float _Y); 
+float __cdecl _hypotf(float _X, float _Y); 
+int __cdecl ilogbf(float _X); 
+float __cdecl lgammaf(float _X); 
+__int64 __cdecl llrintf(float _X); 
+__int64 __cdecl llroundf(float _X); 
+float __cdecl log1pf(float _X); 
+float __cdecl log2f(float _X); 
+float __cdecl logbf(float _X); 
+long __cdecl lrintf(float _X); 
+long __cdecl lroundf(float _X); 
+float __cdecl nanf(const char *); 
+float __cdecl nearbyintf(float _X); 
+float __cdecl nextafterf(float _X, float _Y); 
+float __cdecl nexttowardf(float _X, long double _Y); 
+float __cdecl remainderf(float _X, float _Y); 
+float __cdecl remquof(float _X, float _Y, int * _Z); 
+float __cdecl rintf(float _X); 
+float __cdecl roundf(float _X); 
+float __cdecl scalblnf(float _X, long _Y); 
+float __cdecl scalbnf(float _X, int _Y); 
+float __cdecl tgammaf(float _X); 
+float __cdecl truncf(float _X); 
+#line 577
+float __cdecl _logbf(float _X); 
+float __cdecl _nextafterf(float _X, float _Y); 
+int __cdecl _finitef(float _X); 
+int __cdecl _isnanf(float _X); 
+int __cdecl _fpclassf(float _X); 
+
+int __cdecl _set_FMA3_enable(int _Flag); 
+int __cdecl _get_FMA3_enable(void); 
+#line 597
+float __cdecl acosf(float _X); 
+float __cdecl asinf(float _X); 
+float __cdecl atan2f(float _Y, float _X); 
+float __cdecl atanf(float _X); 
+float __cdecl ceilf(float _X); 
+float __cdecl cosf(float _X); 
+float __cdecl coshf(float _X); 
+float __cdecl expf(float _X); 
+#line 656
+__inline float __cdecl fabsf(float _X) 
+{ 
+return (float)fabs(_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define fabsf(x) __builtin_mw_fabsf(x)
+#endif
+
+
+float __cdecl floorf(float _X); 
+float __cdecl fmodf(float _X, float _Y); 
+#line 682
+__inline float __cdecl frexpf(float _X, int *_Y) 
+{ 
+return (float)frexp(_X, _Y); 
+} 
+
+__inline float __cdecl hypotf(float _X, float _Y) 
+{ 
+return _hypotf(_X, _Y); 
+} 
+
+__inline float __cdecl ldexpf(float _X, int _Y) 
+{ 
+return (float)ldexp(_X, _Y); 
+} 
+
+
+
+float __cdecl log10f(float _X); 
+float __cdecl logf(float _X); 
+float __cdecl modff(float _X, float * _Y); 
+float __cdecl powf(float _X, float _Y); 
+float __cdecl sinf(float _X); 
+float __cdecl sinhf(float _X); 
+float __cdecl sqrtf(float _X); 
+float __cdecl tanf(float _X); 
+float __cdecl tanhf(float _X); 
+#line 761
+long double __cdecl acoshl(long double _X); 
+
+__inline long double __cdecl acosl(long double _X) 
+{ 
+return acos((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define acosl(x) __builtin_mw_acosl(x)
+#endif
+#line 768
+long double __cdecl asinhl(long double _X); 
+
+__inline long double __cdecl asinl(long double _X) 
+{ 
+return asin((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define asinl(x) __builtin_mw_asinl(x)
+#endif
+#line 775
+__inline long double __cdecl atan2l(long double _Y, long double _X) 
+{ 
+return atan2((double)_Y, (double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define atan2l(x,y) __builtin_mw_atan2l(x,y)
+#endif
+#line 780
+long double __cdecl atanhl(long double _X); 
+
+__inline long double __cdecl atanl(long double _X) 
+{ 
+return atan((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define atanl(x) __builtin_mw_atanl(x)
+#endif
+#line 787
+long double __cdecl cbrtl(long double _X); 
+
+__inline long double __cdecl ceill(long double _X) 
+{ 
+return ceil((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define ceill(x) __builtin_mw_ceill(x)
+#endif
+#line 794
+__inline long double __cdecl _chgsignl(long double _X) 
+{ 
+return _chgsign((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define _chgsignl(x) __builtin_mw_chgsignl(x)
+#endif
+#line 799
+long double __cdecl copysignl(long double _Number, long double _Sign); 
+
+__inline long double __cdecl _copysignl(long double _Number, long double _Sign) 
+{ 
+return _copysign((double)_Number, (double)_Sign); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define _copysignl(x,y) __builtin_mw_copysignl(x,y)
+#endif
+#line 806
+__inline long double __cdecl coshl(long double _X) 
+{ 
+return cosh((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define coshl(x) __builtin_mw_coshl(x)
+#endif
+#line 811
+__inline long double __cdecl cosl(long double _X) 
+{ 
+return cos((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define cosl(x) __builtin_mw_cosl(x)
+#endif
+#line 816
+long double __cdecl erfl(long double _X); 
+long double __cdecl erfcl(long double _X); 
+
+__inline long double __cdecl expl(long double _X) 
+{ 
+return exp((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define expl(x) __builtin_mw_expl(x)
+#endif
+#line 824
+long double __cdecl exp2l(long double _X); 
+long double __cdecl expm1l(long double _X); 
+
+__inline long double __cdecl fabsl(long double _X) 
+{ 
+return fabs((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define fabsl(x) __builtin_mw_fabsl(x)
+#endif
+#line 832
+long double __cdecl fdiml(long double _X, long double _Y); 
+
+__inline long double __cdecl floorl(long double _X) 
+{ 
+return floor((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define floorl(x) __builtin_mw_floorl(x)
+#endif
+#line 839
+long double __cdecl fmal(long double _X, long double _Y, long double _Z); 
+long double __cdecl fmaxl(long double _X, long double _Y); 
+long double __cdecl fminl(long double _X, long double _Y); 
+
+__inline long double __cdecl fmodl(long double _X, long double _Y) 
+{ 
+return fmod((double)_X, (double)_Y); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define fmodl(x,y) __builtin_mw_fmodl(x,y)
+#endif
+#line 848
+__inline long double __cdecl frexpl(long double _X, int *_Y) 
+{ 
+return frexp((double)_X, _Y); 
+} 
+
+int __cdecl ilogbl(long double _X); 
+
+__inline long double __cdecl _hypotl(long double _X, long double _Y) 
+{ 
+return _hypot((double)_X, (double)_Y); 
+} 
+
+__inline long double __cdecl hypotl(long double _X, long double _Y) 
+{ 
+return _hypot((double)_X, (double)_Y); 
+} 
+
+__inline long double __cdecl ldexpl(long double _X, int _Y) 
+{ 
+return ldexp((double)_X, _Y); 
+} 
+
+long double __cdecl lgammal(long double _X); 
+__int64 __cdecl llrintl(long double _X); 
+__int64 __cdecl llroundl(long double _X); 
+
+__inline long double __cdecl logl(long double _X) 
+{ 
+return log((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define logl(x) __builtin_mw_logl(x)
+#endif
+#line 879
+__inline long double __cdecl log10l(long double _X) 
+{ 
+return log10((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define log10l(x) __builtin_mw_log10l(x)
+#endif
+#line 884
+long double __cdecl log1pl(long double _X); 
+long double __cdecl log2l(long double _X); 
+long double __cdecl logbl(long double _X); 
+long __cdecl lrintl(long double _X); 
+long __cdecl lroundl(long double _X); 
+
+__inline long double __cdecl modfl(long double _X, long double *_Y) 
+{ 
+double _F, _I; 
+_F = modf((double)_X, &_I); 
+*_Y = _I; 
+return _F; 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define modfl(x,y) __builtin_mw_modfl(x,y)
+#endif
+#line 898
+long double __cdecl nanl(const char *); 
+long double __cdecl nearbyintl(long double _X); 
+long double __cdecl nextafterl(long double _X, long double _Y); 
+long double __cdecl nexttowardl(long double _X, long double _Y); 
+
+__inline long double __cdecl powl(long double _X, long double _Y) 
+{ 
+return pow((double)_X, (double)_Y); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define powl(x,y) __builtin_mw_powl(x,y)
+#endif
+#line 908
+long double __cdecl remainderl(long double _X, long double _Y); 
+long double __cdecl remquol(long double _X, long double _Y, int * _Z); 
+long double __cdecl rintl(long double _X); 
+long double __cdecl roundl(long double _X); 
+long double __cdecl scalblnl(long double _X, long _Y); 
+long double __cdecl scalbnl(long double _X, int _Y); 
+
+__inline long double __cdecl sinhl(long double _X) 
+{ 
+return sinh((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define sinhl(x) __builtin_mw_sinhl(x)
+#endif
+#line 920
+__inline long double __cdecl sinl(long double _X) 
+{ 
+return sin((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define sinl(x) __builtin_mw_sinl(x)
+#endif
+#line 925
+__inline long double __cdecl sqrtl(long double _X) 
+{ 
+return sqrt((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define sqrtl(x) __builtin_mw_sqrtl(x)
+#endif
+#line 930
+__inline long double __cdecl tanhl(long double _X) 
+{ 
+return tanh((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define tanhl(x) __builtin_mw_tanhl(x)
+#endif
+#line 935
+__inline long double __cdecl tanl(long double _X) 
+{ 
+return tan((double)_X); 
+} 
+#ifdef __MW_INTERNAL_SLDV_PS_ANALYSIS__
+#define tanl(x) __builtin_mw_tanl(x)
+#endif
+#line 940
+long double __cdecl tgammal(long double _X); 
+long double __cdecl truncl(long double _X); 
+#line 963
+extern double HUGE; 
+
+
+
+
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _j0. See online help for details.")) double __cdecl j0(double _X); 
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _j1. See online help for details.")) double __cdecl j1(double _X); 
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _jn. See online help for details.")) double __cdecl jn(int _X, double _Y); 
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _y0. See online help for details.")) double __cdecl y0(double _X); 
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _y1. See online help for details.")) double __cdecl y1(double _X); 
+__declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _yn. See online help for details.")) double __cdecl yn(int _X, double _Y); 
+#line 985
+#endif /* _INC_MATH */
+#line 20 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\AHRS_voter\\AHRS_voter.h"
+#ifndef AHRS_voter_COMMON_INCLUDES_
+#define AHRS_voter_COMMON_INCLUDES_
+
+#endif /* AHRS_voter_COMMON_INCLUDES_ */
+
+#ifndef DEFINED_TYPEDEF_FOR_AHRS_Bus_
+#define DEFINED_TYPEDEF_FOR_AHRS_Bus_
+#line 979 "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.10240.0\\ucrt\\math.h"
+#pragma warning(pop)
+
+
+
+__pragma( pack ( pop )) 
+#line 36 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\AHRS_voter\\AHRS_voter.h"
+typedef 
+#line 28
+struct { 
+real_T theta; 
+real_T phi; 
+real_T psi; 
+real_T q; 
+real_T p; 
+real_T r; 
+boolean_T valid; 
+} AHRS_Bus; 
+
+#endif /* DEFINED_TYPEDEF_FOR_AHRS_Bus_ */
+#line 49
+typedef 
+#line 41
+struct { 
+#line 48
+real_T pooled1[5]; 
+} ConstP_AHRS_voter_T; 
+
+
+
+
+extern const ConstP_AHRS_voter_T AHRS_voter_ConstP; 
+
+
+
+extern void AHRS_voter(const AHRS_Bus * rtu_AHRS1, const AHRS_Bus * rtu_AHRS2, const AHRS_Bus * rtu_AHRS3, real_T  rty_voted_fb[5]); 
+
+
+
+extern void AHRS_voter_initialize(void); 
+#line 88
+#endif /* RTW_HEADER_AHRS_voter_h_ */
+#line 19 "C:\\Users\\bpotter\\MATLAB\\Projects\\ARP_DO_Project\\DO_04_Code\\specification\\slprj\\ert\\AHRS_voter\\AHRS_voter.c"
+const ConstP_AHRS_voter_T AHRS_voter_ConstP = {{(0.0), (0.0), (0.0), (0.0), (0.0)}}; 
+#line 30
+void AHRS_voter(const AHRS_Bus *rtu_AHRS1, const AHRS_Bus *rtu_AHRS2, const AHRS_Bus *
+rtu_AHRS3, real_T rty_voted_fb[5]) 
+{ __MW_INSTRUM_FCN_ENTER_1(); __MW_INSTRUM_NODE_1(); { 
+real_T rtb_Switch1[5]; 
+real_T rtb_Switch2[5]; 
+int32_T i; 
+int32_T i_0; 
+int32_T i_1; 
+int32_T i_2; 
+int32_T i_3; 
+int32_T i_4; 
+int32_T i_5; 
+int32_T i_6; 
+int32_T i_7; { 
+#line 86
+switch ((uint32_T)((uint32_T)((uint32_T)((__MW_INSTRUM_NODE_2(rtu_AHRS1->valid)) ? 1U : 0U) + (uint32_T)((__MW_INSTRUM_NODE_4(rtu_AHRS2->valid)) ? 1U : 0U)) + (uint32_T)((__MW_INSTRUM_NODE_6(rtu_AHRS3->valid)) ? 1U : 0U))) 
+
+{ 
+case 0:  __MW_INSTRUM_NODE_8(); { 
+for (i = 0; __MW_INSTRUM_NODE_9(i < 5); i = i + 1) { 
+rty_voted_fb[i] = AHRS_voter_ConstP.pooled1[i]; 
+}  } 
+break; 
+
+case 1:  __MW_INSTRUM_NODE_11(); { 
+#line 110
+if (__MW_INSTRUM_NODE_12(rtu_AHRS1->valid)) { 
+rty_voted_fb[0] = rtu_AHRS1->theta; 
+rty_voted_fb[1] = rtu_AHRS1->phi; 
+rty_voted_fb[2] = rtu_AHRS1->r; 
+rty_voted_fb[3] = rtu_AHRS1->q; 
+rty_voted_fb[4] = rtu_AHRS1->p; 
+} else { { 
+for (i_0 = 0; __MW_INSTRUM_NODE_14(i_0 < 5); i_0 = i_0 + 1) { 
+rty_voted_fb[i_0] = AHRS_voter_ConstP.pooled1[i_0]; 
+}  } 
+}  } { 
+#line 133
+if (__MW_INSTRUM_NODE_16(rtu_AHRS2->valid)) { 
+rtb_Switch1[0] = rtu_AHRS2->theta; 
+rtb_Switch1[1] = rtu_AHRS2->phi; 
+rtb_Switch1[2] = rtu_AHRS2->r; 
+rtb_Switch1[3] = rtu_AHRS2->q; 
+rtb_Switch1[4] = rtu_AHRS2->p; 
+} else { { 
+for (i_2 = 0; __MW_INSTRUM_NODE_18(i_2 < 5); i_2 = i_2 + 1) { 
+rtb_Switch1[i_2] = AHRS_voter_ConstP.pooled1[i_2]; 
+}  } 
+}  } { 
+#line 156
+if (__MW_INSTRUM_NODE_20(rtu_AHRS3->valid)) { 
+rtb_Switch2[0] = rtu_AHRS3->theta; 
+rtb_Switch2[1] = rtu_AHRS3->phi; 
+rtb_Switch2[2] = rtu_AHRS3->r; 
+rtb_Switch2[3] = rtu_AHRS3->q; 
+rtb_Switch2[4] = rtu_AHRS3->p; 
+} else { { 
+for (i_4 = 0; __MW_INSTRUM_NODE_22(i_4 < 5); i_4 = i_4 + 1) { 
+rtb_Switch2[i_4] = AHRS_voter_ConstP.pooled1[i_4]; 
+}  } 
+}  } { 
+
+
+
+for (i_6 = 0; __MW_INSTRUM_NODE_24(i_6 < 5); i_6 = i_6 + 1) { 
+#line 176
+rty_voted_fb[i_6] = (rty_voted_fb[i_6] + rtb_Switch1[i_6]) + rtb_Switch2[i_6]; 
+
+
+
+}  } 
+break; 
+
+case 2:  __MW_INSTRUM_NODE_26(); { 
+#line 198
+if (__MW_INSTRUM_NODE_27(rtu_AHRS1->valid)) { 
+rty_voted_fb[0] = rtu_AHRS1->theta; 
+rty_voted_fb[1] = rtu_AHRS1->phi; 
+rty_voted_fb[2] = rtu_AHRS1->r; 
+rty_voted_fb[3] = rtu_AHRS1->q; 
+rty_voted_fb[4] = rtu_AHRS1->p; 
+} else { { 
+for (i_1 = 0; __MW_INSTRUM_NODE_29(i_1 < 5); i_1 = i_1 + 1) { 
+rty_voted_fb[i_1] = AHRS_voter_ConstP.pooled1[i_1]; 
+}  } 
+}  } { 
+#line 221
+if (__MW_INSTRUM_NODE_31(rtu_AHRS2->valid)) { 
+rtb_Switch1[0] = rtu_AHRS2->theta; 
+rtb_Switch1[1] = rtu_AHRS2->phi; 
+rtb_Switch1[2] = rtu_AHRS2->r; 
+rtb_Switch1[3] = rtu_AHRS2->q; 
+rtb_Switch1[4] = rtu_AHRS2->p; 
+} else { { 
+for (i_3 = 0; __MW_INSTRUM_NODE_33(i_3 < 5); i_3 = i_3 + 1) { 
+rtb_Switch1[i_3] = AHRS_voter_ConstP.pooled1[i_3]; 
+}  } 
+}  } { 
+#line 244
+if (__MW_INSTRUM_NODE_35(rtu_AHRS3->valid)) { 
+rtb_Switch2[0] = rtu_AHRS3->theta; 
+rtb_Switch2[1] = rtu_AHRS3->phi; 
+rtb_Switch2[2] = rtu_AHRS3->r; 
+rtb_Switch2[3] = rtu_AHRS3->q; 
+rtb_Switch2[4] = rtu_AHRS3->p; 
+} else { { 
+for (i_5 = 0; __MW_INSTRUM_NODE_37(i_5 < 5); i_5 = i_5 + 1) { 
+rtb_Switch2[i_5] = AHRS_voter_ConstP.pooled1[i_5]; 
+}  } 
+}  } { 
+
+
+
+for (i_7 = 0; __MW_INSTRUM_NODE_39(i_7 < 5); i_7 = i_7 + 1) { 
+#line 264
+rty_voted_fb[i_7] = (0.5) * ((rty_voted_fb[i_7] + rtb_Switch1[i_7]) + rtb_Switch2[i_7]); 
+
+
+
+}  } 
+break; 
+
+default:  __MW_INSTRUM_NODE_41(); 
+#line 277
+rty_voted_fb[0] = (__MW_INSTRUM_NODE_42(), fmax((__MW_INSTRUM_NODE_43(), fmax((__MW_INSTRUM_NODE_44(), fmin(rtu_AHRS1->theta, rtu_AHRS2->theta)), (__MW_INSTRUM_NODE_45(), fmin(rtu_AHRS2->theta, rtu_AHRS3->theta)))), (__MW_INSTRUM_NODE_46(), fmin(rtu_AHRS3->theta, rtu_AHRS1->theta)))); 
+
+
+rty_voted_fb[1] = (__MW_INSTRUM_NODE_47(), fmax((__MW_INSTRUM_NODE_48(), fmax((__MW_INSTRUM_NODE_49(), fmin(rtu_AHRS1->phi, rtu_AHRS2->phi)), (__MW_INSTRUM_NODE_50(), fmin(rtu_AHRS2->phi, rtu_AHRS3->phi)))), (__MW_INSTRUM_NODE_51(), fmin(rtu_AHRS3->phi, rtu_AHRS1->phi)))); 
+
+rty_voted_fb[2] = (__MW_INSTRUM_NODE_52(), fmax((__MW_INSTRUM_NODE_53(), fmax((__MW_INSTRUM_NODE_54(), fmin(rtu_AHRS1->r, rtu_AHRS2->r)), (__MW_INSTRUM_NODE_55(), fmin(rtu_AHRS2->r, rtu_AHRS3->r)))), (__MW_INSTRUM_NODE_56(), fmin(rtu_AHRS3->r, rtu_AHRS1->r)))); 
+
+rty_voted_fb[3] = (__MW_INSTRUM_NODE_57(), fmax((__MW_INSTRUM_NODE_58(), fmax((__MW_INSTRUM_NODE_59(), fmin(rtu_AHRS1->q, rtu_AHRS2->q)), (__MW_INSTRUM_NODE_60(), fmin(rtu_AHRS2->q, rtu_AHRS3->q)))), (__MW_INSTRUM_NODE_61(), fmin(rtu_AHRS3->q, rtu_AHRS1->q)))); 
+
+rty_voted_fb[4] = (__MW_INSTRUM_NODE_62(), fmax((__MW_INSTRUM_NODE_63(), fmax((__MW_INSTRUM_NODE_64(), fmin(rtu_AHRS1->p, rtu_AHRS2->p)), (__MW_INSTRUM_NODE_65(), fmin(rtu_AHRS2->p, rtu_AHRS3->p)))), (__MW_INSTRUM_NODE_66(), fmin(rtu_AHRS3->p, rtu_AHRS1->p)))); 
+
+
+
+break; 
+}  } } __MW_INSTRUM_NODE_67(); 
+
+
+} 
+
+
+void AHRS_voter_initialize(void) 
+{ __MW_INSTRUM_FCN_ENTER_2(); __MW_INSTRUM_NODE_68(); __MW_INSTRUM_NODE_69(); 
+
+} 

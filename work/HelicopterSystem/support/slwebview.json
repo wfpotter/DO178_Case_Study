@@ -1,0 +1,28 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":1,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"HelicopterSystem",
+   "name":"HelicopterSystem",
+   "fullname":"HelicopterSystem",
+   "label":"HelicopterSystem",
+   "parent":0,
+   "descendants":[
+    2,
+    3,
+    4
+   ],
+   "hierarchyUrl":"support/slwebview_files/HelicopterSystem_h_1.json",
+   "backingUrl":"support/slwebview_files/HelicopterSystem_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":false
+ },
+ "iconsUrl":"support/slwebview_files/HelicopterSystem_icons.css"
+}

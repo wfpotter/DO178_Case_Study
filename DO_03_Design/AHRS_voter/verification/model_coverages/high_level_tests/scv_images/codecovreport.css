@@ -1,0 +1,426 @@
+/* Copyright 2014-2016 The MathWorks, Inc. */
+
+pre.code {
+    font-family: Courier;
+    font-size: small;
+}
+
+table.code {
+    border-spacing:0px;
+    border: 0px    
+}
+
+table.code tr td {
+    color: #112266;
+    vertical-align: top;
+    white-space:pre;
+    padding-left: 10px;
+}
+
+table.code tr td:first-child {
+    font-style: italic;
+    color: #888888;
+    text-align: right;
+    padding-left:0px;
+}
+
+table.code tr td:not(:first-child) span a {
+    color: inherit;
+}
+
+/* tooltip for embedded coverage info */
+.tooltip {
+    display:block;
+    border:1px solid #000;
+    background: #FFFFEC;
+    position: absolute;
+}
+
+.tooltipCloseButton {
+    float:right;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tooltipContent {
+    display:block;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
+
+table.tooltipManyRes {
+    border-collapse: collapse;
+    border-style: hidden;   
+}
+
+table.tooltipManyRes tr {
+    border: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+}
+
+table.tooltipManyRes td {
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
+
+/* comment */
+.ct {
+    font-style: italic;
+    color: #117755 
+}
+
+/* preprocessor */
+.pp {
+    font-weight:bold;
+    color: #992211 
+}
+
+/* keyword or brace */
+.kw, .br {
+    font-weight:bold;
+    color: #112266
+}
+
+/* data-type */
+.dt {
+    font-weight:bold;
+    color: #112266 
+}
+
+/* regular token */
+.tk {
+    font-style: normal;
+    color: #112266
+}
+
+/* not fully covered */
+.nfc  {
+    font-weight: normal;
+    background-color: pink
+}
+
+/* justified not fully covered */
+.jnfc  {
+    font-weight: normal;
+    background-color: aqua
+}
+
+/* string or char */
+.st  {
+    font-weight: normal;
+    color: #B404AE
+}
+
+/* numerical value */
+.nu  {
+    font-weight: normal;
+    color:blue /* #0B7EF9 */
+}
+
+/* Files Filtered from Coverage Analysis table. */
+.filter_info {
+  margin-left: 10px;
+  border-spacing: 1px;
+}
+
+.filter_info thead {
+  font-weight: bold;
+}
+
+.filter_info td {
+  padding: 5px;
+  padding-right: 10px;
+}
+
+.filter_info td:not(:first-child) {
+  padding-right: 50px;
+}
+
+/* File Information table. */
+.file_info {
+  margin-left: 10px;
+  border-spacing: 1px;
+}
+
+.file_info td {
+  padding: 5px;
+  width: 300px;
+}
+
+/* Coverage Options table. */
+.coverage_opts {
+  margin-left: 10px;
+  border-spacing: 1px;
+}
+
+.coverage_opts td {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+/* Tests table. */
+
+.run_info {
+  margin-left: 10px;
+  border-spacing: 1px;
+}
+
+.run_info thead {
+  font-weight: bold;
+}
+
+.run_info td {
+  padding: 5px;
+  padding-right: 30px;
+}
+
+/* S-Function Instances table. */
+.instances_info {
+  margin-left: 10px;
+  border-spacing: 1px;
+}
+
+.instances_info tr {
+  vertical-align: top;
+}
+
+.instances_info td {
+  padding: 5px;
+}
+
+/* Top summary heading. */
+.top_summary_heading {
+  text-decoration: underline;
+}
+
+/* Top summary table. */
+.top_summary {
+  border-collapse: collapse;
+}
+
+.top_summary thead > tr > td {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* Summary[ By Instance] table. */
+.summary {
+  font-size: small;
+}
+
+.summary {
+  border-spacing: 1px;
+}
+
+.summary td {
+  padding: 2px;
+}
+
+.summary td:not(:first-child) {
+  text-align: center;
+}
+
+.summary thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Summary table sub-section. */
+.summary_sub_section {
+  font-weight: bold;
+}
+
+/* Bar graph in a Summary[ By Instance] table. */
+.bar_graph {
+  margin-left: 5px;
+  margin-right: 5px;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.bar_graph td {
+  padding: 0px;
+}
+
+.bar_graph img {
+  border: 0px;
+  height: 6px;
+}
+
+/* Code references tables (file, function, covered expressions). */
+.code_refs_list {
+  margin-left: 25px;
+}
+
+.code_refs_list tr {
+  vertical-align: top;
+}
+
+.code_refs_list td:first-child { /* First column. */
+  font-weight: bold;
+  width: 150px;
+}
+
+/* Inner summary table. */
+.inner_summary {
+  margin-left: 25px;
+}
+
+.inner_summary thead {
+  font-weight: bold;
+}
+
+.inner_summary td:first-child { /* Metric column. */
+  width: 200px;
+}
+
+.inner_summary td:not(:first-child):not(:last-child) { /* Coverage columns except the last one. */
+  width: 400px;
+}
+
+.inner_summary td {
+  text-align: left;
+}
+
+/* Full coverage summary table. */
+.inner_full_cov_summary {
+  margin-left: 50px;
+}
+
+.inner_full_cov_summary thead {
+  font-weight: bold;
+}
+
+.inner_full_cov_summary td:first-child {
+  padding-right: 50px;
+  white-space: nowrap;
+}
+
+/* Decisions/Conditions analyzed and MC/DC analysis headings. */
+h5 {
+  margin-left: 25px;
+  margin-bottom: 0px;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+/* Uncovered row in the Decisions/Conditions analyzed and MC/DC analysis table. */
+.uncovered {
+  background-color: pink;
+}
+
+/* Justified row in the Decisions/Conditions analyzed and MC/DC analysis table. */
+.justified {
+  background-color: aqua;
+}
+
+/* Decisions analyzed table. */
+.decision_details {
+  margin-left: 25px;
+  border: 1px solid;
+  border-spacing: 0px;
+}
+
+.decision_details tr td {
+  padding: 5px;
+}
+
+.decision_details tr td:first-child { /* First column */
+  padding: 5px;
+}
+
+.decision_details tr td:first-child code { /* First column containing code snippet */
+  font-size: small;
+}
+
+.decision_details tbody > tr > td:first-child { /* First column in outcome rows. */
+  padding-left: 25px;
+}
+
+.decision_details thead > tr > td:not(:first-child) { /* Results columns in decision row. */
+  text-align: center;
+}
+
+.decision_details tbody > tr > td:not(:first-child) { /* Results columns in outcome rows. */
+  text-align: right;
+}
+
+/* Conditions analyzed table. */
+.condition_details {
+  border: 1px solid;
+  border-top-color: gray;
+  border-left-color: gray;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-spacing: 1px;
+  margin-left: 25px;
+}
+
+.condition_details thead { /* Header row. */
+  font-weight: bold;
+}
+
+.condition_details tr td {
+  border: 1px solid;
+  border-top-color: black;
+  border-left-color: black;
+  border-right-color: gray;
+  border-bottom-color: gray;
+  padding: 5px;
+}
+
+.condition_details tr td:first-child { /* First column */
+  padding: 5px;
+}
+
+.condition_details tr td:first-child code { /* First column containing code snippet */
+  font-size: small;
+}
+
+.condition_details tbody > tr > td:first-child { /* First column in conditions rows. */
+  padding-left: 25px;
+}
+
+.condition_details td:not(:first-child) { /* Results columns. */
+  text-align: center;
+}
+
+/* MC/DC analysis table. */
+.mcdc_details {
+  margin-left: 25px;
+  border: 1px solid;
+  border-spacing: 0px;
+}
+
+.mcdc_details thead { /* Header row. */
+  font-weight: bold;
+}
+
+.mcdc_details td {
+  padding: 5px;
+}
+
+.mcdc_details tr td:first-child { /* First column */
+  padding: 5px;
+}
+
+.mcdc_details tbody > tr:not(:first-child) > td:first-child { /* First column in conditions rows. */
+  padding-left: 25px;
+}
+
+.mcdc_details tbody > tr:not(:first-child) > td:first-child code { /* First column in conditions rows
+                                                                      containing code snippet */
+  font-size: small;
+}
+
+.mcdc_details td:not(:first-child) { /* Results columns. */
+  width: 35px;
+  text-align: center;
+}
+
+/* Current condition in a MC/DC combination. */
+.curr_cnd_in_combination {
+  font-weight: bold;
+  color: blue;
+}

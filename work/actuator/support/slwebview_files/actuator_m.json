@@ -1,0 +1,39 @@
+[
+ {
+  "sid":"actuator",
+  "className":"Simulink.BlockDiagram",
+  "icon":"actuator0",
+  "name":"actuator",
+  "label":"actuator",
+  "parent":"",
+  "inspector":{
+   "params":[
+    "ModelVersion",
+    "LastModifiedDate",
+    "LibraryLinkDisplay",
+    "ModelBrowserVisibility",
+    "Dirty",
+    "Description"
+   ],
+   "values":[
+    "1.107",
+    "Mon Oct 21 11:11:35 2019",
+    "none",
+    "off",
+    "off",
+    "Closed-Loop Electrohydraulic Actuator with Proportional Valve\n\nThis example shows an actuator that consists of a proportional 4-way directional valve\ndriving a double-acting hydraulic cylinder. The cylinder drives a load consisting of a mass, \nviscous and Coulomb friction, constant force, and a spring. The actuator is powered \nby a variable-displacement, pressure-compensated pump, driven by a constant velocity\nmotor. Pipelines between the valve, cylinder, pump, and the tank are simulated\nwith the Hydraulic Pipeline blocks.\n\n\nCopyright 2008-2013 The MathWorks, Inc.\n"
+   ],
+   "tabs":[
+   ],
+   "tabs_idx":[
+   ]
+  },
+  "viewer":{
+   "jshandler":"webview/handlers/ElementHandler"
+  },
+  "obj_viewer":[
+  ],
+  "finder":[
+  ]
+ }
+]

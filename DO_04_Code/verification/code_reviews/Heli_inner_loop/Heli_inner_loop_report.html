@@ -1,0 +1,6186 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<head>
+<style type="text/css">
+body {color:black;}
+table.T1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; border-spacing:0;padding:2px;border-collapse:collapse;}table.T0 {border-style:hidden; }TH.th1 { background-color:#EEEEFF;text-align:left;border-style:solid ;border-color:#EEEEFF;border-width:1px; padding:2px;}TD.d1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; text-align:left;padding:2px;}TD.d0 {text-align: left;border-style:none;padding:2px;}.indented {margin-left:25px;}span.ERROR {color:red}
+span.FAILED {color:red}
+span.FAILED_TO_TRACE {color:red}
+span.FAILED_TO_VERIFY {color:red}
+span.NON_FUNCTIONAL {color:black}
+span.NOT_PROCESSED {color:black}
+span.PARTIALLY_PROCESSED {color:#caad00}
+span.PARTIALLY_TRACED {color:#caad00}
+span.PARTIALLY_VERIFIED {color:#caad00}
+span.PASSED {color:green}
+span.TRACED {color:green}
+span.UNABLE_TO_PROCESS {color:#caad00}
+span.UNKNOWN {color:black}
+span.VERIFIED {color:green}
+span.WARNING {color:#caad00}
+span.CODE { white-space: pre;  }
+span.FORMATTED_MSG { white-space: pre;  }
+</style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript"> 
+ function rtwTableShrink(o, category)
+ {
+    var indent = document.getElementById(category + "_indent");
+    var fileTable = document.getElementById(category + "_table");
+    if (fileTable.style.display == "none") {
+        fileTable.style.display = "";
+        indent.style.display = "";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[-] </span>';
+    } else {
+        fileTable.style.display = "none";
+        indent.style.display = "none";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[+] </span>';
+    } 
+ }
+ </script><title>Simulink Code Inspector Report for Heli_inner_loop.slx</title></head>
+<body>
+<div style="text-align:center"> <h2>Simulink Code Inspector Report for <a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop.slx</a></h2></div><hr>
+<table class="T0"><TR>
+<TD class="d0">
+<b>Inspected Model File :</b></TD>
+<TD class="d0">
+<a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx</a></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Model Version :</b></TD>
+<TD class="d0">
+1.32</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Simulink Version :</b></TD>
+<TD class="d0">
+9.3 (R2019a)</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Checksum when Compiled as Referenced Model :</b></TD>
+<TD class="d0">
+2266923827 3837567870 1741486968 2987567614</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Checksum when Compiled as Top Model :</b></TD>
+<TD class="d0">
+1477159840 4022829541 803850755 2960910209</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Model Last Modified On :</b></TD>
+<TD class="d0">
+08-Apr-2019 08:28:22</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Inspected Code Files :</b></TD>
+<TD class="d0">
+<a href ="file:///C:/Users/bpotter/MATLAB/Projects/ARP_DO_Project/DO_04_Code/specification/slprj/ert/Heli_inner_loop/Heli_inner_loop.c">C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_04_Code\specification\slprj\ert\Heli_inner_loop\Heli_inner_loop.c</a></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Inspected Code Files Checksum :</b></TD>
+<TD class="d0">
+3AF7304B8A651606623E1DF48BA1515C</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Code Inspection Run On :</b></TD>
+<TD class="d0">
+08-Apr-2019 12:06:04</TD>
+</TR>
+<TR>
+<TD class="d0">
+&nbsp;</TD>
+<TD class="d0">
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Overall Inspection Result : </b></TD>
+<TD class="d0">
+<b><span class="PASSED">Passed</span></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Utils Need Manual Review :</b></TD>
+<TD class="d0">
+No</TD>
+</TR>
+</table><hr><h2>Code Verification Results : <span class="VERIFIED">Verified</span></h2><h4>Function Interface Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+</table></div><br/><h4>Model To Code Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">39</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><h4>Code To Model Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">3</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">50</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><h4>Temporary Variable Usage Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Function does not have any temporary variable declarations</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+Heli_inner_loop</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Temporary variables with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Temporary variables with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">12</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><br/><h2>Traceability Results : <span class="TRACED">Traced</span></h2><h4>Model To Code Traceability Results : <span class="TRACED">Traced</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Number of model objects</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Traced</span></TD>
+<TD class="d1">
+<span class="TRACED">39</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Partially processed</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Unable to process</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Failed to trace</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></div><br/><h4>Code To Model Traceability Results : <span class="TRACED">Traced</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Number of code lines</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Traced</span></TD>
+<TD class="d1">
+<span class="TRACED">62</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Nonfunctional code</span></TD>
+<TD class="d1">
+<span class="NON_FUNCTIONAL">136</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Not processed</span></TD>
+<TD class="d1">
+<span class="NOT_PROCESSED">2</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Partially processed</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Unable to process</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Failed to trace</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></div><br/><h4>Not processed code: </h4><div class="indented"><h4>File : <a href ="file:///C:/Users/bpotter/MATLAB/Projects/ARP_DO_Project/DO_04_Code/specification/slprj/ert/Heli_inner_loop/Heli_inner_loop.c">Heli_inner_loop.c</a></h4><table class="T1"><TR >
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Code</TH>
+</TR>
+<TR >
+<TD class="d1">
+16</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;Heli_inner_loop.h&#34;
+</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+18</TD>
+<TD class="d1">
+<span class="CODE">MdlrefDW_Heli_inner_loop_T Heli_inner_loop_MdlrefDW;
+</span></TD>
+</TR>
+</table></div><br/><br/><hr><h2>Code Verification Details</h2><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="105">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'105')"> 
+     <span style="font-family:monospace" id = "105_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function Interface Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="105_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="105_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="103">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'103')"> 
+     <span style="font-family:monospace" id = "103_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="103_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="103_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Check</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+Number of function arguments </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument names </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument data types </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function return type </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="104">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'104')"> 
+     <span style="font-family:monospace" id = "104_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="104_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="104_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Check</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+Number of function arguments </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument names </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument data types </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function return type </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="106">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'106')"> 
+     <span style="font-family:monospace" id = "106_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Model To Code Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="106_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="106_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>Model : <a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:1')">&#60;model&#62;/theta_cmd</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:14')">&#60;model&#62;/phi_cmd</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:15')">&#60;model&#62;/r_cmd</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:16')">&#60;model&#62;/voted_fb</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:3')">&#60;model&#62;/Demux2</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Demux) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:24')">&#60;model&#62;/ModelInfo</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Model Info block) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:4')">&#60;model&#62;/Mux3</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Mux) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20')">&#60;model&#62;/RollOff1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (SubSystem) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21')">&#60;model&#62;/RollOff2</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (SubSystem) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22')">&#60;model&#62;/RollOff3</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (SubSystem) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:6')">&#60;model&#62;/Sum4</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:7')">&#60;model&#62;/Sum5</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:8')">&#60;model&#62;/Sum6</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:2')">&#60;model&#62;/actuator_commands</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:2')">&#60;model&#62;/RollOff3/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:4')">&#60;model&#62;/RollOff3/SumA21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:5')">&#60;model&#62;/RollOff3/SumB21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:9')">&#60;model&#62;/RollOff3/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:6')">&#60;model&#62;/RollOff3/a_2_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:7')">&#60;model&#62;/RollOff3/s_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:8')">&#60;model&#62;/RollOff3/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:2')">&#60;model&#62;/RollOff2/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:4')">&#60;model&#62;/RollOff2/SumA21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:5')">&#60;model&#62;/RollOff2/SumB21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:9')">&#60;model&#62;/RollOff2/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:6')">&#60;model&#62;/RollOff2/a_2_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:7')">&#60;model&#62;/RollOff2/s_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:8')">&#60;model&#62;/RollOff2/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:2')">&#60;model&#62;/RollOff1/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:4')">&#60;model&#62;/RollOff1/SumA21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:5')">&#60;model&#62;/RollOff1/SumB21</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:9')">&#60;model&#62;/RollOff1/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:6')">&#60;model&#62;/RollOff1/a_2_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:7')">&#60;model&#62;/RollOff1/s_1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:8')">&#60;model&#62;/RollOff1/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">global state initialization code</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="109">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'109')"> 
+     <span style="font-family:monospace" id = "109_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Code To Model Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="109_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="109_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="107">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'107')"> 
+     <span style="font-family:monospace" id = "107_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="107_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="107_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Function outputs/state variables</TH>
+<TH class="th1">
+Contributing lines of code</TH>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:191</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:192</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:193</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="108">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'108')"> 
+     <span style="font-family:monospace" id = "108_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="108_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="108_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Function outputs/state variables</TH>
+<TH class="th1">
+Contributing lines of code</TH>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:71</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:72</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:176</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:83</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:84</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:85</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:179</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:96</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:97</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:98</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:182</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_actuator_commands[0]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:71</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:72</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:107</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:108</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:115</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:116</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:117</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:118</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:119</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:120</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:123</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_actuator_commands[1]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:83</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:84</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:85</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:132</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:133</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:140</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:141</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:142</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:143</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:144</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:145</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:148</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_actuator_commands[2]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:52</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:53</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:54</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:55</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:56</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:96</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:97</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:98</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:157</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:158</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:165</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:166</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:167</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:168</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:169</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:170</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+Heli_inner_loop.c:173</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="112">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'112')"> 
+     <span style="font-family:monospace" id = "112_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Temporary Variable Usage </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="112_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="112_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="110">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'110')"> 
+     <span style="font-family:monospace" id = "110_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="110_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="110_table">
+ <tr>
+ <td class="d0">Function does not have any temporary variable declarations
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="111">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'111')"> 
+     <span style="font-family:monospace" id = "111_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : Heli_inner_loop</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="111_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="111_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Temporary variable name</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+i</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+i_0</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_Gain</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_SumA21</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_SumA21_fq5h</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_SumA21_hsvt</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+u0</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+u0_0</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+u0_1</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+y</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+y_0</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+y_1</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="113">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'113')"> 
+     <span style="font-family:monospace" id = "113_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Data Type Replacement Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="113_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="113_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Code generation type name </TH>
+<TH class="th1">
+Replacement name</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Code location</TH>
+</TR>
+<TR >
+<TD class="d1">
+boolean_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+char_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int16_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int64_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int8_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+real32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+real_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint16_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint64_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint8_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table><br/><h2>Traceability Details</h2><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="114">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'114')"> 
+     <span style="font-family:monospace" id = "114_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Model To Code Traceability </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="114_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="114_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>Model : <a href="matlab:open_system(slci.internal.encodeString('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','html','decode'))">Heli_inner_loop</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:1')">&#60;model&#62;/theta_cmd</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:14')">&#60;model&#62;/phi_cmd</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:15')">&#60;model&#62;/r_cmd</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:16')">&#60;model&#62;/voted_fb</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:3')">&#60;model&#62;/Demux2</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Demux)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:107 , 120 , 132 , 145 , 157 , 170</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:24')">&#60;model&#62;/ModelInfo</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Model Info block)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:4')">&#60;model&#62;/Mux3</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Mux)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20')">&#60;model&#62;/RollOff1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (SubSystem)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21')">&#60;model&#62;/RollOff2</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (SubSystem)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22')">&#60;model&#62;/RollOff3</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (SubSystem)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:21-27 , 52-56</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:115-120 , 140-145 , 165-170</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:6')">&#60;model&#62;/Sum4</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:83</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:7')">&#60;model&#62;/Sum5</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:71</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:8')">&#60;model&#62;/Sum6</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:96</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:2')">&#60;model&#62;/actuator_commands</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:123 , 148 , 173</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:2')">&#60;model&#62;/RollOff3/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:4')">&#60;model&#62;/RollOff3/SumA21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:96</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:5')">&#60;model&#62;/RollOff3/SumB21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:157</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:9')">&#60;model&#62;/RollOff3/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:98 , 158 , 182</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:6')">&#60;model&#62;/RollOff3/a_2_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:97</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:7')">&#60;model&#62;/RollOff3/s_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:96</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:8')">&#60;model&#62;/RollOff3/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:2')">&#60;model&#62;/RollOff2/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:4')">&#60;model&#62;/RollOff2/SumA21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:83</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:5')">&#60;model&#62;/RollOff2/SumB21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:132</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:9')">&#60;model&#62;/RollOff2/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:85 , 133 , 179</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:6')">&#60;model&#62;/RollOff2/a_2_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:84</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:7')">&#60;model&#62;/RollOff2/s_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:83</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:8')">&#60;model&#62;/RollOff2/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:2')">&#60;model&#62;/RollOff1/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:4')">&#60;model&#62;/RollOff1/SumA21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:71</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:5')">&#60;model&#62;/RollOff1/SumB21</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:107</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:9')">&#60;model&#62;/RollOff1/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:72 , 108 , 176</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:6')">&#60;model&#62;/RollOff1/a_2_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:72</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:7')">&#60;model&#62;/RollOff1/s_1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:71</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:8')">&#60;model&#62;/RollOff1/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">global state initialization code</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Heli_inner_loop.c:191-193</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="115">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'115')"> 
+     <span style="font-family:monospace" id = "115_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Code To Model Traceability </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="115_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="115_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>File : <a href ="file:///C:/Users/bpotter/MATLAB/Projects/ARP_DO_Project/DO_04_Code/specification/slprj/ert/Heli_inner_loop/Heli_inner_loop.c">Heli_inner_loop.c</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Code</TH>
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+1</TD>
+<TD class="d1">
+<span class="CODE">/*
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+2</TD>
+<TD class="d1">
+<span class="CODE"> * File: Heli_inner_loop.c
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+3</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+4</TD>
+<TD class="d1">
+<span class="CODE"> * Code generated for Simulink model &#39;Heli_inner_loop&#39;.
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+5</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+6</TD>
+<TD class="d1">
+<span class="CODE"> * Model version                  : 1.32
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+7</TD>
+<TD class="d1">
+<span class="CODE"> * Simulink Coder version         : 9.1 (R2019a) 23-Nov-2018
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+8</TD>
+<TD class="d1">
+<span class="CODE"> * C/C++ source code generated on : Mon Apr  8 09:00:36 2019
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+9</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+10</TD>
+<TD class="d1">
+<span class="CODE"> * Target selection: ert.tlc
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+11</TD>
+<TD class="d1">
+<span class="CODE"> * Embedded hardware selection: Intel-&#62;x86-32 (Windows32)
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+12</TD>
+<TD class="d1">
+<span class="CODE"> * Code generation objectives: Unspecified
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+13</TD>
+<TD class="d1">
+<span class="CODE"> * Validation result: Not run
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+14</TD>
+<TD class="d1">
+<span class="CODE"> */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+15</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+16</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;Heli_inner_loop.h&#34;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span> (Include statement) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+17</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+18</TD>
+<TD class="d1">
+<span class="CODE">MdlrefDW_Heli_inner_loop_T Heli_inner_loop_MdlrefDW;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span></span></TD>
+</TR>
+<TR >
+<TD class="d1">
+19</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+20</TD>
+<TD class="d1">
+<span class="CODE">/* Constant parameters (default storage) */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+21</TD>
+<TD class="d1">
+<span class="CODE">const ConstP_Heli_inner_loop_T Heli_inner_loop_ConstP = {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+22</TD>
+<TD class="d1">
+<span class="CODE">  /* Expression: [2.395, -0.3609, -0.002145, 0.8087, -0.0205; -0.1427, -1.115, 0...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+23</TD>
+<TD class="d1">
+<span class="CODE">   * Referenced by: &#39;&#60;Root&#62;/SOF&#39; (Parameter: Gain)
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+24</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+25</TD>
+<TD class="d1">
+<span class="CODE">  { 2.395, -0.1427, -0.02792, -0.3609, -1.115, -0.02229, -0.002145, 0.04573,
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+26</TD>
+<TD class="d1">
+<span class="CODE">    -2.025, 0.8087, -0.04318, -0.06152, -0.0205, -0.1007, 0.03151 }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+27</TD>
+<TD class="d1">
+<span class="CODE">};
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+28</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+29</TD>
+<TD class="d1">
+<span class="CODE">/* Output and update for referenced model: &#39;Heli_inner_loop&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+30</TD>
+<TD class="d1">
+<span class="CODE">void Heli_inner_loop(const real_T *rtu_theta_cmd, const real_T *rtu_phi_cmd,
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+31</TD>
+<TD class="d1">
+<span class="CODE">                     const real_T *rtu_r_cmd, const real_T rtu_voted_fb[5],
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+32</TD>
+<TD class="d1">
+<span class="CODE">                     real_T rty_actuator_commands[3])
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+33</TD>
+<TD class="d1">
+<span class="CODE">{
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Start of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+34</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_Gain[3];
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+35</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_SumA21;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+36</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_SumA21_hsvt;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+37</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_SumA21_fq5h;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+38</TD>
+<TD class="d1">
+<span class="CODE">  int32_T i;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+39</TD>
+<TD class="d1">
+<span class="CODE">  int32_T i_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+40</TD>
+<TD class="d1">
+<span class="CODE">  real_T y;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+41</TD>
+<TD class="d1">
+<span class="CODE">  real_T u0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+42</TD>
+<TD class="d1">
+<span class="CODE">  real_T y_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+43</TD>
+<TD class="d1">
+<span class="CODE">  real_T u0_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+44</TD>
+<TD class="d1">
+<span class="CODE">  real_T y_1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+45</TD>
+<TD class="d1">
+<span class="CODE">  real_T u0_1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+46</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+47</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;Root&#62;/SOF&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+48</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+49</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/SOF&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+50</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+51</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+52</TD>
+<TD class="d1">
+<span class="CODE">  for (i = 0; i &#60; 3; i = i + 1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:16')">&#60;model&#62;/voted_fb</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+53</TD>
+<TD class="d1">
+<span class="CODE">    rtb_Gain[i] = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+54</TD>
+<TD class="d1">
+<span class="CODE">    for (i_0 = 0; i_0 &#60; 5; i_0 = i_0 + 1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:16')">&#60;model&#62;/voted_fb</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+55</TD>
+<TD class="d1">
+<span class="CODE">      rtb_Gain[i] = rtb_Gain[i] + (Heli_inner_loop_ConstP.SOF_Gain[(int32_T)(i +...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+56</TD>
+<TD class="d1">
+<span class="CODE">        ((int32_T)(3 * i_0)))] * rtu_voted_fb[i_0]);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:16')">&#60;model&#62;/voted_fb</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:5')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+57</TD>
+<TD class="d1">
+<span class="CODE">    }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+58</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+59</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+60</TD>
+<TD class="d1">
+<span class="CODE">  /* End of Gain: &#39;&#60;Root&#62;/SOF&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+61</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+62</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;S2&#62;/SumA21&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+63</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S2&#62;/a_2_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+64</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S2&#62;/s_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+65</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;Root&#62;/Sum5&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+66</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S2&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+67</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+68</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum5&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+69</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+70</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+71</TD>
+<TD class="d1">
+<span class="CODE">  rtb_SumA21 = (0.16840424129937498 * ((*rtu_theta_cmd) - rtb_Gain[0])) -
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:1')">&#60;model&#62;/theta_cmd</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:4')">&#60;model&#62;/RollOff1/SumA21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:7')">&#60;model&#62;/RollOff1/s_1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:7')">&#60;model&#62;/Sum5</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+72</TD>
+<TD class="d1">
+<span class="CODE">    ((-0.66319151740124993) * Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:6')">&#60;model&#62;/RollOff1/a_2_1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:9')">&#60;model&#62;/RollOff1/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+73</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+74</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;S3&#62;/SumA21&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+75</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S3&#62;/a_2_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+76</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S3&#62;/s_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+77</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;Root&#62;/Sum4&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+78</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S3&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+79</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+80</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum4&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+81</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+82</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+83</TD>
+<TD class="d1">
+<span class="CODE">  rtb_SumA21_hsvt = (0.16840424129937498 * ((*rtu_phi_cmd) - rtb_Gain[1])) -
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:14')">&#60;model&#62;/phi_cmd</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:4')">&#60;model&#62;/RollOff2/SumA21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:7')">&#60;model&#62;/RollOff2/s_1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:6')">&#60;model&#62;/Sum4</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+84</TD>
+<TD class="d1">
+<span class="CODE">    ((-0.66319151740124993) *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:6')">&#60;model&#62;/RollOff2/a_2_1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+85</TD>
+<TD class="d1">
+<span class="CODE">     Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:9')">&#60;model&#62;/RollOff2/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+86</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+87</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;S4&#62;/SumA21&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+88</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S4&#62;/a_2_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+89</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S4&#62;/s_1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+90</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;Root&#62;/Sum6&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+91</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S4&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+92</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+93</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum6&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+94</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+95</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+96</TD>
+<TD class="d1">
+<span class="CODE">  rtb_SumA21_fq5h = (0.16840424129937498 * ((*rtu_r_cmd) - rtb_Gain[2])) -
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:15')">&#60;model&#62;/r_cmd</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:4')">&#60;model&#62;/RollOff3/SumA21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:7')">&#60;model&#62;/RollOff3/s_1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:8')">&#60;model&#62;/Sum6</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+97</TD>
+<TD class="d1">
+<span class="CODE">    ((-0.66319151740124993) *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:6')">&#60;model&#62;/RollOff3/a_2_1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+98</TD>
+<TD class="d1">
+<span class="CODE">     Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:9')">&#60;model&#62;/RollOff3/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+99</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+100</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;Root&#62;/Gain&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+101</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S2&#62;/SumB21&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+102</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S2&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+103</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+104</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Gain&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+105</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+106</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+107</TD>
+<TD class="d1">
+<span class="CODE">  u0 = 0.0033333333333333335 * (rtb_SumA21 +
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:5')">&#60;model&#62;/RollOff1/SumB21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+108</TD>
+<TD class="d1">
+<span class="CODE">    Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:9')">&#60;model&#62;/RollOff1/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+109</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+110</TD>
+<TD class="d1">
+<span class="CODE">  /* Saturate: &#39;&#60;Root&#62;/Saturation&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+111</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+112</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Saturation&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+113</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+114</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+115</TD>
+<TD class="d1">
+<span class="CODE">  if (u0 &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+116</TD>
+<TD class="d1">
+<span class="CODE">    y = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+117</TD>
+<TD class="d1">
+<span class="CODE">  } else if (u0 &#60; (-0.1)) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+118</TD>
+<TD class="d1">
+<span class="CODE">    y = (-0.1);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+119</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+120</TD>
+<TD class="d1">
+<span class="CODE">    y = u0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+121</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+122</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+123</TD>
+<TD class="d1">
+<span class="CODE">  rty_actuator_commands[0] = y;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:2')">&#60;model&#62;/actuator_commands</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+124</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+125</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;Root&#62;/Gain&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+126</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S3&#62;/SumB21&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+127</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S3&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+128</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+129</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Gain&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+130</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+131</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+132</TD>
+<TD class="d1">
+<span class="CODE">  u0_0 = 0.0033333333333333335 * (rtb_SumA21_hsvt +
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:5')">&#60;model&#62;/RollOff2/SumB21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+133</TD>
+<TD class="d1">
+<span class="CODE">    Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:9')">&#60;model&#62;/RollOff2/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+134</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+135</TD>
+<TD class="d1">
+<span class="CODE">  /* Saturate: &#39;&#60;Root&#62;/Saturation&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+136</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+137</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Saturation&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+138</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+139</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+140</TD>
+<TD class="d1">
+<span class="CODE">  if (u0_0 &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+141</TD>
+<TD class="d1">
+<span class="CODE">    y_0 = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+142</TD>
+<TD class="d1">
+<span class="CODE">  } else if (u0_0 &#60; (-0.1)) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+143</TD>
+<TD class="d1">
+<span class="CODE">    y_0 = (-0.1);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+144</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+145</TD>
+<TD class="d1">
+<span class="CODE">    y_0 = u0_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+146</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+147</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+148</TD>
+<TD class="d1">
+<span class="CODE">  rty_actuator_commands[1] = y_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:2')">&#60;model&#62;/actuator_commands</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+149</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+150</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;Root&#62;/Gain&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+151</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S4&#62;/SumB21&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+152</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S4&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+153</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+154</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Gain&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+155</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+156</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+157</TD>
+<TD class="d1">
+<span class="CODE">  u0_1 = 0.0033333333333333335 * (rtb_SumA21_fq5h +
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:5')">&#60;model&#62;/RollOff3/SumB21</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+158</TD>
+<TD class="d1">
+<span class="CODE">    Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:9')">&#60;model&#62;/RollOff3/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+159</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+160</TD>
+<TD class="d1">
+<span class="CODE">  /* Saturate: &#39;&#60;Root&#62;/Saturation&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+161</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+162</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Saturation&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+163</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5: Multi-Variable Inner Loop Control (HelicopterSoftwareRequirement...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+164</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+165</TD>
+<TD class="d1">
+<span class="CODE">  if (u0_1 &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+166</TD>
+<TD class="d1">
+<span class="CODE">    y_1 = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+167</TD>
+<TD class="d1">
+<span class="CODE">  } else if (u0_1 &#60; (-0.1)) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+168</TD>
+<TD class="d1">
+<span class="CODE">    y_1 = (-0.1);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+169</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+170</TD>
+<TD class="d1">
+<span class="CODE">    y_1 = u0_1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:23')">&#60;model&#62;/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:25')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+171</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+172</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+173</TD>
+<TD class="d1">
+<span class="CODE">  rty_actuator_commands[2] = y_1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:2')">&#60;model&#62;/actuator_commands</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+174</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+175</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S2&#62;/UnitDelay&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+176</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE = rtb_SumA21;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:20:9')">&#60;model&#62;/RollOff1/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+177</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+178</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S3&#62;/UnitDelay&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+179</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j = rtb_SumA21_hsvt;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:21:9')">&#60;model&#62;/RollOff2/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+180</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+181</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S4&#62;/UnitDelay&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+182</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd = rtb_SumA21_fq5h;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop:22:9')">&#60;model&#62;/RollOff3/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+183</TD>
+<TD class="d1">
+<span class="CODE">}
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+184</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+185</TD>
+<TD class="d1">
+<span class="CODE">/* Model initialize function */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+186</TD>
+<TD class="d1">
+<span class="CODE">void Heli_inner_loop_initialize(void)
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">initialize function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+187</TD>
+<TD class="d1">
+<span class="CODE">{
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Start of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+188</TD>
+<TD class="d1">
+<span class="CODE">  /* Registration code */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+189</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+190</TD>
+<TD class="d1">
+<span class="CODE">  /* states (dwork) */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+191</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+192</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_py2j = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+193</TD>
+<TD class="d1">
+<span class="CODE">  Heli_inner_loop_MdlrefDW.rtdw.UnitDelay_DSTATE_h2jd = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('C:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_03_Design\Heli_inner_loop\specification\Heli_inner_loop.slx','Heli_inner_loop')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+194</TD>
+<TD class="d1">
+<span class="CODE">}
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+195</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+196</TD>
+<TD class="d1">
+<span class="CODE">/*
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+197</TD>
+<TD class="d1">
+<span class="CODE"> * File trailer for generated code.
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+198</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+199</TD>
+<TD class="d1">
+<span class="CODE"> * [EOF]
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+<TR >
+<TD class="d1">
+200</TD>
+<TD class="d1">
+<span class="CODE"> */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table><br/><hr></body></html>

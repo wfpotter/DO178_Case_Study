@@ -1,0 +1,11 @@
+.HelicopterSystem0,
+.HelicopterSystem1,
+.HelicopterSystem2,
+.HelicopterSystem3,
+.HelicopterSystem4 { background-image: url('HelicopterSystem_icons.png'); width: 16px; height: 16px; }
+
+.HelicopterSystem0 { background-position: -0px; }
+.HelicopterSystem1 { background-position: -16px; }
+.HelicopterSystem2 { background-position: -32px; }
+.HelicopterSystem3 { background-position: -48px; }
+.HelicopterSystem4 { background-position: -64px; }

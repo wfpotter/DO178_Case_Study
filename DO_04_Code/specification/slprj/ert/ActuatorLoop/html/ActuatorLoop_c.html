@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct"> * File: ActuatorLoop.c</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"> * Code generated for Simulink model 'ActuatorLoop'.</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"> * Model version                  : 1.45</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct"> * Simulink Coder version         : 9.2 (R2019b) 18-Jul-2019</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct"> * C/C++ source code generated on : Wed May 13 13:52:25 2020</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="ct"> * Target selection: ert.tlc</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="ct"> * Embedded hardware selection: Intel-&gt;x86-32 (Windows32)</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="ct"> * Code generation objectives: Unspecified</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="ct"> * Validation result: Not run</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#include "ActuatorLoop.h"</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="ct">/* Disable for referenced model: 'ActuatorLoop' */</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="kw">void</span> <a id="19c6" class="tk">ActuatorLoop_Disable</a>(<a id="19c27" class="tk">B_ActuatorLoop_caua_T</a> <a id="19c49" class="tk">*</a><a id="19c50" class="tk">localB</a>, <a id="19c58" class="tk">DW_ActuatorLoop_fwu4_T</a> <a id="19c81" class="tk">*</a></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td>  <a id="20c3" class="tk">localDW</a>)</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="br">{</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td>  <span class="ct">/* Disable for DiscreteIntegrator: '<a class="ct blk" blk_line="22">&lt;Root&gt;/Integrator</a>'</span></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="24">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_25">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>  <a id="27c3" class="tk">localDW</a>-&gt;<a id="27c12" class="tk">Integrator_DSTATE</a> = <a id="27c32" class="tk">localB</a>-&gt;<a id="27c40" class="tk">Integrator</a>;</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td><span class="br">}</span></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="ct">/* Output and update for referenced model: 'ActuatorLoop' */</span></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="kw">void</span> <a id="31c6" class="tk">ActuatorLoop</a>(<span class="kw">const</span> <a id="31c25" class="tk">int16_T</a> <a id="31c33" class="tk">*</a><a id="31c34" class="tk">rtu_PositionFeedback</a>, <span class="kw">const</span> <a id="31c62" class="tk">real_T</a></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td>                  <a id="32c19" class="tk">*</a><a id="32c20" class="tk">rtu_PositionCommand</a>, <a id="32c41" class="tk">int16_T</a> <a id="32c49" class="tk">*</a><a id="32c50" class="tk">rty_ActuatorCommand</a>,</td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td>                  <a id="33c19" class="tk">B_ActuatorLoop_caua_T</a> <a id="33c41" class="tk">*</a><a id="33c42" class="tk">localB</a>, <a id="33c50" class="tk">DW_ActuatorLoop_fwu4_T</a> <a id="33c73" class="tk">*</a><a id="33c74" class="tk">localDW</a>,</td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>                  <a id="34c19" class="tk">real_T</a> <a id="34c26" class="tk">rtp_Kp</a>, <a id="34c34" class="tk">real_T</a> <a id="34c41" class="tk">rtp_Kd</a>, <a id="34c49" class="tk">real_T</a> <a id="34c56" class="tk">rtp_Ki</a>)</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="br">{</span></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td>  <a id="36c3" class="tk">real_T</a> <a id="36c10" class="tk">rtb_Sum</a>;</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td>  <a id="37c3" class="tk">real_T</a> <a id="37c10" class="tk">y</a>;</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td>  <a id="38c3" class="tk">real_T</a> <a id="38c10" class="tk">u0</a>;</td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td></td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="40">&lt;Root&gt;/Sum</a>' incorporates:</span></td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><span class="ct">   *  DataTypeConversion: '<a class="ct blk" blk_line="41">&lt;Root&gt;/TypeConversion</a>'</span></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="42">&lt;Root&gt;/Scaling</a>'</span></td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="44">&lt;Root&gt;/Sum</a>':</span></td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum" req_id = "1" id="req_45">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="47">&lt;Root&gt;/TypeConversion</a>':</span></td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/TypeConversion" req_id = "1" id="req_48">1. HLR_2 : Hydraulic Actuator Feedback (HelicopterSoftwareRequirements#6)</a></span></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="50">&lt;Root&gt;/Scaling</a>':</span></td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Scaling" req_id = "1" id="req_51">1. HLR_2 : Hydraulic Actuator Feedback (HelicopterSoftwareRequirements#6)</a></span></td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td>  <a id="53c3" class="tk">rtb_Sum</a> = (<a id="53c14" class="tk">*</a><a id="53c15" class="tk">rtu_PositionCommand</a>) <a id="53c36" class="tk">-</a> (3.0518509475997192E-6 <a id="53c61" class="tk">*</a> ((<a id="53c65" class="tk">real_T</a>)</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>    (<a id="54c6" class="tk">*</a><a id="54c7" class="tk">rtu_PositionFeedback</a>)));</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td>  <span class="ct">/* DiscreteIntegrator: '<a class="ct blk" blk_line="56">&lt;Root&gt;/Integrator</a>'</span></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="58">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_59">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>  <a id="61c3" class="tk">localB</a>-&gt;<a id="61c11" class="tk">Integrator</a> = <a id="61c24" class="tk">localDW</a>-&gt;<a id="61c33" class="tk">Integrator_DSTATE</a>;</td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td></td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="63">&lt;Root&gt;/Sum1</a>' incorporates:</span></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="64">&lt;Root&gt;/Gain</a>'</span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="65">&lt;Root&gt;/Gain1</a>'</span></td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="ct">   *  Sum: '<a class="ct blk" blk_line="66">&lt;S1&gt;/Diff</a>'</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><span class="ct">   *  UnitDelay: '<a class="ct blk" blk_line="67">&lt;S1&gt;/UD</a>'</span></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="69">&lt;Root&gt;/Sum1</a>':</span></td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum1" req_id = "1" id="req_70">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="72">&lt;Root&gt;/Gain</a>':</span></td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain" req_id = "1" id="req_73">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="75">&lt;Root&gt;/Gain1</a>':</span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain1" req_id = "1" id="req_76">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td>  <a id="78c3" class="tk">u0</a> = (<a id="78c9" class="tk">localB</a>-&gt;<a id="78c17" class="tk">Integrator</a> <a id="78c28" class="tk">+</a> (<a id="78c31" class="tk">rtp_Kp</a> <a id="78c38" class="tk">*</a> <a id="78c40" class="tk">rtb_Sum</a>)) <a id="78c50" class="tk">-</a> (<a id="78c53" class="tk">rtp_Kd</a> <a id="78c60" class="tk">*</a> (<a id="78c63" class="tk">rtb_Sum</a> <a id="78c71" class="tk">-</a></td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td>    <a id="79c5" class="tk">localDW</a>-&gt;<a id="79c14" class="tk">UD_DSTATE</a>));</td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td>  <span class="ct">/* Saturate: '<a class="ct blk" blk_line="81">&lt;Root&gt;/Saturation</a>'</span></td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="83">&lt;Root&gt;/Saturation</a>':</span></td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Saturation" req_id = "1" id="req_84">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td>  <span class="kw">if</span> (<a id="86c7" class="tk">u0</a> <a id="86c10" class="tk">&gt;</a> 0.3) <span class="br">{</span></td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>    <a id="87c5" class="tk">y</a> = 0.3;</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="88c14" class="tk">u0</a> <a id="88c17" class="tk">&lt;</a> (<a id="88c20" class="tk">-</a>0.3)) <span class="br">{</span></td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>    <a id="89c5" class="tk">y</a> = (<a id="89c10" class="tk">-</a>0.3);</td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td>    <a id="91c5" class="tk">y</a> = <a id="91c9" class="tk">u0</a>;</td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td></td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>  <span class="ct">/* End of Saturate: '<a class="ct blk" blk_line="94">&lt;Root&gt;/Saturation</a>' */</span></td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td></td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td>  <span class="ct">/* DataTypeConversion: '<a class="ct blk" blk_line="96">&lt;Root&gt;/TypeConversion6</a>' incorporates:</span></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="97">&lt;Root&gt;/Scaling6</a>'</span></td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="99">&lt;Root&gt;/TypeConversion6</a>':</span></td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/TypeConversion6" req_id = "1" id="req_100">1. HLR_3: Hydraulic Actuator Drive (HelicopterSoftwareRequirements#7)</a></span></td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="102">&lt;Root&gt;/Scaling6</a>':</span></td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Scaling6" req_id = "1" id="req_103">1. HLR_3: Hydraulic Actuator Drive (HelicopterSoftwareRequirements#7)</a></span></td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td>  <a id="105c3" class="tk">*</a><a id="105c4" class="tk">rty_ActuatorCommand</a> = (<a id="105c27" class="tk">int16_T</a>)<a id="105c35" class="tk">floor</a>(109223.33333333334 <a id="105c60" class="tk">*</a> <a id="105c62" class="tk">y</a>);</td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td>  <span class="ct">/* Update for UnitDelay: '<a class="ct blk" blk_line="107">&lt;S1&gt;/UD</a>' */</span></td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td>  <a id="108c3" class="tk">localDW</a>-&gt;<a id="108c12" class="tk">UD_DSTATE</a> = <a id="108c24" class="tk">rtb_Sum</a>;</td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td></td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td>  <span class="ct">/* Update for DiscreteIntegrator: '<a class="ct blk" blk_line="110">&lt;Root&gt;/Integrator</a>' incorporates:</span></td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="111">&lt;Root&gt;/Gain2</a>'</span></td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="113">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_114">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="116">&lt;Root&gt;/Gain2</a>':</span></td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain2" req_id = "1" id="req_117">1. HLR_4: Hydraulic Actuator Loop Control (HelicopterSoftwareRequirements#8)</a></span></td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td>  <a id="119c3" class="tk">localDW</a>-&gt;<a id="119c12" class="tk">Integrator_DSTATE</a> = <a id="119c32" class="tk">localDW</a>-&gt;<a id="119c41" class="tk">Integrator_DSTATE</a> <a id="119c59" class="tk">+</a> (0.001 <a id="119c68" class="tk">*</a> (<a id="119c71" class="tk">rtp_Ki</a> <a id="119c78" class="tk">*</a></td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td>    <a id="120c5" class="tk">rtb_Sum</a>));</td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td>  <span class="kw">if</span> (<a id="121c7" class="tk">localDW</a>-&gt;<a id="121c16" class="tk">Integrator_DSTATE</a> <a id="121c34" class="tk">&gt;=</a> 0.1) <span class="br">{</span></td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td>    <a id="122c5" class="tk">localDW</a>-&gt;<a id="122c14" class="tk">Integrator_DSTATE</a> = 0.1;</td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td>    <span class="kw">if</span> (<a id="124c9" class="tk">localDW</a>-&gt;<a id="124c18" class="tk">Integrator_DSTATE</a> <a id="124c36" class="tk">&lt;=</a> (<a id="124c40" class="tk">-</a>0.1)) <span class="br">{</span></td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td>      <a id="125c7" class="tk">localDW</a>-&gt;<a id="125c16" class="tk">Integrator_DSTATE</a> = (<a id="125c37" class="tk">-</a>0.1);</td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td></td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td>  <span class="ct">/* End of Update for DiscreteIntegrator: '<a class="ct blk" blk_line="129">&lt;Root&gt;/Integrator</a>' */</span></td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td><span class="br">}</span></td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td><span class="ct">/* Model initialize function */</span></td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td><span class="kw">void</span> <a id="133c6" class="tk">ActuatorLoop_initialize</a>(<a id="133c30" class="tk">B_ActuatorLoop_caua_T</a> <a id="133c52" class="tk">*</a><a id="133c53" class="tk">localB</a>,</td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>  <a id="134c3" class="tk">DW_ActuatorLoop_fwu4_T</a> <a id="134c26" class="tk">*</a><a id="134c27" class="tk">localDW</a>)</td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td><span class="br">{</span></td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td>  <span class="ct">/* Registration code */</span></td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td></td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td>  <span class="ct">/* block I/O */</span></td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td>  <span class="br">{</span></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td>    <a id="140c5" class="tk">localB</a>-&gt;<a id="140c13" class="tk">Integrator</a> = 0.0;</td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td></td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td>  <span class="ct">/* states (dwork) */</span></td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td>  <a id="144c3" class="tk">localDW</a>-&gt;<a id="144c12" class="tk">UD_DSTATE</a> = 0.0;</td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td>  <a id="145c3" class="tk">localDW</a>-&gt;<a id="145c12" class="tk">Integrator_DSTATE</a> = 0.0;</td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td><span class="br">}</span></td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td></td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td><span class="ct"> * File trailer for generated code.</span></td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td><span class="ct"> * [EOF]</span></td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

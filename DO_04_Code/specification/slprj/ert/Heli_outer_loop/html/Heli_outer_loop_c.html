@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct"> * File: Heli_outer_loop.c</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"> * Code generated for Simulink model 'Heli_outer_loop'.</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"> * Model version                  : 1.32</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct"> * Simulink Coder version         : 9.2 (R2019b) 18-Jul-2019</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct"> * C/C++ source code generated on : Wed May 13 13:52:39 2020</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="ct"> * Target selection: ert.tlc</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="ct"> * Embedded hardware selection: Intel-&gt;x86-32 (Windows32)</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="ct"> * Code generation objectives: Unspecified</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="ct"> * Validation result: Not run</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#include "Heli_outer_loop.h"</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><a id="18c1" class="tk">MdlrefDW_Heli_outer_loop_T</a> <a id="18c28" class="tk">Heli_outer_loop_MdlrefDW</a>;</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="ct">/* Disable for referenced model: 'Heli_outer_loop' */</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="kw">void</span> <a id="21c6" class="tk">Heli_outer_loop_Disable</a>(<span class="kw">void</span>)</td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="br">{</span></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td>  <span class="ct">/* Disable for DiscreteIntegrator: '<a class="ct blk" blk_line="23">&lt;Root&gt;/Integrator</a>'</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="25">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_26">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td>  <a id="28c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="28c28" class="tk">rtdw</a>.<a id="28c33" class="tk">Integrator_DSTATE</a> =</td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td>    <a id="29c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="29c30" class="tk">rtb</a>.<a id="29c34" class="tk">Integrator</a>;</td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td>  <span class="ct">/* Disable for DiscreteIntegrator: '<a class="ct blk" blk_line="31">&lt;Root&gt;/Integrator1</a>'</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="33">&lt;Root&gt;/Integrator1</a>':</span></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator1" req_id = "1" id="req_34">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td>  <a id="36c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="36c28" class="tk">rtdw</a>.<a id="36c33" class="tk">Integrator1_DSTATE</a> =</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td>    <a id="37c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="37c30" class="tk">rtb</a>.<a id="37c34" class="tk">Integrator1</a>;</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td></td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td>  <span class="ct">/* Disable for DiscreteIntegrator: '<a class="ct blk" blk_line="39">&lt;Root&gt;/Integrator2</a>'</span></td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="41">&lt;Root&gt;/Integrator2</a>':</span></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator2" req_id = "1" id="req_42">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td>  <a id="44c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="44c28" class="tk">rtdw</a>.<a id="44c33" class="tk">Integrator2_DSTATE</a> =</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td>    <a id="45c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="45c30" class="tk">rtb</a>.<a id="45c34" class="tk">Integrator2</a>;</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><span class="br">}</span></td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td></td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><span class="ct">/* Output and update for referenced model: 'Heli_outer_loop' */</span></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td><span class="kw">void</span> <a id="49c6" class="tk">Heli_outer_loop</a>(<span class="kw">const</span> <a id="49c28" class="tk">int16_T</a> <a id="49c36" class="tk">*</a><a id="49c37" class="tk">rtu_Pilot_theta_cmd</a>, <span class="kw">const</span> <a id="49c64" class="tk">int16_T</a></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td>                     <a id="50c22" class="tk">*</a><a id="50c23" class="tk">rtu_Pilot_phi_cmd</a>, <span class="kw">const</span> <a id="50c48" class="tk">int16_T</a> <a id="50c56" class="tk">*</a><a id="50c57" class="tk">rtu_Pilot_r_cmd</a>, <span class="kw">const</span></td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td>                     <a id="51c22" class="tk">real_T</a> <a id="51c29" class="tk">rtu_voted_fb</a>[5], <a id="51c46" class="tk">real_T</a> <a id="51c53" class="tk">*</a><a id="51c54" class="tk">rty_theta_cmd</a>, <a id="51c69" class="tk">real_T</a></td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>                     <a id="52c22" class="tk">*</a><a id="52c23" class="tk">rty_phi_cmd</a>, <a id="52c36" class="tk">real_T</a> <a id="52c43" class="tk">*</a><a id="52c44" class="tk">rty_r_cmd</a>)</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td><span class="br">{</span></td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>  <a id="54c3" class="tk">real_T</a> <a id="54c10" class="tk">rtb_Sum</a>;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td>  <a id="55c3" class="tk">real_T</a> <a id="55c10" class="tk">rtb_Scaling2</a>;</td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td>  <a id="56c3" class="tk">real_T</a> <a id="56c10" class="tk">rtb_Sum5</a>;</td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td>  <a id="57c3" class="tk">real_T</a> <a id="57c10" class="tk">y</a>;</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td>  <a id="58c3" class="tk">real_T</a> <a id="58c10" class="tk">u0</a>;</td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>  <a id="59c3" class="tk">real_T</a> <a id="59c10" class="tk">y_0</a>;</td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td>  <a id="60c3" class="tk">real_T</a> <a id="60c10" class="tk">u0_0</a>;</td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>  <a id="61c3" class="tk">real_T</a> <a id="61c10" class="tk">y_1</a>;</td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>  <a id="62c3" class="tk">real_T</a> <a id="62c10" class="tk">u0_1</a>;</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="64">&lt;Root&gt;/Sum</a>' incorporates:</span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><span class="ct">   *  DataTypeConversion: '<a class="ct blk" blk_line="65">&lt;Root&gt;/TypeConversion</a>'</span></td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="66">&lt;Root&gt;/Scaling</a>'</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="68">&lt;Root&gt;/Sum</a>':</span></td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum" req_id = "1" id="req_69">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="71">&lt;Root&gt;/TypeConversion</a>':</span></td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/TypeConversion" req_id = "1" id="req_72">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="74">&lt;Root&gt;/Scaling</a>':</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Scaling" req_id = "1" id="req_75">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td>  <a id="77c3" class="tk">rtb_Sum</a> = (0.00091555528427991577 <a id="77c37" class="tk">*</a> ((<a id="77c41" class="tk">real_T</a>)(<a id="77c49" class="tk">*</a><a id="77c50" class="tk">rtu_Pilot_theta_cmd</a>))) <a id="77c73" class="tk">-</a></td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td>    <a id="78c5" class="tk">rtu_voted_fb</a>[0];</td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="80">&lt;Root&gt;/Sum1</a>' incorporates:</span></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td><span class="ct">   *  DataTypeConversion: '<a class="ct blk" blk_line="81">&lt;Root&gt;/TypeConversion1</a>'</span></td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="82">&lt;Root&gt;/Scaling1</a>'</span></td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="84">&lt;Root&gt;/Sum1</a>':</span></td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum1" req_id = "1" id="req_85">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="87">&lt;Root&gt;/TypeConversion1</a>':</span></td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/TypeConversion1" req_id = "1" id="req_88">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="90">&lt;Root&gt;/Scaling1</a>':</span></td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Scaling1" req_id = "1" id="req_91">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td>  <a id="93c3" class="tk">rtb_Scaling2</a> = (0.00091555528427991577 <a id="93c42" class="tk">*</a> ((<a id="93c46" class="tk">real_T</a>)(<a id="93c54" class="tk">*</a><a id="93c55" class="tk">rtu_Pilot_phi_cmd</a>))) <a id="93c76" class="tk">-</a></td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>    <a id="94c5" class="tk">rtu_voted_fb</a>[1];</td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td></td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="96">&lt;Root&gt;/Sum2</a>' incorporates:</span></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td><span class="ct">   *  DataTypeConversion: '<a class="ct blk" blk_line="97">&lt;Root&gt;/TypeConversion2</a>'</span></td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="98">&lt;Root&gt;/Scaling2</a>'</span></td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="100">&lt;Root&gt;/Sum2</a>':</span></td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum2" req_id = "1" id="req_101">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="103">&lt;Root&gt;/TypeConversion2</a>':</span></td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/TypeConversion2" req_id = "1" id="req_104">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="106">&lt;Root&gt;/Scaling2</a>':</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Scaling2" req_id = "1" id="req_107">1. HLR_1: Pilot Input Signal Processing (HelicopterSoftwareRequirements#5)</a></span></td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td>  <a id="109c3" class="tk">rtb_Sum5</a> = (0.00045777764213995788 <a id="109c38" class="tk">*</a> ((<a id="109c42" class="tk">real_T</a>)(<a id="109c50" class="tk">*</a><a id="109c51" class="tk">rtu_Pilot_r_cmd</a>))) <a id="109c70" class="tk">-</a></td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td>    <a id="110c5" class="tk">rtu_voted_fb</a>[2];</td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td></td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td>  <span class="ct">/* DiscreteIntegrator: '<a class="ct blk" blk_line="112">&lt;Root&gt;/Integrator</a>'</span></td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="114">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_115">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td>  <a id="117c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="117c28" class="tk">rtb</a>.<a id="117c32" class="tk">Integrator</a> =</td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td>    <a id="118c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="118c30" class="tk">rtdw</a>.<a id="118c35" class="tk">Integrator_DSTATE</a>;</td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td></td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td>  <span class="ct">/* DiscreteIntegrator: '<a class="ct blk" blk_line="120">&lt;Root&gt;/Integrator1</a>'</span></td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="122">&lt;Root&gt;/Integrator1</a>':</span></td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator1" req_id = "1" id="req_123">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td>  <a id="125c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="125c28" class="tk">rtb</a>.<a id="125c32" class="tk">Integrator1</a> =</td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td>    <a id="126c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="126c30" class="tk">rtdw</a>.<a id="126c35" class="tk">Integrator1_DSTATE</a>;</td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td></td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td>  <span class="ct">/* DiscreteIntegrator: '<a class="ct blk" blk_line="128">&lt;Root&gt;/Integrator2</a>'</span></td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="130">&lt;Root&gt;/Integrator2</a>':</span></td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator2" req_id = "1" id="req_131">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td>  <a id="133c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="133c28" class="tk">rtb</a>.<a id="133c32" class="tk">Integrator2</a> =</td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>    <a id="134c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="134c30" class="tk">rtdw</a>.<a id="134c35" class="tk">Integrator2_DSTATE</a>;</td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td></td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="136">&lt;Root&gt;/Sum3</a>' incorporates:</span></td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="137">&lt;Root&gt;/Gain</a>'</span></td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="139">&lt;Root&gt;/Sum3</a>':</span></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum3" req_id = "1" id="req_140">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="142">&lt;Root&gt;/Gain</a>':</span></td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain" req_id = "1" id="req_143">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td>  <a id="145c3" class="tk">u0</a> = <a id="145c8" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="145c33" class="tk">rtb</a>.<a id="145c37" class="tk">Integrator</a> <a id="145c48" class="tk">+</a> (1.33 <a id="145c56" class="tk">*</a> <a id="145c58" class="tk">rtb_Sum</a>);</td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td></td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td>  <span class="ct">/* Saturate: '<a class="ct blk" blk_line="147">&lt;Root&gt;/Saturation</a>'</span></td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="149">&lt;Root&gt;/Saturation</a>':</span></td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Saturation" req_id = "1" id="req_150">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td>  <span class="kw">if</span> (<a id="152c7" class="tk">u0</a> <a id="152c10" class="tk">&gt;</a> 30.0) <span class="br">{</span></td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td>    <a id="153c5" class="tk">y</a> = 30.0;</td></tr>
+<tr name="154" id="154">
+<td><a id="l154" class='ln'>154</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="154c14" class="tk">u0</a> <a id="154c17" class="tk">&lt;</a> (<a id="154c20" class="tk">-</a>30.0)) <span class="br">{</span></td></tr>
+<tr name="155" id="155">
+<td><a id="l155" class='ln'>155</a></td><td>    <a id="155c5" class="tk">y</a> = (<a id="155c10" class="tk">-</a>30.0);</td></tr>
+<tr name="156" id="156">
+<td><a id="l156" class='ln'>156</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="157" id="157">
+<td><a id="l157" class='ln'>157</a></td><td>    <a id="157c5" class="tk">y</a> = <a id="157c9" class="tk">u0</a>;</td></tr>
+<tr name="158" id="158">
+<td><a id="l158" class='ln'>158</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="159" id="159">
+<td><a id="l159" class='ln'>159</a></td><td></td></tr>
+<tr name="160" id="160">
+<td><a id="l160" class='ln'>160</a></td><td>  <a id="160c3" class="tk">*</a><a id="160c4" class="tk">rty_theta_cmd</a> = <a id="160c20" class="tk">y</a>;</td></tr>
+<tr name="161" id="161">
+<td><a id="l161" class='ln'>161</a></td><td></td></tr>
+<tr name="162" id="162">
+<td><a id="l162" class='ln'>162</a></td><td>  <span class="ct">/* End of Saturate: '<a class="ct blk" blk_line="162">&lt;Root&gt;/Saturation</a>' */</span></td></tr>
+<tr name="163" id="163">
+<td><a id="l163" class='ln'>163</a></td><td></td></tr>
+<tr name="164" id="164">
+<td><a id="l164" class='ln'>164</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="164">&lt;Root&gt;/Sum4</a>' incorporates:</span></td></tr>
+<tr name="165" id="165">
+<td><a id="l165" class='ln'>165</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="165">&lt;Root&gt;/Gain1</a>'</span></td></tr>
+<tr name="166" id="166">
+<td><a id="l166" class='ln'>166</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="167" id="167">
+<td><a id="l167" class='ln'>167</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="167">&lt;Root&gt;/Sum4</a>':</span></td></tr>
+<tr name="168" id="168">
+<td><a id="l168" class='ln'>168</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum4" req_id = "1" id="req_168">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="169" id="169">
+<td><a id="l169" class='ln'>169</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="170" id="170">
+<td><a id="l170" class='ln'>170</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="170">&lt;Root&gt;/Gain1</a>':</span></td></tr>
+<tr name="171" id="171">
+<td><a id="l171" class='ln'>171</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain1" req_id = "1" id="req_171">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="172" id="172">
+<td><a id="l172" class='ln'>172</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="173" id="173">
+<td><a id="l173" class='ln'>173</a></td><td>  <a id="173c3" class="tk">u0_0</a> = <a id="173c10" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="173c35" class="tk">rtb</a>.<a id="173c39" class="tk">Integrator1</a> <a id="173c51" class="tk">+</a> ((<a id="173c55" class="tk">-</a>0.086) <a id="173c63" class="tk">*</a> <a id="173c65" class="tk">rtb_Scaling2</a>);</td></tr>
+<tr name="174" id="174">
+<td><a id="l174" class='ln'>174</a></td><td></td></tr>
+<tr name="175" id="175">
+<td><a id="l175" class='ln'>175</a></td><td>  <span class="ct">/* Saturate: '<a class="ct blk" blk_line="175">&lt;Root&gt;/Saturation1</a>'</span></td></tr>
+<tr name="176" id="176">
+<td><a id="l176" class='ln'>176</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="177" id="177">
+<td><a id="l177" class='ln'>177</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="177">&lt;Root&gt;/Saturation1</a>':</span></td></tr>
+<tr name="178" id="178">
+<td><a id="l178" class='ln'>178</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Saturation1" req_id = "1" id="req_178">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="179" id="179">
+<td><a id="l179" class='ln'>179</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="180" id="180">
+<td><a id="l180" class='ln'>180</a></td><td>  <span class="kw">if</span> (<a id="180c7" class="tk">u0_0</a> <a id="180c12" class="tk">&gt;</a> 30.0) <span class="br">{</span></td></tr>
+<tr name="181" id="181">
+<td><a id="l181" class='ln'>181</a></td><td>    <a id="181c5" class="tk">y_0</a> = 30.0;</td></tr>
+<tr name="182" id="182">
+<td><a id="l182" class='ln'>182</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="182c14" class="tk">u0_0</a> <a id="182c19" class="tk">&lt;</a> (<a id="182c22" class="tk">-</a>30.0)) <span class="br">{</span></td></tr>
+<tr name="183" id="183">
+<td><a id="l183" class='ln'>183</a></td><td>    <a id="183c5" class="tk">y_0</a> = (<a id="183c12" class="tk">-</a>30.0);</td></tr>
+<tr name="184" id="184">
+<td><a id="l184" class='ln'>184</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="185" id="185">
+<td><a id="l185" class='ln'>185</a></td><td>    <a id="185c5" class="tk">y_0</a> = <a id="185c11" class="tk">u0_0</a>;</td></tr>
+<tr name="186" id="186">
+<td><a id="l186" class='ln'>186</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="187" id="187">
+<td><a id="l187" class='ln'>187</a></td><td></td></tr>
+<tr name="188" id="188">
+<td><a id="l188" class='ln'>188</a></td><td>  <a id="188c3" class="tk">*</a><a id="188c4" class="tk">rty_phi_cmd</a> = <a id="188c18" class="tk">y_0</a>;</td></tr>
+<tr name="189" id="189">
+<td><a id="l189" class='ln'>189</a></td><td></td></tr>
+<tr name="190" id="190">
+<td><a id="l190" class='ln'>190</a></td><td>  <span class="ct">/* End of Saturate: '<a class="ct blk" blk_line="190">&lt;Root&gt;/Saturation1</a>' */</span></td></tr>
+<tr name="191" id="191">
+<td><a id="l191" class='ln'>191</a></td><td></td></tr>
+<tr name="192" id="192">
+<td><a id="l192" class='ln'>192</a></td><td>  <span class="ct">/* Sum: '<a class="ct blk" blk_line="192">&lt;Root&gt;/Sum5</a>' incorporates:</span></td></tr>
+<tr name="193" id="193">
+<td><a id="l193" class='ln'>193</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="193">&lt;Root&gt;/Gain4</a>'</span></td></tr>
+<tr name="194" id="194">
+<td><a id="l194" class='ln'>194</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="195" id="195">
+<td><a id="l195" class='ln'>195</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="195">&lt;Root&gt;/Sum5</a>':</span></td></tr>
+<tr name="196" id="196">
+<td><a id="l196" class='ln'>196</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Sum5" req_id = "1" id="req_196">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="197" id="197">
+<td><a id="l197" class='ln'>197</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="198" id="198">
+<td><a id="l198" class='ln'>198</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="198">&lt;Root&gt;/Gain4</a>':</span></td></tr>
+<tr name="199" id="199">
+<td><a id="l199" class='ln'>199</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain4" req_id = "1" id="req_199">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="200" id="200">
+<td><a id="l200" class='ln'>200</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="201" id="201">
+<td><a id="l201" class='ln'>201</a></td><td>  <a id="201c3" class="tk">u0_1</a> = <a id="201c10" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="201c35" class="tk">rtb</a>.<a id="201c39" class="tk">Integrator2</a> <a id="201c51" class="tk">+</a> (0.133 <a id="201c60" class="tk">*</a> <a id="201c62" class="tk">rtb_Sum5</a>);</td></tr>
+<tr name="202" id="202">
+<td><a id="l202" class='ln'>202</a></td><td></td></tr>
+<tr name="203" id="203">
+<td><a id="l203" class='ln'>203</a></td><td>  <span class="ct">/* Saturate: '<a class="ct blk" blk_line="203">&lt;Root&gt;/Saturation2</a>'</span></td></tr>
+<tr name="204" id="204">
+<td><a id="l204" class='ln'>204</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="205" id="205">
+<td><a id="l205" class='ln'>205</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="205">&lt;Root&gt;/Saturation2</a>':</span></td></tr>
+<tr name="206" id="206">
+<td><a id="l206" class='ln'>206</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Saturation2" req_id = "1" id="req_206">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="207" id="207">
+<td><a id="l207" class='ln'>207</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="208" id="208">
+<td><a id="l208" class='ln'>208</a></td><td>  <span class="kw">if</span> (<a id="208c7" class="tk">u0_1</a> <a id="208c12" class="tk">&gt;</a> 30.0) <span class="br">{</span></td></tr>
+<tr name="209" id="209">
+<td><a id="l209" class='ln'>209</a></td><td>    <a id="209c5" class="tk">y_1</a> = 30.0;</td></tr>
+<tr name="210" id="210">
+<td><a id="l210" class='ln'>210</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="210c14" class="tk">u0_1</a> <a id="210c19" class="tk">&lt;</a> (<a id="210c22" class="tk">-</a>30.0)) <span class="br">{</span></td></tr>
+<tr name="211" id="211">
+<td><a id="l211" class='ln'>211</a></td><td>    <a id="211c5" class="tk">y_1</a> = (<a id="211c12" class="tk">-</a>30.0);</td></tr>
+<tr name="212" id="212">
+<td><a id="l212" class='ln'>212</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="213" id="213">
+<td><a id="l213" class='ln'>213</a></td><td>    <a id="213c5" class="tk">y_1</a> = <a id="213c11" class="tk">u0_1</a>;</td></tr>
+<tr name="214" id="214">
+<td><a id="l214" class='ln'>214</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="215" id="215">
+<td><a id="l215" class='ln'>215</a></td><td></td></tr>
+<tr name="216" id="216">
+<td><a id="l216" class='ln'>216</a></td><td>  <a id="216c3" class="tk">*</a><a id="216c4" class="tk">rty_r_cmd</a> = <a id="216c16" class="tk">y_1</a>;</td></tr>
+<tr name="217" id="217">
+<td><a id="l217" class='ln'>217</a></td><td></td></tr>
+<tr name="218" id="218">
+<td><a id="l218" class='ln'>218</a></td><td>  <span class="ct">/* End of Saturate: '<a class="ct blk" blk_line="218">&lt;Root&gt;/Saturation2</a>' */</span></td></tr>
+<tr name="219" id="219">
+<td><a id="l219" class='ln'>219</a></td><td></td></tr>
+<tr name="220" id="220">
+<td><a id="l220" class='ln'>220</a></td><td>  <span class="ct">/* Update for DiscreteIntegrator: '<a class="ct blk" blk_line="220">&lt;Root&gt;/Integrator</a>' incorporates:</span></td></tr>
+<tr name="221" id="221">
+<td><a id="l221" class='ln'>221</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="221">&lt;Root&gt;/Gain2</a>'</span></td></tr>
+<tr name="222" id="222">
+<td><a id="l222" class='ln'>222</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="223" id="223">
+<td><a id="l223" class='ln'>223</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="223">&lt;Root&gt;/Integrator</a>':</span></td></tr>
+<tr name="224" id="224">
+<td><a id="l224" class='ln'>224</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator" req_id = "1" id="req_224">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="225" id="225">
+<td><a id="l225" class='ln'>225</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="226" id="226">
+<td><a id="l226" class='ln'>226</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="226">&lt;Root&gt;/Gain2</a>':</span></td></tr>
+<tr name="227" id="227">
+<td><a id="l227" class='ln'>227</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain2" req_id = "1" id="req_227">1. HLR_6: Pitch Outer Loop Control (HelicopterSoftwareRequirements#10)</a></span></td></tr>
+<tr name="228" id="228">
+<td><a id="l228" class='ln'>228</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="229" id="229">
+<td><a id="l229" class='ln'>229</a></td><td>  <a id="229c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="229c28" class="tk">rtdw</a>.<a id="229c33" class="tk">Integrator_DSTATE</a> =</td></tr>
+<tr name="230" id="230">
+<td><a id="l230" class='ln'>230</a></td><td>    <a id="230c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="230c30" class="tk">rtdw</a>.<a id="230c35" class="tk">Integrator_DSTATE</a> <a id="230c53" class="tk">+</a> (0.01 <a id="230c61" class="tk">*</a> (2.25 <a id="230c69" class="tk">*</a> <a id="230c71" class="tk">rtb_Sum</a>));</td></tr>
+<tr name="231" id="231">
+<td><a id="l231" class='ln'>231</a></td><td>  <span class="kw">if</span> (<a id="231c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="231c32" class="tk">rtdw</a>.<a id="231c37" class="tk">Integrator_DSTATE</a> <a id="231c55" class="tk">&gt;=</a> 10.0) <span class="br">{</span></td></tr>
+<tr name="232" id="232">
+<td><a id="l232" class='ln'>232</a></td><td>    <a id="232c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="232c30" class="tk">rtdw</a>.<a id="232c35" class="tk">Integrator_DSTATE</a> = 10.0;</td></tr>
+<tr name="233" id="233">
+<td><a id="l233" class='ln'>233</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="234" id="234">
+<td><a id="l234" class='ln'>234</a></td><td>    <span class="kw">if</span> (<a id="234c9" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="234c34" class="tk">rtdw</a>.<a id="234c39" class="tk">Integrator_DSTATE</a> <a id="234c57" class="tk">&lt;=</a> (<a id="234c61" class="tk">-</a>10.0)) <span class="br">{</span></td></tr>
+<tr name="235" id="235">
+<td><a id="l235" class='ln'>235</a></td><td>      <a id="235c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="235c32" class="tk">rtdw</a>.<a id="235c37" class="tk">Integrator_DSTATE</a> = (<a id="235c58" class="tk">-</a>10.0);</td></tr>
+<tr name="236" id="236">
+<td><a id="l236" class='ln'>236</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="237" id="237">
+<td><a id="l237" class='ln'>237</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="238" id="238">
+<td><a id="l238" class='ln'>238</a></td><td></td></tr>
+<tr name="239" id="239">
+<td><a id="l239" class='ln'>239</a></td><td>  <span class="ct">/* End of Update for DiscreteIntegrator: '<a class="ct blk" blk_line="239">&lt;Root&gt;/Integrator</a>' */</span></td></tr>
+<tr name="240" id="240">
+<td><a id="l240" class='ln'>240</a></td><td></td></tr>
+<tr name="241" id="241">
+<td><a id="l241" class='ln'>241</a></td><td>  <span class="ct">/* Update for DiscreteIntegrator: '<a class="ct blk" blk_line="241">&lt;Root&gt;/Integrator1</a>' incorporates:</span></td></tr>
+<tr name="242" id="242">
+<td><a id="l242" class='ln'>242</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="242">&lt;Root&gt;/Gain3</a>'</span></td></tr>
+<tr name="243" id="243">
+<td><a id="l243" class='ln'>243</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="244" id="244">
+<td><a id="l244" class='ln'>244</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="244">&lt;Root&gt;/Integrator1</a>':</span></td></tr>
+<tr name="245" id="245">
+<td><a id="l245" class='ln'>245</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator1" req_id = "1" id="req_245">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="246" id="246">
+<td><a id="l246" class='ln'>246</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="247" id="247">
+<td><a id="l247" class='ln'>247</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="247">&lt;Root&gt;/Gain3</a>':</span></td></tr>
+<tr name="248" id="248">
+<td><a id="l248" class='ln'>248</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain3" req_id = "1" id="req_248">1. HLR_7: Roll Outer Loop Control (HelicopterSoftwareRequirements#11)</a></span></td></tr>
+<tr name="249" id="249">
+<td><a id="l249" class='ln'>249</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="250" id="250">
+<td><a id="l250" class='ln'>250</a></td><td>  <a id="250c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="250c28" class="tk">rtdw</a>.<a id="250c33" class="tk">Integrator1_DSTATE</a> =</td></tr>
+<tr name="251" id="251">
+<td><a id="l251" class='ln'>251</a></td><td>    <a id="251c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="251c30" class="tk">rtdw</a>.<a id="251c35" class="tk">Integrator1_DSTATE</a> <a id="251c54" class="tk">+</a> (0.01 <a id="251c62" class="tk">*</a> ((<a id="251c66" class="tk">-</a>1.19) <a id="251c73" class="tk">*</a></td></tr>
+<tr name="252" id="252">
+<td><a id="l252" class='ln'>252</a></td><td>    <a id="252c5" class="tk">rtb_Scaling2</a>));</td></tr>
+<tr name="253" id="253">
+<td><a id="l253" class='ln'>253</a></td><td>  <span class="kw">if</span> (<a id="253c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="253c32" class="tk">rtdw</a>.<a id="253c37" class="tk">Integrator1_DSTATE</a> <a id="253c56" class="tk">&gt;=</a> 10.0) <span class="br">{</span></td></tr>
+<tr name="254" id="254">
+<td><a id="l254" class='ln'>254</a></td><td>    <a id="254c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="254c30" class="tk">rtdw</a>.<a id="254c35" class="tk">Integrator1_DSTATE</a> = 10.0;</td></tr>
+<tr name="255" id="255">
+<td><a id="l255" class='ln'>255</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="256" id="256">
+<td><a id="l256" class='ln'>256</a></td><td>    <span class="kw">if</span> (<a id="256c9" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="256c34" class="tk">rtdw</a>.<a id="256c39" class="tk">Integrator1_DSTATE</a> <a id="256c58" class="tk">&lt;=</a> (<a id="256c62" class="tk">-</a>10.0)) <span class="br">{</span></td></tr>
+<tr name="257" id="257">
+<td><a id="l257" class='ln'>257</a></td><td>      <a id="257c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="257c32" class="tk">rtdw</a>.<a id="257c37" class="tk">Integrator1_DSTATE</a> = (<a id="257c59" class="tk">-</a>10.0);</td></tr>
+<tr name="258" id="258">
+<td><a id="l258" class='ln'>258</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="259" id="259">
+<td><a id="l259" class='ln'>259</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="260" id="260">
+<td><a id="l260" class='ln'>260</a></td><td></td></tr>
+<tr name="261" id="261">
+<td><a id="l261" class='ln'>261</a></td><td>  <span class="ct">/* End of Update for DiscreteIntegrator: '<a class="ct blk" blk_line="261">&lt;Root&gt;/Integrator1</a>' */</span></td></tr>
+<tr name="262" id="262">
+<td><a id="l262" class='ln'>262</a></td><td></td></tr>
+<tr name="263" id="263">
+<td><a id="l263" class='ln'>263</a></td><td>  <span class="ct">/* Update for DiscreteIntegrator: '<a class="ct blk" blk_line="263">&lt;Root&gt;/Integrator2</a>' incorporates:</span></td></tr>
+<tr name="264" id="264">
+<td><a id="l264" class='ln'>264</a></td><td><span class="ct">   *  Gain: '<a class="ct blk" blk_line="264">&lt;Root&gt;/Gain5</a>'</span></td></tr>
+<tr name="265" id="265">
+<td><a id="l265" class='ln'>265</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="266" id="266">
+<td><a id="l266" class='ln'>266</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="266">&lt;Root&gt;/Integrator2</a>':</span></td></tr>
+<tr name="267" id="267">
+<td><a id="l267" class='ln'>267</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Integrator2" req_id = "1" id="req_267">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="268" id="268">
+<td><a id="l268" class='ln'>268</a></td><td><span class="ct">   *</span></td></tr>
+<tr name="269" id="269">
+<td><a id="l269" class='ln'>269</a></td><td><span class="ct">   * Block requirements for '<a class="ct blk" blk_line="269">&lt;Root&gt;/Gain5</a>':</span></td></tr>
+<tr name="270" id="270">
+<td><a id="l270" class='ln'>270</a></td><td><span class="ct">   *  <a class="ct req" blockpath="&lt;Root&gt;/Gain5" req_id = "1" id="req_270">1. HLR_8: Yaw Outer Loop Control (HelicopterSoftwareRequirements#12)</a></span></td></tr>
+<tr name="271" id="271">
+<td><a id="l271" class='ln'>271</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="272" id="272">
+<td><a id="l272" class='ln'>272</a></td><td>  <a id="272c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="272c28" class="tk">rtdw</a>.<a id="272c33" class="tk">Integrator2_DSTATE</a> =</td></tr>
+<tr name="273" id="273">
+<td><a id="l273" class='ln'>273</a></td><td>    <a id="273c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="273c30" class="tk">rtdw</a>.<a id="273c35" class="tk">Integrator2_DSTATE</a> <a id="273c54" class="tk">+</a> (0.01 <a id="273c62" class="tk">*</a> ((<a id="273c66" class="tk">-</a>2.33) <a id="273c73" class="tk">*</a></td></tr>
+<tr name="274" id="274">
+<td><a id="l274" class='ln'>274</a></td><td>    <a id="274c5" class="tk">rtb_Sum5</a>));</td></tr>
+<tr name="275" id="275">
+<td><a id="l275" class='ln'>275</a></td><td>  <span class="kw">if</span> (<a id="275c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="275c32" class="tk">rtdw</a>.<a id="275c37" class="tk">Integrator2_DSTATE</a> <a id="275c56" class="tk">&gt;=</a> 10.0) <span class="br">{</span></td></tr>
+<tr name="276" id="276">
+<td><a id="l276" class='ln'>276</a></td><td>    <a id="276c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="276c30" class="tk">rtdw</a>.<a id="276c35" class="tk">Integrator2_DSTATE</a> = 10.0;</td></tr>
+<tr name="277" id="277">
+<td><a id="l277" class='ln'>277</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="278" id="278">
+<td><a id="l278" class='ln'>278</a></td><td>    <span class="kw">if</span> (<a id="278c9" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="278c34" class="tk">rtdw</a>.<a id="278c39" class="tk">Integrator2_DSTATE</a> <a id="278c58" class="tk">&lt;=</a> (<a id="278c62" class="tk">-</a>10.0)) <span class="br">{</span></td></tr>
+<tr name="279" id="279">
+<td><a id="l279" class='ln'>279</a></td><td>      <a id="279c7" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="279c32" class="tk">rtdw</a>.<a id="279c37" class="tk">Integrator2_DSTATE</a> = (<a id="279c59" class="tk">-</a>10.0);</td></tr>
+<tr name="280" id="280">
+<td><a id="l280" class='ln'>280</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="281" id="281">
+<td><a id="l281" class='ln'>281</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="282" id="282">
+<td><a id="l282" class='ln'>282</a></td><td></td></tr>
+<tr name="283" id="283">
+<td><a id="l283" class='ln'>283</a></td><td>  <span class="ct">/* End of Update for DiscreteIntegrator: '<a class="ct blk" blk_line="283">&lt;Root&gt;/Integrator2</a>' */</span></td></tr>
+<tr name="284" id="284">
+<td><a id="l284" class='ln'>284</a></td><td><span class="br">}</span></td></tr>
+<tr name="285" id="285">
+<td><a id="l285" class='ln'>285</a></td><td></td></tr>
+<tr name="286" id="286">
+<td><a id="l286" class='ln'>286</a></td><td><span class="ct">/* Model initialize function */</span></td></tr>
+<tr name="287" id="287">
+<td><a id="l287" class='ln'>287</a></td><td><span class="kw">void</span> <a id="287c6" class="tk">Heli_outer_loop_initialize</a>(<span class="kw">void</span>)</td></tr>
+<tr name="288" id="288">
+<td><a id="l288" class='ln'>288</a></td><td><span class="br">{</span></td></tr>
+<tr name="289" id="289">
+<td><a id="l289" class='ln'>289</a></td><td>  <span class="ct">/* Registration code */</span></td></tr>
+<tr name="290" id="290">
+<td><a id="l290" class='ln'>290</a></td><td></td></tr>
+<tr name="291" id="291">
+<td><a id="l291" class='ln'>291</a></td><td>  <span class="ct">/* block I/O */</span></td></tr>
+<tr name="292" id="292">
+<td><a id="l292" class='ln'>292</a></td><td>  <span class="br">{</span></td></tr>
+<tr name="293" id="293">
+<td><a id="l293" class='ln'>293</a></td><td>    <a id="293c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="293c30" class="tk">rtb</a>.<a id="293c34" class="tk">Integrator</a> = 0.0;</td></tr>
+<tr name="294" id="294">
+<td><a id="l294" class='ln'>294</a></td><td>    <a id="294c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="294c30" class="tk">rtb</a>.<a id="294c34" class="tk">Integrator1</a> = 0.0;</td></tr>
+<tr name="295" id="295">
+<td><a id="l295" class='ln'>295</a></td><td>    <a id="295c5" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="295c30" class="tk">rtb</a>.<a id="295c34" class="tk">Integrator2</a> = 0.0;</td></tr>
+<tr name="296" id="296">
+<td><a id="l296" class='ln'>296</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="297" id="297">
+<td><a id="l297" class='ln'>297</a></td><td></td></tr>
+<tr name="298" id="298">
+<td><a id="l298" class='ln'>298</a></td><td>  <span class="ct">/* states (dwork) */</span></td></tr>
+<tr name="299" id="299">
+<td><a id="l299" class='ln'>299</a></td><td>  <a id="299c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="299c28" class="tk">rtdw</a>.<a id="299c33" class="tk">Integrator_DSTATE</a> = 0.0;</td></tr>
+<tr name="300" id="300">
+<td><a id="l300" class='ln'>300</a></td><td>  <a id="300c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="300c28" class="tk">rtdw</a>.<a id="300c33" class="tk">Integrator1_DSTATE</a> = 0.0;</td></tr>
+<tr name="301" id="301">
+<td><a id="l301" class='ln'>301</a></td><td>  <a id="301c3" class="tk">Heli_outer_loop_MdlrefDW</a>.<a id="301c28" class="tk">rtdw</a>.<a id="301c33" class="tk">Integrator2_DSTATE</a> = 0.0;</td></tr>
+<tr name="302" id="302">
+<td><a id="l302" class='ln'>302</a></td><td><span class="br">}</span></td></tr>
+<tr name="303" id="303">
+<td><a id="l303" class='ln'>303</a></td><td></td></tr>
+<tr name="304" id="304">
+<td><a id="l304" class='ln'>304</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="305" id="305">
+<td><a id="l305" class='ln'>305</a></td><td><span class="ct"> * File trailer for generated code.</span></td></tr>
+<tr name="306" id="306">
+<td><a id="l306" class='ln'>306</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="307" id="307">
+<td><a id="l307" class='ln'>307</a></td><td><span class="ct"> * [EOF]</span></td></tr>
+<tr name="308" id="308">
+<td><a id="l308" class='ln'>308</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="309" id="309">
+<td><a id="l309" class='ln'>309</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+-IC:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_04_Code\specification
+-IC:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_04_Code\specification\slprj\ert\Heli_outer_loop
+-I"C:\Program Files\MATLAB\R2019b\extern\include"
+-I"C:\Program Files\MATLAB\R2019b\simulink\include"
+-I"C:\Program Files\MATLAB\R2019b\rtw\c\src"
+-I"C:\Program Files\MATLAB\R2019b\rtw\c\src\ext_mode\common"
+-I"C:\Program Files\MATLAB\R2019b\rtw\c\ert"
+-IC:\Users\bpotter\MATLAB\Projects\ARP_DO_Project\DO_04_Code\specification\slprj\ert\_sharedutils

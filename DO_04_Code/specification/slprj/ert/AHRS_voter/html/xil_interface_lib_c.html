@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/* Copyright 2006-2017 The MathWorks, Inc. */</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct">/* </span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"> * File: xil_interface_lib.c</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"> * SIL/PIL support library</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="pp">#include "xil_interface_lib.h"</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="pp">#include "xil_interface_lib_private.h"</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="pp">#include "xil_data_stream.h"</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="pp">#include "codeinstr_data_stream.h"</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="pp">#include "xil_interface.h"</span></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="pp">#include "coder_assumptions_app.h"</span></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#include "XILTgtAppSvc_CInterface.h"</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="pp">#ifdef</span> <a id="18c8" class="tk">LDRA_ENABLED</a></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="pp">#include "code_coverage_utils.h"</span></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="pp">#endif</span> <span class="ct">/* LDRA_ENABLED */</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="pp">#ifdef</span> <a id="22c8" class="tk">HOST_BIG_ENDIAN_PROTOCOL_TESTING</a></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td>    <span class="kw">void</span> <a id="23c10" class="tk">swapBytes</a>(<a id="23c20" class="tk">MemUnit_T</a> <a id="23c30" class="tk">*</a> <span class="kw">const</span> <a id="23c38" class="tk">buffer</a>, <a id="23c46" class="tk">uint32_T</a> <a id="23c55" class="tk">size</a>);</td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>    <span class="kw">static</span> <a id="24c12" class="tk">XIL_DATA_STREAM_ERROR_CODE</a> <a id="24c39" class="tk">xilReadDataAndSwapBytes</a>(<a id="24c63" class="tk">MemUnit_T</a> <a id="24c73" class="tk">*</a> <a id="24c75" class="tk">dst</a>, <a id="24c80" class="tk">uint32_T</a> <a id="24c89" class="tk">size</a>);</td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="pp">#endif</span> <span class="ct">/* HOST_BIG_ENDIAN_PROTOCOL_TESTING */</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td><span class="ct">/* Internal state variable holding information about the</span></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td><span class="ct"> * XILIOData currently being processed. </span></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="ct"> * Note: this variable is shared by UDATA processing code</span></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="ct"> * and YDATA processing code and used for all IO.</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td><span class="kw">static</span> <a id="34c8" class="tk">XILIOData</a> <a id="34c18" class="tk">*</a> <a id="34c20" class="tk">xilIODataPtr</a>;</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="kw">static</span> <span class="kw">int</span> <a id="35c12" class="tk">isShutdownCommand</a> = 0;</td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td><span class="kw">static</span> <span class="kw">int</span> <a id="36c12" class="tk">processMsgSuccess</a> = 1;</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td><span class="kw">static</span> <a id="37c8" class="tk">uint32_T</a> <a id="37c17" class="tk">serverFcnId</a>;</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td></td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td><span class="ct">/* xilProcessMsg current context (cc)*/</span></td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><span class="kw">static</span> <a id="40c8" class="tk">XIL_PROCESS_MSG_CONTEXT_SWITCH</a> <a id="40c39" class="tk">cc</a> = <span class="br">{</span><a id="40c45" class="tk">XIL_READ_COMMAND_CODE</a>, <a id="40c68" class="tk">XIL_INIT_COMMAND</a>, 0, 0<span class="br">}</span>;</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><span class="ct">/* static functions */</span></td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><span class="kw">static</span> <span class="kw">void</span> <a id="43c13" class="tk">restoreProcessMsgContext</a>(<a id="43c38" class="tk">XIL_PROCESS_MSG_CONTEXT_SWITCH</a> <a id="43c69" class="tk">cachedCtx</a>) <span class="br">{</span></td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td>    <a id="44c5" class="tk">cc</a>.<a id="44c8" class="tk">state</a>      = <a id="44c21" class="tk">cachedCtx</a>.<a id="44c31" class="tk">state</a>;</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td>    <a id="45c5" class="tk">cc</a>.<a id="45c8" class="tk">command</a>    = <a id="45c21" class="tk">cachedCtx</a>.<a id="45c31" class="tk">command</a>;</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td>    <a id="46c5" class="tk">cc</a>.<a id="46c8" class="tk">commandIdx</a> = <a id="46c21" class="tk">cachedCtx</a>.<a id="46c31" class="tk">commandIdx</a>;</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td>    <a id="47c5" class="tk">cc</a>.<a id="47c8" class="tk">fcnId</a>      = <a id="47c21" class="tk">cachedCtx</a>.<a id="47c31" class="tk">fcnId</a>;</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><span class="br">}</span></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><span class="kw">static</span> <span class="kw">void</span> <a id="50c13" class="tk">getNextXILIOData</a>(<span class="kw">void</span>) <span class="br">{</span></td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td>   <span class="ct">/* increment xilIOData ptr if we have not reached the end */</span></td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>   <span class="kw">if</span> (<a id="52c8" class="tk">xilIODataPtr</a>-&gt;<a id="52c22" class="tk">memUnitLength</a><a id="52c35" class="tk">!=</a>0) <span class="br">{</span></td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td>      <a id="53c7" class="tk">xilIODataPtr</a><a id="53c19" class="tk">++</a>;</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>   <span class="br">}</span></td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="br">}</span></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><span class="kw">static</span> <a id="57c8" class="tk">XIL_PROCESSDATA_ERROR_CODE</a> <a id="57c35" class="tk">processHostToTargetData</a>(<a id="57c59" class="tk">uint32_T</a> <a id="57c68" class="tk">fcnId</a>,</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td>        <a id="58c9" class="tk">XIL_COMMAND_TYPE_ENUM</a> <a id="58c31" class="tk">command</a>,</td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>        <a id="59c9" class="tk">uint32_T</a> <a id="59c18" class="tk">commandIdx</a>)  <span class="br">{</span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td>    </td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>    <span class="ct">/* this function receives some arbitrary data size that needs to be </span></td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td><span class="ct">     * into the appropriate memory addresses. Since it is not guaranteed </span></td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td><span class="ct">     * that we will copy all the required data in one go, we need to keep </span></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td><span class="ct">     * track of which address (and size) in xilIODataPtr we last copied </span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><span class="ct">     * to so we can continue copying the remaining data the next time we </span></td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="ct">     * receive them.</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><span class="ct">     */</span></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td>    <span class="kw">static</span> <a id="68c12" class="tk">MemUnit_T</a> <a id="68c22" class="tk">*</a> <a id="68c24" class="tk">uDataAddress</a> = <a id="68c39" class="tk">NULL</a>;</td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td>    <span class="kw">static</span> <a id="69c12" class="tk">uint32_T</a> <a id="69c21" class="tk">uDataLength</a> = 0;</td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td>    <span class="kw">int</span> <a id="70c9" class="tk">processingComplete</a> = 0;</td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td>        </td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td>	<span class="ct">/* initialize uDataAddress and uDataLength if necessary*/</span></td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td>    <span class="kw">if</span> (<a id="73c9" class="tk">uDataAddress</a> <a id="73c22" class="tk">==</a> <a id="73c25" class="tk">NULL</a>) <span class="br">{</span></td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td>		<span class="ct">/* initialise xilIODataPtr before beginning to process data */</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td>		<span class="kw">if</span> (<a id="75c7" class="tk">xilGetHostToTargetData</a>(<a id="75c30" class="tk">fcnId</a>, <a id="75c37" class="tk">command</a>, <a id="75c46" class="tk">commandIdx</a>, <a id="75c58" class="tk">&amp;</a><a id="75c59" class="tk">xilIODataPtr</a>)) <span class="br">{</span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td>			<span class="ct">/* no udata processing to be done - we're complete */</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td>			<a id="77c4" class="tk">processingComplete</a> = 1;			</td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td>			<span class="kw">return</span> <a id="78c11" class="tk">XIL_PROCESSDATA_SUCCESS</a>;</td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td>        <a id="81c9" class="tk">uDataAddress</a> = <a id="81c24" class="tk">xilIODataPtr</a>-&gt;<a id="81c38" class="tk">address</a>;</td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td>        <a id="82c9" class="tk">uDataLength</a> = <a id="82c23" class="tk">xilIODataPtr</a>-&gt;<a id="82c37" class="tk">memUnitLength</a>;</td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td>    </td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td>    <span class="kw">while</span>(<a id="85c11" class="tk">!</a>(<a id="85c13" class="tk">processingComplete</a>)) <span class="br">{</span></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td>        <a id="86c9" class="tk">xilReadData</a>(<a id="86c21" class="tk">uDataAddress</a>, <a id="86c35" class="tk">uDataLength</a>);</td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>        <a id="87c9" class="tk">getNextXILIOData</a>();</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td>            </td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>        <span class="kw">if</span> (<a id="89c13" class="tk">xilIODataPtr</a>-&gt;<a id="89c27" class="tk">memUnitLength</a> <a id="89c41" class="tk">==</a> 0) <span class="br">{</span></td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td>            <span class="ct">/* done processing all xilIOData */</span>                </td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td>            <a id="91c13" class="tk">processingComplete</a> = 1;</td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>            <a id="92c13" class="tk">uDataAddress</a> = <a id="92c28" class="tk">NULL</a>;</td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td>        <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>            <span class="ct">/* reset our pointer to next xilIOData */</span></td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td>            <a id="95c13" class="tk">uDataAddress</a> = <a id="95c28" class="tk">xilIODataPtr</a>-&gt;<a id="95c42" class="tk">address</a>;</td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td>            <a id="96c13" class="tk">uDataLength</a> = <a id="96c27" class="tk">xilIODataPtr</a>-&gt;<a id="96c41" class="tk">memUnitLength</a>;</td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td></td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td>    <span class="kw">return</span> <a id="100c12" class="tk">XIL_PROCESSDATA_SUCCESS</a>;</td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><span class="br">}</span></td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td></td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td><span class="kw">static</span> <a id="103c8" class="tk">XIL_PROCESSDATA_ERROR_CODE</a> <a id="103c35" class="tk">processTargetToHostData</a>(<a id="103c59" class="tk">uint32_T</a> <a id="103c68" class="tk">fcnId</a>,</td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td>        <a id="104c9" class="tk">MemUnit_T</a> <a id="104c19" class="tk">responseId</a>,</td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td>        <a id="105c9" class="tk">XIL_COMMAND_TYPE_ENUM</a> <a id="105c31" class="tk">command</a>,</td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td>        <a id="106c9" class="tk">uint32_T</a> <a id="106c18" class="tk">commandIdx</a>)  <span class="br">{</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td>        </td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td>    <span class="kw">int</span> <a id="108c9" class="tk">moreXILData</a> = 1;</td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td>    </td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td>    <span class="ct">/* initialise before beginning to process data */</span>    </td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td>    <span class="kw">if</span> (<a id="111c9" class="tk">xilGetTargetToHostData</a>(<a id="111c32" class="tk">fcnId</a>, <a id="111c39" class="tk">command</a>, <a id="111c48" class="tk">commandIdx</a>, <a id="111c60" class="tk">&amp;</a><a id="111c61" class="tk">xilIODataPtr</a>)) <span class="br">{</span></td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td>        <span class="ct">/* no ydata processing to be done - we're complete */</span>        </td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td>        <span class="kw">return</span> <a id="113c16" class="tk">XIL_PROCESSDATA_SUCCESS</a>;</td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td>    <span class="ct">/* send response id */</span></td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td>    <span class="kw">if</span> (<a id="116c9" class="tk">xilWriteData</a>(<a id="116c22" class="tk">&amp;</a><a id="116c23" class="tk">responseId</a>, <span class="kw">sizeof</span>(<a id="116c42" class="tk">responseId</a>)) <a id="116c55" class="tk">!=</a> <a id="116c58" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span>        </td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td>        <span class="kw">return</span> <a id="117c16" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>;</td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td>    </td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td>    <span class="ct">/* send server function id if this is a caller function */</span></td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td>    <span class="kw">if</span> (<a id="121c9" class="tk">responseId</a> <a id="121c20" class="tk">==</a> <a id="121c23" class="tk">XIL_RESPONSE_CS_REQUEST_SERVICE</a>) <span class="br">{</span></td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td>        <span class="kw">if</span> (<a id="122c13" class="tk">xilWriteData</a>((<a id="122c27" class="tk">MemUnit_T</a> <a id="122c37" class="tk">*</a>) <a id="122c40" class="tk">&amp;</a><a id="122c41" class="tk">serverFcnId</a>, <span class="kw">sizeof</span>(<a id="122c61" class="tk">serverFcnId</a>)) <a id="122c75" class="tk">!=</a> <a id="122c78" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td>            <span class="kw">return</span> <a id="123c20" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>;</td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td>    </td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td>    <span class="kw">while</span>(<a id="127c11" class="tk">moreXILData</a>) <span class="br">{</span></td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td>        <span class="kw">if</span> (<a id="128c13" class="tk">xilWriteData</a>(<a id="128c26" class="tk">xilIODataPtr</a>-&gt;<a id="128c40" class="tk">address</a>, <a id="128c49" class="tk">xilIODataPtr</a>-&gt;<a id="128c63" class="tk">memUnitLength</a>) <a id="128c78" class="tk">!=</a> <a id="128c81" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span>            </td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td>            <span class="kw">return</span> <a id="129c20" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>;</td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td>        <span class="ct">/* get next xilIOData */</span></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td>        <a id="132c9" class="tk">getNextXILIOData</a>();</td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td>        <span class="kw">if</span> (<a id="133c13" class="tk">xilIODataPtr</a>-&gt;<a id="133c27" class="tk">memUnitLength</a> <a id="133c41" class="tk">==</a> 0) <span class="br">{</span></td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>            <a id="134c13" class="tk">moreXILData</a> = 0;</td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td>    <span class="kw">return</span> <a id="137c12" class="tk">XIL_PROCESSDATA_SUCCESS</a>;</td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td><span class="br">}</span></td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td><span class="kw">static</span> <a id="140c8" class="tk">XIL_INTERFACE_LIB_ERROR_CODE</a> <a id="140c37" class="tk">finalizeCommandResponse</a>(<a id="140c61" class="tk">XIL_RESPONSE_ERROR_ID</a> <a id="140c83" class="tk">errorId</a>, <a id="140c92" class="tk">MemUnit_T</a> <a id="140c102" class="tk">isEndOfXILStep</a>)  <span class="br">{</span></td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td></td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td><span class="pp">#ifdef</span> <a id="142c8" class="tk">CODE_INSTRUMENTATION_ENABLED</a></td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td>    <span class="ct">/* flush the output stream</span></td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td><span class="ct">     * before beginning next command */</span></td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td>    <span class="kw">if</span> (<a id="145c9" class="tk">codeInstrDataFlush</a>() <a id="145c30" class="tk">!=</a> <a id="145c33" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td>        <span class="kw">return</span> <a id="146c16" class="tk">XIL_INTERFACE_LIB_ERROR</a>;</td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td></td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td>   <span class="ct">/* only send the error id if necessary */</span></td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td>   <span class="kw">if</span> (<a id="151c8" class="tk">errorId</a> <a id="151c16" class="tk">!=</a> <a id="151c19" class="tk">XIL_RESPONSE_ERROR_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td>      <span class="ct">/* send response id code */</span></td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td>      <a id="153c7" class="tk">MemUnit_T</a> <a id="153c17" class="tk">memUnitData</a> = <a id="153c31" class="tk">XIL_RESPONSE_ERROR</a>;</td></tr>
+<tr name="154" id="154">
+<td><a id="l154" class='ln'>154</a></td><td>      <span class="kw">if</span> (<a id="154c11" class="tk">xilWriteData</a>(<a id="154c24" class="tk">&amp;</a><a id="154c25" class="tk">memUnitData</a>, <span class="kw">sizeof</span>(<a id="154c45" class="tk">memUnitData</a>)) <a id="154c59" class="tk">!=</a> <a id="154c62" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="155" id="155">
+<td><a id="l155" class='ln'>155</a></td><td>        <span class="kw">return</span> <a id="155c16" class="tk">XIL_INTERFACE_LIB_ERROR</a>;      </td></tr>
+<tr name="156" id="156">
+<td><a id="l156" class='ln'>156</a></td><td>      <span class="br">}</span></td></tr>
+<tr name="157" id="157">
+<td><a id="l157" class='ln'>157</a></td><td>      <span class="ct">/* send error id */</span></td></tr>
+<tr name="158" id="158">
+<td><a id="l158" class='ln'>158</a></td><td>	  <a id="158c4" class="tk">memUnitData</a> = (<a id="158c19" class="tk">MemUnit_T</a>) <a id="158c30" class="tk">errorId</a>;</td></tr>
+<tr name="159" id="159">
+<td><a id="l159" class='ln'>159</a></td><td>      <span class="kw">if</span> (<a id="159c11" class="tk">xilWriteData</a>(<a id="159c24" class="tk">&amp;</a><a id="159c25" class="tk">memUnitData</a>, <span class="kw">sizeof</span>(<a id="159c45" class="tk">memUnitData</a>)) <a id="159c59" class="tk">!=</a> <a id="159c62" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="160" id="160">
+<td><a id="l160" class='ln'>160</a></td><td>         <span class="kw">return</span> <a id="160c17" class="tk">XIL_INTERFACE_LIB_ERROR</a>;      </td></tr>
+<tr name="161" id="161">
+<td><a id="l161" class='ln'>161</a></td><td>      <span class="br">}</span>	  </td></tr>
+<tr name="162" id="162">
+<td><a id="l162" class='ln'>162</a></td><td>   <span class="br">}</span></td></tr>
+<tr name="163" id="163">
+<td><a id="l163" class='ln'>163</a></td><td>   <span class="ct">/* flush the output stream </span></td></tr>
+<tr name="164" id="164">
+<td><a id="l164" class='ln'>164</a></td><td><span class="ct">    * before beginning next command */</span></td></tr>
+<tr name="165" id="165">
+<td><a id="l165" class='ln'>165</a></td><td>   <span class="kw">if</span> (<a id="165c8" class="tk">xilDataFlush</a>(<a id="165c21" class="tk">isEndOfXILStep</a>) <a id="165c37" class="tk">!=</a> <a id="165c40" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="166" id="166">
+<td><a id="l166" class='ln'>166</a></td><td>      <span class="kw">return</span> <a id="166c14" class="tk">XIL_INTERFACE_LIB_ERROR</a>;      </td></tr>
+<tr name="167" id="167">
+<td><a id="l167" class='ln'>167</a></td><td>   <span class="br">}</span>   </td></tr>
+<tr name="168" id="168">
+<td><a id="l168" class='ln'>168</a></td><td>   <span class="kw">return</span> <a id="168c11" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>;</td></tr>
+<tr name="169" id="169">
+<td><a id="l169" class='ln'>169</a></td><td><span class="br">}</span></td></tr>
+<tr name="170" id="170">
+<td><a id="l170" class='ln'>170</a></td><td></td></tr>
+<tr name="171" id="171">
+<td><a id="l171" class='ln'>171</a></td><td><span class="ct">/* Given current state and command, compute the next state for handleReceive */</span></td></tr>
+<tr name="172" id="172">
+<td><a id="l172" class='ln'>172</a></td><td><span class="kw">static</span> <a id="172c8" class="tk">XIL_HANDLE_RECV_STATE</a> <a id="172c30" class="tk">computeNextState</a>(<a id="172c47" class="tk">XIL_HANDLE_RECV_STATE</a> <a id="172c69" class="tk">state</a>, <a id="172c76" class="tk">XIL_COMMAND_TYPE_ENUM</a> <a id="172c98" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="173" id="173">
+<td><a id="l173" class='ln'>173</a></td><td>    </td></tr>
+<tr name="174" id="174">
+<td><a id="l174" class='ln'>174</a></td><td>    <a id="174c5" class="tk">XIL_HANDLE_RECV_STATE</a> <a id="174c27" class="tk">nextState</a>;</td></tr>
+<tr name="175" id="175">
+<td><a id="l175" class='ln'>175</a></td><td>    </td></tr>
+<tr name="176" id="176">
+<td><a id="l176" class='ln'>176</a></td><td>    <span class="kw">switch</span>(<a id="176c12" class="tk">state</a>) <span class="br">{</span></td></tr>
+<tr name="177" id="177">
+<td><a id="l177" class='ln'>177</a></td><td>        <span class="kw">case</span> <a id="177c14" class="tk">XIL_READ_COMMAND_CODE</a><a id="177c35" class="tk">:</a></td></tr>
+<tr name="178" id="178">
+<td><a id="l178" class='ln'>178</a></td><td>            <span class="kw">switch</span>(<a id="178c20" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="179" id="179">
+<td><a id="l179" class='ln'>179</a></td><td>                <span class="kw">case</span> <a id="179c22" class="tk">XIL_INIT_COMMAND</a><a id="179c38" class="tk">:</a>                    </td></tr>
+<tr name="180" id="180">
+<td><a id="l180" class='ln'>180</a></td><td>                <span class="kw">case</span> <a id="180c22" class="tk">XIL_CONST_OUTPUT_COMMAND</a><a id="180c46" class="tk">:</a></td></tr>
+<tr name="181" id="181">
+<td><a id="l181" class='ln'>181</a></td><td>                <span class="kw">case</span> <a id="181c22" class="tk">XIL_INITIALIZE_COMMAND</a><a id="181c44" class="tk">:</a></td></tr>
+<tr name="182" id="182">
+<td><a id="l182" class='ln'>182</a></td><td>                <span class="kw">case</span> <a id="182c22" class="tk">XIL_SYSTEM_INITIALIZE_COMMAND</a><a id="182c51" class="tk">:</a></td></tr>
+<tr name="183" id="183">
+<td><a id="l183" class='ln'>183</a></td><td>                <span class="kw">case</span> <a id="183c22" class="tk">XIL_TERMINATE_COMMAND</a><a id="183c43" class="tk">:</a></td></tr>
+<tr name="184" id="184">
+<td><a id="l184" class='ln'>184</a></td><td>                <span class="kw">case</span> <a id="184c22" class="tk">XIL_PROCESS_PARAMS_COMMAND</a><a id="184c48" class="tk">:</a></td></tr>
+<tr name="185" id="185">
+<td><a id="l185" class='ln'>185</a></td><td>                <span class="kw">case</span> <a id="185c22" class="tk">XIL_ENABLE_COMMAND</a><a id="185c40" class="tk">:</a></td></tr>
+<tr name="186" id="186">
+<td><a id="l186" class='ln'>186</a></td><td>                <span class="kw">case</span> <a id="186c22" class="tk">XIL_DISABLE_COMMAND</a><a id="186c41" class="tk">:</a></td></tr>
+<tr name="187" id="187">
+<td><a id="l187" class='ln'>187</a></td><td>                <span class="kw">case</span> <a id="187c22" class="tk">XIL_CLIENT_SERVER_COMMAND</a><a id="187c47" class="tk">:</a></td></tr>
+<tr name="188" id="188">
+<td><a id="l188" class='ln'>188</a></td><td>                <span class="kw">case</span> <a id="188c22" class="tk">XIL_UPDATE_COMMAND</a><a id="188c40" class="tk">:</a></td></tr>
+<tr name="189" id="189">
+<td><a id="l189" class='ln'>189</a></td><td>                <span class="kw">case</span> <a id="189c22" class="tk">XIL_OUTPUT_COMMAND</a><a id="189c40" class="tk">:</a></td></tr>
+<tr name="190" id="190">
+<td><a id="l190" class='ln'>190</a></td><td>                <span class="kw">case</span> <a id="190c22" class="tk">XIL_SYSTEM_RESET_COMMAND</a><a id="190c46" class="tk">:</a></td></tr>
+<tr name="191" id="191">
+<td><a id="l191" class='ln'>191</a></td><td>                <span class="kw">case</span> <a id="191c22" class="tk">XIL_PAUSE_COMMAND</a><a id="191c39" class="tk">:</a></td></tr>
+<tr name="192" id="192">
+<td><a id="l192" class='ln'>192</a></td><td>                    <a id="192c21" class="tk">nextState</a> = <a id="192c33" class="tk">XIL_READ_FCNID</a>;</td></tr>
+<tr name="193" id="193">
+<td><a id="l193" class='ln'>193</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="194" id="194">
+<td><a id="l194" class='ln'>194</a></td><td>                <span class="kw">case</span> <a id="194c22" class="tk">XIL_SHUTDOWN_COMMAND</a><a id="194c42" class="tk">:</a></td></tr>
+<tr name="195" id="195">
+<td><a id="l195" class='ln'>195</a></td><td>                    <a id="195c21" class="tk">nextState</a> = <a id="195c33" class="tk">XIL_READ_FCNID</a>;</td></tr>
+<tr name="196" id="196">
+<td><a id="l196" class='ln'>196</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="197" id="197">
+<td><a id="l197" class='ln'>197</a></td><td>                <span class="kw">default</span><a id="197c24" class="tk">:</a></td></tr>
+<tr name="198" id="198">
+<td><a id="l198" class='ln'>198</a></td><td>                    <a id="198c21" class="tk">nextState</a> = <a id="198c33" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="199" id="199">
+<td><a id="l199" class='ln'>199</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="200" id="200">
+<td><a id="l200" class='ln'>200</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="201" id="201">
+<td><a id="l201" class='ln'>201</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="202" id="202">
+<td><a id="l202" class='ln'>202</a></td><td>        <span class="kw">case</span> <a id="202c14" class="tk">XIL_READ_FCNID</a><a id="202c28" class="tk">:</a></td></tr>
+<tr name="203" id="203">
+<td><a id="l203" class='ln'>203</a></td><td>            <span class="kw">switch</span>(<a id="203c20" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="204" id="204">
+<td><a id="l204" class='ln'>204</a></td><td>                <span class="kw">case</span> <a id="204c22" class="tk">XIL_INIT_COMMAND</a><a id="204c38" class="tk">:</a></td></tr>
+<tr name="205" id="205">
+<td><a id="l205" class='ln'>205</a></td><td>                <span class="kw">case</span> <a id="205c22" class="tk">XIL_PAUSE_COMMAND</a><a id="205c39" class="tk">:</a></td></tr>
+<tr name="206" id="206">
+<td><a id="l206" class='ln'>206</a></td><td>                    <a id="206c21" class="tk">nextState</a> = <a id="206c33" class="tk">XIL_CALL_XILINTERFACE</a>;</td></tr>
+<tr name="207" id="207">
+<td><a id="l207" class='ln'>207</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="208" id="208">
+<td><a id="l208" class='ln'>208</a></td><td>                <span class="kw">case</span> <a id="208c22" class="tk">XIL_CONST_OUTPUT_COMMAND</a><a id="208c46" class="tk">:</a></td></tr>
+<tr name="209" id="209">
+<td><a id="l209" class='ln'>209</a></td><td>                    <a id="209c21" class="tk">nextState</a> = <a id="209c33" class="tk">XIL_PROCESS_TARGET_TO_HOST_DATA</a>;</td></tr>
+<tr name="210" id="210">
+<td><a id="l210" class='ln'>210</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="211" id="211">
+<td><a id="l211" class='ln'>211</a></td><td>                <span class="kw">case</span> <a id="211c22" class="tk">XIL_INITIALIZE_COMMAND</a><a id="211c44" class="tk">:</a></td></tr>
+<tr name="212" id="212">
+<td><a id="l212" class='ln'>212</a></td><td>                <span class="kw">case</span> <a id="212c22" class="tk">XIL_SYSTEM_INITIALIZE_COMMAND</a><a id="212c51" class="tk">:</a></td></tr>
+<tr name="213" id="213">
+<td><a id="l213" class='ln'>213</a></td><td>                <span class="kw">case</span> <a id="213c22" class="tk">XIL_TERMINATE_COMMAND</a><a id="213c43" class="tk">:</a></td></tr>
+<tr name="214" id="214">
+<td><a id="l214" class='ln'>214</a></td><td>                <span class="kw">case</span> <a id="214c22" class="tk">XIL_PROCESS_PARAMS_COMMAND</a><a id="214c48" class="tk">:</a></td></tr>
+<tr name="215" id="215">
+<td><a id="l215" class='ln'>215</a></td><td>                <span class="kw">case</span> <a id="215c22" class="tk">XIL_SYSTEM_RESET_COMMAND</a><a id="215c46" class="tk">:</a></td></tr>
+<tr name="216" id="216">
+<td><a id="l216" class='ln'>216</a></td><td>                    <a id="216c21" class="tk">nextState</a> = <a id="216c33" class="tk">XIL_PROCESS_HOST_TO_TARGET_DATA</a>;</td></tr>
+<tr name="217" id="217">
+<td><a id="l217" class='ln'>217</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="218" id="218">
+<td><a id="l218" class='ln'>218</a></td><td>                <span class="kw">case</span> <a id="218c22" class="tk">XIL_ENABLE_COMMAND</a><a id="218c40" class="tk">:</a></td></tr>
+<tr name="219" id="219">
+<td><a id="l219" class='ln'>219</a></td><td>                <span class="kw">case</span> <a id="219c22" class="tk">XIL_DISABLE_COMMAND</a><a id="219c41" class="tk">:</a></td></tr>
+<tr name="220" id="220">
+<td><a id="l220" class='ln'>220</a></td><td>                <span class="kw">case</span> <a id="220c22" class="tk">XIL_CLIENT_SERVER_COMMAND</a><a id="220c47" class="tk">:</a>  </td></tr>
+<tr name="221" id="221">
+<td><a id="l221" class='ln'>221</a></td><td>                <span class="kw">case</span> <a id="221c22" class="tk">XIL_UPDATE_COMMAND</a><a id="221c40" class="tk">:</a></td></tr>
+<tr name="222" id="222">
+<td><a id="l222" class='ln'>222</a></td><td>                <span class="kw">case</span> <a id="222c22" class="tk">XIL_OUTPUT_COMMAND</a><a id="222c40" class="tk">:</a></td></tr>
+<tr name="223" id="223">
+<td><a id="l223" class='ln'>223</a></td><td>                    <a id="223c21" class="tk">nextState</a> = <a id="223c33" class="tk">XIL_READ_XILTID</a>;</td></tr>
+<tr name="224" id="224">
+<td><a id="l224" class='ln'>224</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="225" id="225">
+<td><a id="l225" class='ln'>225</a></td><td>                <span class="kw">default</span><a id="225c24" class="tk">:</a></td></tr>
+<tr name="226" id="226">
+<td><a id="l226" class='ln'>226</a></td><td>                    <a id="226c21" class="tk">nextState</a> = <a id="226c33" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="227" id="227">
+<td><a id="l227" class='ln'>227</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="228" id="228">
+<td><a id="l228" class='ln'>228</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="229" id="229">
+<td><a id="l229" class='ln'>229</a></td><td>            <span class="kw">break</span>;            </td></tr>
+<tr name="230" id="230">
+<td><a id="l230" class='ln'>230</a></td><td>        <span class="kw">case</span> <a id="230c14" class="tk">XIL_READ_XILTID</a><a id="230c29" class="tk">:</a></td></tr>
+<tr name="231" id="231">
+<td><a id="l231" class='ln'>231</a></td><td>            <span class="kw">switch</span>(<a id="231c20" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="232" id="232">
+<td><a id="l232" class='ln'>232</a></td><td>                <span class="kw">case</span> <a id="232c22" class="tk">XIL_ENABLE_COMMAND</a><a id="232c40" class="tk">:</a></td></tr>
+<tr name="233" id="233">
+<td><a id="l233" class='ln'>233</a></td><td>                <span class="kw">case</span> <a id="233c22" class="tk">XIL_DISABLE_COMMAND</a><a id="233c41" class="tk">:</a></td></tr>
+<tr name="234" id="234">
+<td><a id="l234" class='ln'>234</a></td><td>                <span class="kw">case</span> <a id="234c22" class="tk">XIL_CLIENT_SERVER_COMMAND</a><a id="234c47" class="tk">:</a></td></tr>
+<tr name="235" id="235">
+<td><a id="l235" class='ln'>235</a></td><td>                <span class="kw">case</span> <a id="235c22" class="tk">XIL_OUTPUT_COMMAND</a><a id="235c40" class="tk">:</a></td></tr>
+<tr name="236" id="236">
+<td><a id="l236" class='ln'>236</a></td><td>                <span class="kw">case</span> <a id="236c22" class="tk">XIL_UPDATE_COMMAND</a><a id="236c40" class="tk">:</a></td></tr>
+<tr name="237" id="237">
+<td><a id="l237" class='ln'>237</a></td><td>                    <a id="237c21" class="tk">nextState</a> = <a id="237c33" class="tk">XIL_PROCESS_HOST_TO_TARGET_DATA</a>;</td></tr>
+<tr name="238" id="238">
+<td><a id="l238" class='ln'>238</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="239" id="239">
+<td><a id="l239" class='ln'>239</a></td><td>                <span class="kw">default</span><a id="239c24" class="tk">:</a></td></tr>
+<tr name="240" id="240">
+<td><a id="l240" class='ln'>240</a></td><td>                    <a id="240c21" class="tk">nextState</a> = <a id="240c33" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="241" id="241">
+<td><a id="l241" class='ln'>241</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="242" id="242">
+<td><a id="l242" class='ln'>242</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="243" id="243">
+<td><a id="l243" class='ln'>243</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="244" id="244">
+<td><a id="l244" class='ln'>244</a></td><td>        <span class="kw">case</span> <a id="244c14" class="tk">XIL_PROCESS_HOST_TO_TARGET_DATA</a><a id="244c45" class="tk">:</a></td></tr>
+<tr name="245" id="245">
+<td><a id="l245" class='ln'>245</a></td><td>            <span class="kw">switch</span>(<a id="245c20" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="246" id="246">
+<td><a id="l246" class='ln'>246</a></td><td>                <span class="kw">case</span> <a id="246c22" class="tk">XIL_INITIALIZE_COMMAND</a><a id="246c44" class="tk">:</a></td></tr>
+<tr name="247" id="247">
+<td><a id="l247" class='ln'>247</a></td><td>                <span class="kw">case</span> <a id="247c22" class="tk">XIL_SYSTEM_INITIALIZE_COMMAND</a><a id="247c51" class="tk">:</a>                </td></tr>
+<tr name="248" id="248">
+<td><a id="l248" class='ln'>248</a></td><td>                <span class="kw">case</span> <a id="248c22" class="tk">XIL_ENABLE_COMMAND</a><a id="248c40" class="tk">:</a></td></tr>
+<tr name="249" id="249">
+<td><a id="l249" class='ln'>249</a></td><td>                <span class="kw">case</span> <a id="249c22" class="tk">XIL_DISABLE_COMMAND</a><a id="249c41" class="tk">:</a></td></tr>
+<tr name="250" id="250">
+<td><a id="l250" class='ln'>250</a></td><td>                <span class="kw">case</span> <a id="250c22" class="tk">XIL_TERMINATE_COMMAND</a><a id="250c43" class="tk">:</a></td></tr>
+<tr name="251" id="251">
+<td><a id="l251" class='ln'>251</a></td><td>                <span class="kw">case</span> <a id="251c22" class="tk">XIL_PROCESS_PARAMS_COMMAND</a><a id="251c48" class="tk">:</a></td></tr>
+<tr name="252" id="252">
+<td><a id="l252" class='ln'>252</a></td><td>                <span class="kw">case</span> <a id="252c22" class="tk">XIL_OUTPUT_COMMAND</a><a id="252c40" class="tk">:</a></td></tr>
+<tr name="253" id="253">
+<td><a id="l253" class='ln'>253</a></td><td>                <span class="kw">case</span> <a id="253c22" class="tk">XIL_UPDATE_COMMAND</a><a id="253c40" class="tk">:</a></td></tr>
+<tr name="254" id="254">
+<td><a id="l254" class='ln'>254</a></td><td>                <span class="kw">case</span> <a id="254c22" class="tk">XIL_SYSTEM_RESET_COMMAND</a><a id="254c46" class="tk">:</a></td></tr>
+<tr name="255" id="255">
+<td><a id="l255" class='ln'>255</a></td><td>                <span class="kw">case</span> <a id="255c22" class="tk">XIL_PAUSE_COMMAND</a><a id="255c39" class="tk">:</a></td></tr>
+<tr name="256" id="256">
+<td><a id="l256" class='ln'>256</a></td><td>                    <a id="256c21" class="tk">nextState</a> = <a id="256c33" class="tk">XIL_CALL_XILINTERFACE</a>;</td></tr>
+<tr name="257" id="257">
+<td><a id="l257" class='ln'>257</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="258" id="258">
+<td><a id="l258" class='ln'>258</a></td><td>                <span class="kw">case</span> <a id="258c22" class="tk">XIL_CLIENT_SERVER_COMMAND</a><a id="258c47" class="tk">:</a></td></tr>
+<tr name="259" id="259">
+<td><a id="l259" class='ln'>259</a></td><td>                    <a id="259c21" class="tk">nextState</a> = <a id="259c33" class="tk">XIL_COMPLETE</a>;</td></tr>
+<tr name="260" id="260">
+<td><a id="l260" class='ln'>260</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="261" id="261">
+<td><a id="l261" class='ln'>261</a></td><td>                <span class="kw">default</span><a id="261c24" class="tk">:</a></td></tr>
+<tr name="262" id="262">
+<td><a id="l262" class='ln'>262</a></td><td>                    <a id="262c21" class="tk">nextState</a> = <a id="262c33" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="263" id="263">
+<td><a id="l263" class='ln'>263</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="264" id="264">
+<td><a id="l264" class='ln'>264</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="265" id="265">
+<td><a id="l265" class='ln'>265</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="266" id="266">
+<td><a id="l266" class='ln'>266</a></td><td>        <span class="kw">case</span> <a id="266c14" class="tk">XIL_CALL_XILINTERFACE</a><a id="266c35" class="tk">:</a></td></tr>
+<tr name="267" id="267">
+<td><a id="l267" class='ln'>267</a></td><td>            <span class="kw">switch</span>(<a id="267c20" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="268" id="268">
+<td><a id="l268" class='ln'>268</a></td><td>                <span class="kw">case</span> <a id="268c22" class="tk">XIL_UPDATE_COMMAND</a><a id="268c40" class="tk">:</a></td></tr>
+<tr name="269" id="269">
+<td><a id="l269" class='ln'>269</a></td><td>                <span class="kw">case</span> <a id="269c22" class="tk">XIL_INIT_COMMAND</a><a id="269c38" class="tk">:</a></td></tr>
+<tr name="270" id="270">
+<td><a id="l270" class='ln'>270</a></td><td>                <span class="kw">case</span> <a id="270c22" class="tk">XIL_PROCESS_PARAMS_COMMAND</a><a id="270c48" class="tk">:</a></td></tr>
+<tr name="271" id="271">
+<td><a id="l271" class='ln'>271</a></td><td>                    <a id="271c21" class="tk">nextState</a> = <a id="271c33" class="tk">XIL_COMPLETE</a>;</td></tr>
+<tr name="272" id="272">
+<td><a id="l272" class='ln'>272</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="273" id="273">
+<td><a id="l273" class='ln'>273</a></td><td>                <span class="kw">case</span> <a id="273c22" class="tk">XIL_INITIALIZE_COMMAND</a><a id="273c44" class="tk">:</a></td></tr>
+<tr name="274" id="274">
+<td><a id="l274" class='ln'>274</a></td><td>                <span class="kw">case</span> <a id="274c22" class="tk">XIL_SYSTEM_INITIALIZE_COMMAND</a><a id="274c51" class="tk">:</a></td></tr>
+<tr name="275" id="275">
+<td><a id="l275" class='ln'>275</a></td><td>                <span class="kw">case</span> <a id="275c22" class="tk">XIL_CONST_OUTPUT_COMMAND</a><a id="275c46" class="tk">:</a></td></tr>
+<tr name="276" id="276">
+<td><a id="l276" class='ln'>276</a></td><td>                <span class="kw">case</span> <a id="276c22" class="tk">XIL_ENABLE_COMMAND</a><a id="276c40" class="tk">:</a></td></tr>
+<tr name="277" id="277">
+<td><a id="l277" class='ln'>277</a></td><td>                <span class="kw">case</span> <a id="277c22" class="tk">XIL_DISABLE_COMMAND</a><a id="277c41" class="tk">:</a>                </td></tr>
+<tr name="278" id="278">
+<td><a id="l278" class='ln'>278</a></td><td>                <span class="kw">case</span> <a id="278c22" class="tk">XIL_OUTPUT_COMMAND</a><a id="278c40" class="tk">:</a></td></tr>
+<tr name="279" id="279">
+<td><a id="l279" class='ln'>279</a></td><td>                <span class="kw">case</span> <a id="279c22" class="tk">XIL_SYSTEM_RESET_COMMAND</a><a id="279c46" class="tk">:</a></td></tr>
+<tr name="280" id="280">
+<td><a id="l280" class='ln'>280</a></td><td>                <span class="kw">case</span> <a id="280c22" class="tk">XIL_PAUSE_COMMAND</a><a id="280c39" class="tk">:</a></td></tr>
+<tr name="281" id="281">
+<td><a id="l281" class='ln'>281</a></td><td>                <span class="kw">case</span> <a id="281c22" class="tk">XIL_TERMINATE_COMMAND</a><a id="281c43" class="tk">:</a>   </td></tr>
+<tr name="282" id="282">
+<td><a id="l282" class='ln'>282</a></td><td>                    <a id="282c21" class="tk">nextState</a> = <a id="282c33" class="tk">XIL_PROCESS_TARGET_TO_HOST_DATA</a>;</td></tr>
+<tr name="283" id="283">
+<td><a id="l283" class='ln'>283</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="284" id="284">
+<td><a id="l284" class='ln'>284</a></td><td>                <span class="kw">default</span><a id="284c24" class="tk">:</a></td></tr>
+<tr name="285" id="285">
+<td><a id="l285" class='ln'>285</a></td><td>                    <a id="285c21" class="tk">nextState</a> = <a id="285c33" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="286" id="286">
+<td><a id="l286" class='ln'>286</a></td><td>                    <span class="kw">break</span>;</td></tr>
+<tr name="287" id="287">
+<td><a id="l287" class='ln'>287</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="288" id="288">
+<td><a id="l288" class='ln'>288</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="289" id="289">
+<td><a id="l289" class='ln'>289</a></td><td>        <span class="kw">case</span> <a id="289c14" class="tk">XIL_PROCESS_TARGET_TO_HOST_DATA</a><a id="289c45" class="tk">:</a></td></tr>
+<tr name="290" id="290">
+<td><a id="l290" class='ln'>290</a></td><td>            <span class="ct">/* done */</span></td></tr>
+<tr name="291" id="291">
+<td><a id="l291" class='ln'>291</a></td><td>            <a id="291c13" class="tk">nextState</a> = <a id="291c25" class="tk">XIL_COMPLETE</a>;</td></tr>
+<tr name="292" id="292">
+<td><a id="l292" class='ln'>292</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="293" id="293">
+<td><a id="l293" class='ln'>293</a></td><td>        <span class="kw">default</span><a id="293c16" class="tk">:</a></td></tr>
+<tr name="294" id="294">
+<td><a id="l294" class='ln'>294</a></td><td>            <a id="294c13" class="tk">nextState</a> = <a id="294c25" class="tk">XIL_INVALID_STATE</a>;</td></tr>
+<tr name="295" id="295">
+<td><a id="l295" class='ln'>295</a></td><td>            <span class="kw">break</span>;</td></tr>
+<tr name="296" id="296">
+<td><a id="l296" class='ln'>296</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="297" id="297">
+<td><a id="l297" class='ln'>297</a></td><td>    <span class="kw">return</span> <a id="297c12" class="tk">nextState</a>;</td></tr>
+<tr name="298" id="298">
+<td><a id="l298" class='ln'>298</a></td><td><span class="br">}</span></td></tr>
+<tr name="299" id="299">
+<td><a id="l299" class='ln'>299</a></td><td></td></tr>
+<tr name="300" id="300">
+<td><a id="l300" class='ln'>300</a></td><td><span class="pp">#define</span> <a id="300c9" class="tk">XIL_COMMAND_TYPE_SIZE</a> <span class="kw">sizeof</span>(<a id="300c38" class="tk">MemUnit_T</a>)</td></tr>
+<tr name="301" id="301">
+<td><a id="l301" class='ln'>301</a></td><td><span class="pp">#define</span> <a id="301c9" class="tk">XIL_COMMAND_CODE_IDX</a> 0</td></tr>
+<tr name="302" id="302">
+<td><a id="l302" class='ln'>302</a></td><td><span class="pp">#define</span> <a id="302c9" class="tk">XIL_COMMAND_FCNID_IDX</a> (<a id="302c32" class="tk">XIL_COMMAND_CODE_IDX</a> <a id="302c53" class="tk">+</a> <a id="302c55" class="tk">XIL_COMMAND_TYPE_SIZE</a>)</td></tr>
+<tr name="303" id="303">
+<td><a id="l303" class='ln'>303</a></td><td><span class="pp">#define</span> <a id="303c9" class="tk">XIL_COMMAND_FCNID_SIZE</a> <span class="kw">sizeof</span>(<a id="303c39" class="tk">uint32_T</a>)</td></tr>
+<tr name="304" id="304">
+<td><a id="l304" class='ln'>304</a></td><td><span class="pp">#define</span> <a id="304c9" class="tk">XIL_COMMAND_XILTID_IDX</a> (<a id="304c33" class="tk">XIL_COMMAND_FCNID_IDX</a> <a id="304c55" class="tk">+</a> <a id="304c57" class="tk">XIL_COMMAND_FCNID_SIZE</a>)</td></tr>
+<tr name="305" id="305">
+<td><a id="l305" class='ln'>305</a></td><td><span class="pp">#define</span> <a id="305c9" class="tk">XIL_COMMAND_XILTID_SIZE</a> <span class="kw">sizeof</span>(<a id="305c40" class="tk">uint32_T</a>)</td></tr>
+<tr name="306" id="306">
+<td><a id="l306" class='ln'>306</a></td><td><span class="pp">#define</span> <a id="306c9" class="tk">XIL_COMMAND_ERROR_STATUS_SIZE</a> <span class="kw">sizeof</span>(<a id="306c46" class="tk">MemUnit_T</a>)</td></tr>
+<tr name="307" id="307">
+<td><a id="l307" class='ln'>307</a></td><td></td></tr>
+<tr name="308" id="308">
+<td><a id="l308" class='ln'>308</a></td><td><span class="pp">#define</span> <a id="308c9" class="tk">XIL_RUN_EXIT_ERROR</a> <a id="308c28" class="tk">processMsgSuccess</a> = 0;      \</td></tr>
+<tr name="309" id="309">
+<td><a id="l309" class='ln'>309</a></td><td>                           <span class="kw">return</span></td></tr>
+<tr name="310" id="310">
+<td><a id="l310" class='ln'>310</a></td><td><span class="pp">#define</span> <a id="310c9" class="tk">XIL_RUN_EXIT</a> <span class="kw">return</span></td></tr>
+<tr name="311" id="311">
+<td><a id="l311" class='ln'>311</a></td><td></td></tr>
+<tr name="312" id="312">
+<td><a id="l312" class='ln'>312</a></td><td><span class="pp">#define</span> <a id="312c9" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a> <span class="kw">if</span> (<a id="312c45" class="tk">cc</a>.<a id="312c48" class="tk">state</a> <a id="312c54" class="tk">==</a> <a id="312c57" class="tk">XIL_INVALID_STATE</a>) <span class="br">{</span>      \</td></tr>
+<tr name="313" id="313">
+<td><a id="l313" class='ln'>313</a></td><td>                                         <a id="313c124" class="tk">XIL_RUN_EXIT_ERROR</a>;                   \</td></tr>
+<tr name="314" id="314">
+<td><a id="l314" class='ln'>314</a></td><td>                                      <span class="br">}</span>                                                                                           </td></tr>
+<tr name="315" id="315">
+<td><a id="l315" class='ln'>315</a></td><td></td></tr>
+<tr name="316" id="316">
+<td><a id="l316" class='ln'>316</a></td><td><span class="kw">static</span> <span class="kw">void</span> <a id="316c13" class="tk">xilReadCommandCode</a>(<span class="kw">void</span>) <span class="br">{</span></td></tr>
+<tr name="317" id="317">
+<td><a id="l317" class='ln'>317</a></td><td>    <a id="317c5" class="tk">MemUnit_T</a> <a id="317c15" class="tk">commandCode</a>;    </td></tr>
+<tr name="318" id="318">
+<td><a id="l318" class='ln'>318</a></td><td>    <span class="kw">if</span> (<a id="318c9" class="tk">cc</a>.<a id="318c12" class="tk">state</a><a id="318c17" class="tk">==</a><a id="318c19" class="tk">XIL_READ_COMMAND_CODE</a>) <span class="br">{</span></td></tr>
+<tr name="319" id="319">
+<td><a id="l319" class='ln'>319</a></td><td>        <span class="ct">/* read commandCode */</span></td></tr>
+<tr name="320" id="320">
+<td><a id="l320" class='ln'>320</a></td><td></td></tr>
+<tr name="321" id="321">
+<td><a id="l321" class='ln'>321</a></td><td>        <a id="321c9" class="tk">xilReadData</a>(<a id="321c21" class="tk">&amp;</a>(<a id="321c23" class="tk">commandCode</a>), <a id="321c37" class="tk">XIL_COMMAND_TYPE_SIZE</a>);</td></tr>
+<tr name="322" id="322">
+<td><a id="l322" class='ln'>322</a></td><td></td></tr>
+<tr name="323" id="323">
+<td><a id="l323" class='ln'>323</a></td><td>        <span class="ct">/* cast from the MemUnit commandCode to the enumeration commandCode */</span></td></tr>
+<tr name="324" id="324">
+<td><a id="l324" class='ln'>324</a></td><td>        <a id="324c9" class="tk">cc</a>.<a id="324c12" class="tk">command</a> = (<a id="324c23" class="tk">XIL_COMMAND_TYPE_ENUM</a>) <a id="324c46" class="tk">commandCode</a>;</td></tr>
+<tr name="325" id="325">
+<td><a id="l325" class='ln'>325</a></td><td>            </td></tr>
+<tr name="326" id="326">
+<td><a id="l326" class='ln'>326</a></td><td>        <span class="kw">if</span> (<a id="326c13" class="tk">cc</a>.<a id="326c16" class="tk">command</a> <a id="326c24" class="tk">==</a> <a id="326c27" class="tk">XIL_SHUTDOWN_COMMAND</a>) <span class="br">{</span></td></tr>
+<tr name="327" id="327">
+<td><a id="l327" class='ln'>327</a></td><td>			<span class="ct">/* Terminate this process when XIL simulation is complete */</span></td></tr>
+<tr name="328" id="328">
+<td><a id="l328" class='ln'>328</a></td><td>            <a id="328c13" class="tk">isShutdownCommand</a> = 1;             </td></tr>
+<tr name="329" id="329">
+<td><a id="l329" class='ln'>329</a></td><td>            <span class="kw">if</span> (<a id="329c17" class="tk">finalizeCommandResponse</a>(<a id="329c41" class="tk">XIL_RESPONSE_ERROR_TERMINATE</a>, 1) <a id="329c74" class="tk">!=</a> <a id="329c77" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="330" id="330">
+<td><a id="l330" class='ln'>330</a></td><td>                <a id="330c17" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="331" id="331">
+<td><a id="l331" class='ln'>331</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="332" id="332">
+<td><a id="l332" class='ln'>332</a></td><td>            <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="333" id="333">
+<td><a id="l333" class='ln'>333</a></td><td>                <a id="333c17" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="334" id="334">
+<td><a id="l334" class='ln'>334</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="335" id="335">
+<td><a id="l335" class='ln'>335</a></td><td>        <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="336" id="336">
+<td><a id="l336" class='ln'>336</a></td><td>            <span class="ct">/* compute next state */</span></td></tr>
+<tr name="337" id="337">
+<td><a id="l337" class='ln'>337</a></td><td>            <a id="337c13" class="tk">cc</a>.<a id="337c16" class="tk">state</a> = <a id="337c24" class="tk">computeNextState</a>(<a id="337c41" class="tk">cc</a>.<a id="337c44" class="tk">state</a>, <a id="337c51" class="tk">cc</a>.<a id="337c54" class="tk">command</a>);</td></tr>
+<tr name="338" id="338">
+<td><a id="l338" class='ln'>338</a></td><td>            <a id="338c13" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a>;</td></tr>
+<tr name="339" id="339">
+<td><a id="l339" class='ln'>339</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="340" id="340">
+<td><a id="l340" class='ln'>340</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="341" id="341">
+<td><a id="l341" class='ln'>341</a></td><td><span class="br">}</span></td></tr>
+<tr name="342" id="342">
+<td><a id="l342" class='ln'>342</a></td><td>                           </td></tr>
+<tr name="343" id="343">
+<td><a id="l343" class='ln'>343</a></td><td><span class="kw">void</span> <a id="343c6" class="tk">xilProcessMsg</a>(<span class="kw">void</span>) <span class="br">{</span> </td></tr>
+<tr name="344" id="344">
+<td><a id="l344" class='ln'>344</a></td><td>    <span class="ct">/* read commandCode */</span></td></tr>
+<tr name="345" id="345">
+<td><a id="l345" class='ln'>345</a></td><td>    <a id="345c5" class="tk">xilReadCommandCode</a>();</td></tr>
+<tr name="346" id="346">
+<td><a id="l346" class='ln'>346</a></td><td>    </td></tr>
+<tr name="347" id="347">
+<td><a id="l347" class='ln'>347</a></td><td>    <span class="kw">if</span> (<a id="347c9" class="tk">cc</a>.<a id="347c12" class="tk">state</a><a id="347c17" class="tk">==</a><a id="347c19" class="tk">XIL_READ_FCNID</a>) <span class="br">{</span></td></tr>
+<tr name="348" id="348">
+<td><a id="l348" class='ln'>348</a></td><td>        <span class="ct">/* read fcnId */</span></td></tr>
+<tr name="349" id="349">
+<td><a id="l349" class='ln'>349</a></td><td><span class="pp">#ifdef</span> <a id="349c8" class="tk">HOST_BIG_ENDIAN_PROTOCOL_TESTING</a></td></tr>
+<tr name="350" id="350">
+<td><a id="l350" class='ln'>350</a></td><td>        <a id="350c9" class="tk">xilReadDataAndSwapBytes</a>(((<a id="350c35" class="tk">MemUnit_T</a><a id="350c44" class="tk">*</a>)<a id="350c46" class="tk">&amp;</a>(<a id="350c48" class="tk">cc</a>.<a id="350c51" class="tk">fcnId</a>)), <a id="350c60" class="tk">XIL_COMMAND_FCNID_SIZE</a>);</td></tr>
+<tr name="351" id="351">
+<td><a id="l351" class='ln'>351</a></td><td><span class="pp">#else</span></td></tr>
+<tr name="352" id="352">
+<td><a id="l352" class='ln'>352</a></td><td>        <a id="352c9" class="tk">xilReadData</a>(((<a id="352c23" class="tk">MemUnit_T</a><a id="352c32" class="tk">*</a>)<a id="352c34" class="tk">&amp;</a>(<a id="352c36" class="tk">cc</a>.<a id="352c39" class="tk">fcnId</a>)), <a id="352c48" class="tk">XIL_COMMAND_FCNID_SIZE</a>);</td></tr>
+<tr name="353" id="353">
+<td><a id="l353" class='ln'>353</a></td><td><span class="pp">#endif</span> <span class="ct">/*HOST_BIG_ENDIAN_PROTOCOL_TESTING*/</span></td></tr>
+<tr name="354" id="354">
+<td><a id="l354" class='ln'>354</a></td><td>        </td></tr>
+<tr name="355" id="355">
+<td><a id="l355" class='ln'>355</a></td><td></td></tr>
+<tr name="356" id="356">
+<td><a id="l356" class='ln'>356</a></td><td>            </td></tr>
+<tr name="357" id="357">
+<td><a id="l357" class='ln'>357</a></td><td>        <span class="ct">/* compute next state */</span></td></tr>
+<tr name="358" id="358">
+<td><a id="l358" class='ln'>358</a></td><td>        <a id="358c9" class="tk">cc</a>.<a id="358c12" class="tk">state</a> = <a id="358c20" class="tk">computeNextState</a>(<a id="358c37" class="tk">cc</a>.<a id="358c40" class="tk">state</a>, <a id="358c47" class="tk">cc</a>.<a id="358c50" class="tk">command</a>);</td></tr>
+<tr name="359" id="359">
+<td><a id="l359" class='ln'>359</a></td><td>        <a id="359c9" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a>;</td></tr>
+<tr name="360" id="360">
+<td><a id="l360" class='ln'>360</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="361" id="361">
+<td><a id="l361" class='ln'>361</a></td><td>        </td></tr>
+<tr name="362" id="362">
+<td><a id="l362" class='ln'>362</a></td><td>        </td></tr>
+<tr name="363" id="363">
+<td><a id="l363" class='ln'>363</a></td><td>    <span class="kw">if</span> (<a id="363c9" class="tk">cc</a>.<a id="363c12" class="tk">state</a><a id="363c17" class="tk">==</a><a id="363c19" class="tk">XIL_READ_XILTID</a>) <span class="br">{</span></td></tr>
+<tr name="364" id="364">
+<td><a id="l364" class='ln'>364</a></td><td>        <span class="ct">/* read commandIdx */</span></td></tr>
+<tr name="365" id="365">
+<td><a id="l365" class='ln'>365</a></td><td>        </td></tr>
+<tr name="366" id="366">
+<td><a id="l366" class='ln'>366</a></td><td><span class="pp">#ifdef</span> <a id="366c8" class="tk">HOST_BIG_ENDIAN_PROTOCOL_TESTING</a></td></tr>
+<tr name="367" id="367">
+<td><a id="l367" class='ln'>367</a></td><td>        <a id="367c9" class="tk">xilReadDataAndSwapBytes</a>(((<a id="367c35" class="tk">MemUnit_T</a><a id="367c44" class="tk">*</a>)<a id="367c46" class="tk">&amp;</a>(<a id="367c48" class="tk">cc</a>.<a id="367c51" class="tk">commandIdx</a>)), <a id="367c65" class="tk">XIL_COMMAND_XILTID_SIZE</a>);</td></tr>
+<tr name="368" id="368">
+<td><a id="l368" class='ln'>368</a></td><td><span class="pp">#else</span></td></tr>
+<tr name="369" id="369">
+<td><a id="l369" class='ln'>369</a></td><td>        <a id="369c9" class="tk">xilReadData</a>(((<a id="369c23" class="tk">MemUnit_T</a><a id="369c32" class="tk">*</a>)<a id="369c34" class="tk">&amp;</a>(<a id="369c36" class="tk">cc</a>.<a id="369c39" class="tk">commandIdx</a>)), <a id="369c53" class="tk">XIL_COMMAND_XILTID_SIZE</a>);</td></tr>
+<tr name="370" id="370">
+<td><a id="l370" class='ln'>370</a></td><td><span class="pp">#endif</span> <span class="ct">/*HOST_BIG_ENDIAN_PROTOCOL_TESTING*/</span></td></tr>
+<tr name="371" id="371">
+<td><a id="l371" class='ln'>371</a></td><td></td></tr>
+<tr name="372" id="372">
+<td><a id="l372" class='ln'>372</a></td><td>        <span class="ct">/* compute next state */</span></td></tr>
+<tr name="373" id="373">
+<td><a id="l373" class='ln'>373</a></td><td>        <a id="373c9" class="tk">cc</a>.<a id="373c12" class="tk">state</a> = <a id="373c20" class="tk">computeNextState</a>(<a id="373c37" class="tk">cc</a>.<a id="373c40" class="tk">state</a>, <a id="373c47" class="tk">cc</a>.<a id="373c50" class="tk">command</a>);</td></tr>
+<tr name="374" id="374">
+<td><a id="l374" class='ln'>374</a></td><td>            <a id="374c13" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a>;</td></tr>
+<tr name="375" id="375">
+<td><a id="l375" class='ln'>375</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="376" id="376">
+<td><a id="l376" class='ln'>376</a></td><td>        </td></tr>
+<tr name="377" id="377">
+<td><a id="l377" class='ln'>377</a></td><td>    <span class="kw">if</span> (<a id="377c9" class="tk">cc</a>.<a id="377c12" class="tk">state</a> <a id="377c18" class="tk">==</a> <a id="377c21" class="tk">XIL_PROCESS_HOST_TO_TARGET_DATA</a>) <span class="br">{</span></td></tr>
+<tr name="378" id="378">
+<td><a id="l378" class='ln'>378</a></td><td>        <span class="ct">/* process inputs if required by command */</span></td></tr>
+<tr name="379" id="379">
+<td><a id="l379" class='ln'>379</a></td><td>        <a id="379c9" class="tk">XIL_PROCESSDATA_ERROR_CODE</a> <a id="379c36" class="tk">processDataError</a>;</td></tr>
+<tr name="380" id="380">
+<td><a id="l380" class='ln'>380</a></td><td>        <span class="ct">/* process data from host */</span></td></tr>
+<tr name="381" id="381">
+<td><a id="l381" class='ln'>381</a></td><td>        <a id="381c9" class="tk">processDataError</a> = <a id="381c28" class="tk">processHostToTargetData</a>(<a id="381c52" class="tk">cc</a>.<a id="381c55" class="tk">fcnId</a>, <a id="381c62" class="tk">cc</a>.<a id="381c65" class="tk">command</a>, <a id="381c74" class="tk">cc</a>.<a id="381c77" class="tk">commandIdx</a>);</td></tr>
+<tr name="382" id="382">
+<td><a id="l382" class='ln'>382</a></td><td>        <span class="kw">if</span> (<a id="382c13" class="tk">processDataError</a> <a id="382c30" class="tk">==</a> <a id="382c33" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>) <span class="br">{</span></td></tr>
+<tr name="383" id="383">
+<td><a id="l383" class='ln'>383</a></td><td>            <a id="383c13" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="384" id="384">
+<td><a id="l384" class='ln'>384</a></td><td>        <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="384c20" class="tk">processDataError</a> <a id="384c37" class="tk">!=</a> <a id="384c40" class="tk">XIL_PROCESSDATA_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="385" id="385">
+<td><a id="l385" class='ln'>385</a></td><td>            <span class="kw">if</span> (<a id="385c17" class="tk">finalizeCommandResponse</a>(<a id="385c41" class="tk">XIL_RESPONSE_ERROR_PROCESS_UDATA</a>, 1) <a id="385c78" class="tk">!=</a> <a id="385c81" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="386" id="386">
+<td><a id="l386" class='ln'>386</a></td><td>                <a id="386c17" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="387" id="387">
+<td><a id="l387" class='ln'>387</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="388" id="388">
+<td><a id="l388" class='ln'>388</a></td><td>            <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="389" id="389">
+<td><a id="l389" class='ln'>389</a></td><td>                <a id="389c17" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="390" id="390">
+<td><a id="l390" class='ln'>390</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="391" id="391">
+<td><a id="l391" class='ln'>391</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="392" id="392">
+<td><a id="l392" class='ln'>392</a></td><td>            </td></tr>
+<tr name="393" id="393">
+<td><a id="l393" class='ln'>393</a></td><td>        <span class="ct">/* compute next state */</span></td></tr>
+<tr name="394" id="394">
+<td><a id="l394" class='ln'>394</a></td><td>        <a id="394c9" class="tk">cc</a>.<a id="394c12" class="tk">state</a> = <a id="394c20" class="tk">computeNextState</a>(<a id="394c37" class="tk">cc</a>.<a id="394c40" class="tk">state</a>, <a id="394c47" class="tk">cc</a>.<a id="394c50" class="tk">command</a>);</td></tr>
+<tr name="395" id="395">
+<td><a id="l395" class='ln'>395</a></td><td>            <a id="395c13" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a></td></tr>
+<tr name="396" id="396">
+<td><a id="l396" class='ln'>396</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="397" id="397">
+<td><a id="l397" class='ln'>397</a></td><td>        </td></tr>
+<tr name="398" id="398">
+<td><a id="l398" class='ln'>398</a></td><td>    <span class="kw">if</span> (<a id="398c9" class="tk">cc</a>.<a id="398c12" class="tk">state</a> <a id="398c18" class="tk">==</a> <a id="398c21" class="tk">XIL_CALL_XILINTERFACE</a>) <span class="br">{</span></td></tr>
+<tr name="399" id="399">
+<td><a id="l399" class='ln'>399</a></td><td>        <span class="ct">/* call xilInterface function */</span></td></tr>
+<tr name="400" id="400">
+<td><a id="l400" class='ln'>400</a></td><td>        <span class="kw">switch</span>(<a id="400c16" class="tk">cc</a>.<a id="400c19" class="tk">command</a>) <span class="br">{</span></td></tr>
+<tr name="401" id="401">
+<td><a id="l401" class='ln'>401</a></td><td><span class="pp">#ifndef</span> <a id="401c9" class="tk">OUT_OF_PROCESS_EXEC</a></td></tr>
+<tr name="402" id="402">
+<td><a id="l402" class='ln'>402</a></td><td>            <span class="kw">case</span> <a id="402c18" class="tk">XIL_INIT_COMMAND</a><a id="402c34" class="tk">:</a></td></tr>
+<tr name="403" id="403">
+<td><a id="l403" class='ln'>403</a></td><td>            <span class="br">{</span></td></tr>
+<tr name="404" id="404">
+<td><a id="l404" class='ln'>404</a></td><td><span class="pp">#if</span> <a id="404c5" class="tk">CODER_ASSUMPTIONS_ENABLED</a> <a id="404c31" class="tk">==</a> 1</td></tr>
+<tr name="405" id="405">
+<td><a id="l405" class='ln'>405</a></td><td>                <span class="ct">/* run validation of coder assumptions */</span></td></tr>
+<tr name="406" id="406">
+<td><a id="l406" class='ln'>406</a></td><td>                <span class="kw">if</span> (<a id="406c21" class="tk">coderAssumptionsRun</a>() <a id="406c43" class="tk">!=</a> <a id="406c46" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="407" id="407">
+<td><a id="l407" class='ln'>407</a></td><td>                    <a id="407c21" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="408" id="408">
+<td><a id="l408" class='ln'>408</a></td><td>                <span class="br">}</span> </td></tr>
+<tr name="409" id="409">
+<td><a id="l409" class='ln'>409</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="410" id="410">
+<td><a id="l410" class='ln'>410</a></td><td>                <span class="kw">if</span> (<a id="410c21" class="tk">xilGetDataTypeInfo</a>() <a id="410c42" class="tk">!=</a> <a id="410c45" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="411" id="411">
+<td><a id="l411" class='ln'>411</a></td><td>                    <a id="411c21" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="412" id="412">
+<td><a id="l412" class='ln'>412</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="413" id="413">
+<td><a id="l413" class='ln'>413</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="414" id="414">
+<td><a id="l414" class='ln'>414</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="415" id="415">
+<td><a id="l415" class='ln'>415</a></td><td>            <span class="kw">case</span> <a id="415c18" class="tk">XIL_CONST_OUTPUT_COMMAND</a><a id="415c42" class="tk">:</a></td></tr>
+<tr name="416" id="416">
+<td><a id="l416" class='ln'>416</a></td><td>                <span class="ct">/* no function */</span></td></tr>
+<tr name="417" id="417">
+<td><a id="l417" class='ln'>417</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="418" id="418">
+<td><a id="l418" class='ln'>418</a></td><td>            <span class="kw">case</span> <a id="418c18" class="tk">XIL_PROCESS_PARAMS_COMMAND</a><a id="418c44" class="tk">:</a></td></tr>
+<tr name="419" id="419">
+<td><a id="l419" class='ln'>419</a></td><td>                <span class="kw">if</span> (<a id="419c21" class="tk">xilProcessParams</a>(<a id="419c38" class="tk">cc</a>.<a id="419c41" class="tk">fcnId</a>) <a id="419c48" class="tk">!=</a> <a id="419c51" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="420" id="420">
+<td><a id="l420" class='ln'>420</a></td><td>                    <span class="kw">if</span> (<a id="420c25" class="tk">finalizeCommandResponse</a>(<a id="420c49" class="tk">XIL_RESPONSE_ERROR_PROCESS_PARAMS</a>, 1) <a id="420c87" class="tk">!=</a> <a id="420c90" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="421" id="421">
+<td><a id="l421" class='ln'>421</a></td><td>                        <a id="421c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="422" id="422">
+<td><a id="l422" class='ln'>422</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="423" id="423">
+<td><a id="l423" class='ln'>423</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="424" id="424">
+<td><a id="l424" class='ln'>424</a></td><td>                        <a id="424c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="425" id="425">
+<td><a id="l425" class='ln'>425</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="426" id="426">
+<td><a id="l426" class='ln'>426</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="427" id="427">
+<td><a id="l427" class='ln'>427</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="428" id="428">
+<td><a id="l428" class='ln'>428</a></td><td>            <span class="kw">case</span> <a id="428c18" class="tk">XIL_INITIALIZE_COMMAND</a><a id="428c40" class="tk">:</a></td></tr>
+<tr name="429" id="429">
+<td><a id="l429" class='ln'>429</a></td><td>                <span class="kw">if</span> (<a id="429c21" class="tk">xilInitialize</a>(<a id="429c35" class="tk">cc</a>.<a id="429c38" class="tk">fcnId</a>) <a id="429c45" class="tk">!=</a> <a id="429c48" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="430" id="430">
+<td><a id="l430" class='ln'>430</a></td><td>                    <span class="kw">if</span> (<a id="430c25" class="tk">finalizeCommandResponse</a>(<a id="430c49" class="tk">XIL_RESPONSE_ERROR_INITIALIZE</a>, 1) <a id="430c83" class="tk">!=</a> <a id="430c86" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="431" id="431">
+<td><a id="l431" class='ln'>431</a></td><td>                        <a id="431c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="432" id="432">
+<td><a id="l432" class='ln'>432</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="433" id="433">
+<td><a id="l433" class='ln'>433</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="434" id="434">
+<td><a id="l434" class='ln'>434</a></td><td>                        <a id="434c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="435" id="435">
+<td><a id="l435" class='ln'>435</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="436" id="436">
+<td><a id="l436" class='ln'>436</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="437" id="437">
+<td><a id="l437" class='ln'>437</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="438" id="438">
+<td><a id="l438" class='ln'>438</a></td><td>            <span class="kw">case</span> <a id="438c18" class="tk">XIL_PAUSE_COMMAND</a><a id="438c35" class="tk">:</a></td></tr>
+<tr name="439" id="439">
+<td><a id="l439" class='ln'>439</a></td><td>                <span class="kw">if</span> (<a id="439c21" class="tk">xilPause</a>(<a id="439c30" class="tk">cc</a>.<a id="439c33" class="tk">fcnId</a>) <a id="439c40" class="tk">!=</a> <a id="439c43" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="440" id="440">
+<td><a id="l440" class='ln'>440</a></td><td>                    <span class="kw">if</span> (<a id="440c25" class="tk">finalizeCommandResponse</a>(<a id="440c49" class="tk">XIL_RESPONSE_ERROR_INITIALIZE</a>, 1) <a id="440c83" class="tk">!=</a> <a id="440c86" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="441" id="441">
+<td><a id="l441" class='ln'>441</a></td><td>                        <a id="441c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="442" id="442">
+<td><a id="l442" class='ln'>442</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="443" id="443">
+<td><a id="l443" class='ln'>443</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="444" id="444">
+<td><a id="l444" class='ln'>444</a></td><td>                        <a id="444c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="445" id="445">
+<td><a id="l445" class='ln'>445</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="446" id="446">
+<td><a id="l446" class='ln'>446</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="447" id="447">
+<td><a id="l447" class='ln'>447</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="448" id="448">
+<td><a id="l448" class='ln'>448</a></td><td>            <span class="kw">case</span> <a id="448c18" class="tk">XIL_SYSTEM_INITIALIZE_COMMAND</a><a id="448c47" class="tk">:</a></td></tr>
+<tr name="449" id="449">
+<td><a id="l449" class='ln'>449</a></td><td>                <span class="kw">if</span> (<a id="449c21" class="tk">xilSystemInitialize</a>(<a id="449c41" class="tk">cc</a>.<a id="449c44" class="tk">fcnId</a>) <a id="449c51" class="tk">!=</a> <a id="449c54" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="450" id="450">
+<td><a id="l450" class='ln'>450</a></td><td>                    <span class="kw">if</span> (<a id="450c25" class="tk">finalizeCommandResponse</a>(<a id="450c49" class="tk">XIL_RESPONSE_ERROR_SYSTEM_INITIALIZE</a>, 1) <a id="450c90" class="tk">!=</a> <a id="450c93" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="451" id="451">
+<td><a id="l451" class='ln'>451</a></td><td>                        <a id="451c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="452" id="452">
+<td><a id="l452" class='ln'>452</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="453" id="453">
+<td><a id="l453" class='ln'>453</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="454" id="454">
+<td><a id="l454" class='ln'>454</a></td><td>                        <a id="454c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="455" id="455">
+<td><a id="l455" class='ln'>455</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="456" id="456">
+<td><a id="l456" class='ln'>456</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="457" id="457">
+<td><a id="l457" class='ln'>457</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="458" id="458">
+<td><a id="l458" class='ln'>458</a></td><td>            <span class="kw">case</span> <a id="458c18" class="tk">XIL_TERMINATE_COMMAND</a><a id="458c39" class="tk">:</a></td></tr>
+<tr name="459" id="459">
+<td><a id="l459" class='ln'>459</a></td><td>                <span class="kw">if</span> (<a id="459c21" class="tk">xilTerminate</a>(<a id="459c34" class="tk">cc</a>.<a id="459c37" class="tk">fcnId</a>) <a id="459c44" class="tk">!=</a> <a id="459c47" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="460" id="460">
+<td><a id="l460" class='ln'>460</a></td><td>                    <span class="kw">if</span> (<a id="460c25" class="tk">finalizeCommandResponse</a>(<a id="460c49" class="tk">XIL_RESPONSE_ERROR_TERMINATE</a>, 1) <a id="460c82" class="tk">!=</a> <a id="460c85" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="461" id="461">
+<td><a id="l461" class='ln'>461</a></td><td>                        <a id="461c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="462" id="462">
+<td><a id="l462" class='ln'>462</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="463" id="463">
+<td><a id="l463" class='ln'>463</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="464" id="464">
+<td><a id="l464" class='ln'>464</a></td><td>                        <a id="464c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="465" id="465">
+<td><a id="l465" class='ln'>465</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="466" id="466">
+<td><a id="l466" class='ln'>466</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="467" id="467">
+<td><a id="l467" class='ln'>467</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="468" id="468">
+<td><a id="l468" class='ln'>468</a></td><td>            <span class="kw">case</span> <a id="468c18" class="tk">XIL_ENABLE_COMMAND</a><a id="468c36" class="tk">:</a></td></tr>
+<tr name="469" id="469">
+<td><a id="l469" class='ln'>469</a></td><td>                <span class="kw">if</span> (<a id="469c21" class="tk">xilEnable</a>(<a id="469c31" class="tk">cc</a>.<a id="469c34" class="tk">fcnId</a>, <a id="469c41" class="tk">cc</a>.<a id="469c44" class="tk">commandIdx</a>) <a id="469c56" class="tk">!=</a> <a id="469c59" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="470" id="470">
+<td><a id="l470" class='ln'>470</a></td><td>                    <span class="kw">if</span> (<a id="470c25" class="tk">finalizeCommandResponse</a>(<a id="470c49" class="tk">XIL_RESPONSE_ERROR_ENABLE</a>, 1) <a id="470c79" class="tk">!=</a> <a id="470c82" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="471" id="471">
+<td><a id="l471" class='ln'>471</a></td><td>                        <a id="471c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="472" id="472">
+<td><a id="l472" class='ln'>472</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="473" id="473">
+<td><a id="l473" class='ln'>473</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="474" id="474">
+<td><a id="l474" class='ln'>474</a></td><td>                        <a id="474c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="475" id="475">
+<td><a id="l475" class='ln'>475</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="476" id="476">
+<td><a id="l476" class='ln'>476</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="477" id="477">
+<td><a id="l477" class='ln'>477</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="478" id="478">
+<td><a id="l478" class='ln'>478</a></td><td>            <span class="kw">case</span> <a id="478c18" class="tk">XIL_DISABLE_COMMAND</a><a id="478c37" class="tk">:</a></td></tr>
+<tr name="479" id="479">
+<td><a id="l479" class='ln'>479</a></td><td>                <span class="kw">if</span> (<a id="479c21" class="tk">xilDisable</a>(<a id="479c32" class="tk">cc</a>.<a id="479c35" class="tk">fcnId</a>, <a id="479c42" class="tk">cc</a>.<a id="479c45" class="tk">commandIdx</a>) <a id="479c57" class="tk">!=</a> <a id="479c60" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="480" id="480">
+<td><a id="l480" class='ln'>480</a></td><td>                    <span class="kw">if</span> (<a id="480c25" class="tk">finalizeCommandResponse</a>(<a id="480c49" class="tk">XIL_RESPONSE_ERROR_DISABLE</a>, 1) <a id="480c80" class="tk">!=</a> <a id="480c83" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="481" id="481">
+<td><a id="l481" class='ln'>481</a></td><td>                        <a id="481c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="482" id="482">
+<td><a id="l482" class='ln'>482</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="483" id="483">
+<td><a id="l483" class='ln'>483</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="484" id="484">
+<td><a id="l484" class='ln'>484</a></td><td>                        <a id="484c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="485" id="485">
+<td><a id="l485" class='ln'>485</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="486" id="486">
+<td><a id="l486" class='ln'>486</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="487" id="487">
+<td><a id="l487" class='ln'>487</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="488" id="488">
+<td><a id="l488" class='ln'>488</a></td><td>            <span class="kw">case</span> <a id="488c18" class="tk">XIL_UPDATE_COMMAND</a><a id="488c36" class="tk">:</a></td></tr>
+<tr name="489" id="489">
+<td><a id="l489" class='ln'>489</a></td><td>                <span class="kw">if</span> (<a id="489c21" class="tk">xilUpdate</a>(<a id="489c31" class="tk">cc</a>.<a id="489c34" class="tk">fcnId</a>, <a id="489c41" class="tk">cc</a>.<a id="489c44" class="tk">commandIdx</a>) <a id="489c56" class="tk">!=</a> <a id="489c59" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="490" id="490">
+<td><a id="l490" class='ln'>490</a></td><td>                    <span class="kw">if</span> (<a id="490c25" class="tk">finalizeCommandResponse</a>(<a id="490c49" class="tk">XIL_RESPONSE_ERROR_UPDATE</a>, 1) <a id="490c79" class="tk">!=</a> <a id="490c82" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="491" id="491">
+<td><a id="l491" class='ln'>491</a></td><td>                        <a id="491c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="492" id="492">
+<td><a id="l492" class='ln'>492</a></td><td>                    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="493" id="493">
+<td><a id="l493" class='ln'>493</a></td><td>                        <a id="493c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="494" id="494">
+<td><a id="l494" class='ln'>494</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="495" id="495">
+<td><a id="l495" class='ln'>495</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="496" id="496">
+<td><a id="l496" class='ln'>496</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="497" id="497">
+<td><a id="l497" class='ln'>497</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="498" id="498">
+<td><a id="l498" class='ln'>498</a></td><td>            <span class="kw">case</span> <a id="498c18" class="tk">XIL_OUTPUT_COMMAND</a><a id="498c36" class="tk">:</a></td></tr>
+<tr name="499" id="499">
+<td><a id="l499" class='ln'>499</a></td><td>                <span class="kw">if</span> (<a id="499c21" class="tk">xilOutput</a>(<a id="499c31" class="tk">cc</a>.<a id="499c34" class="tk">fcnId</a>, <a id="499c41" class="tk">cc</a>.<a id="499c44" class="tk">commandIdx</a>) <a id="499c56" class="tk">!=</a> <a id="499c59" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="500" id="500">
+<td><a id="l500" class='ln'>500</a></td><td>                    <span class="kw">if</span> (<a id="500c25" class="tk">finalizeCommandResponse</a>(<a id="500c49" class="tk">XIL_RESPONSE_ERROR_OUTPUT</a>, 1) <a id="500c79" class="tk">!=</a> <a id="500c82" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="501" id="501">
+<td><a id="l501" class='ln'>501</a></td><td>                        <a id="501c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="502" id="502">
+<td><a id="l502" class='ln'>502</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="503" id="503">
+<td><a id="l503" class='ln'>503</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="504" id="504">
+<td><a id="l504" class='ln'>504</a></td><td>                        <a id="504c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="505" id="505">
+<td><a id="l505" class='ln'>505</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="506" id="506">
+<td><a id="l506" class='ln'>506</a></td><td>                <span class="br">}</span></td></tr>
+<tr name="507" id="507">
+<td><a id="l507" class='ln'>507</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="508" id="508">
+<td><a id="l508" class='ln'>508</a></td><td><span class="pp">#ifndef</span> <a id="508c9" class="tk">OUT_OF_PROCESS_EXEC</a></td></tr>
+<tr name="509" id="509">
+<td><a id="l509" class='ln'>509</a></td><td>            <span class="kw">case</span> <a id="509c18" class="tk">XIL_SYSTEM_RESET_COMMAND</a><a id="509c42" class="tk">:</a></td></tr>
+<tr name="510" id="510">
+<td><a id="l510" class='ln'>510</a></td><td>                <span class="kw">if</span> (<a id="510c21" class="tk">xilSystemReset</a>(<a id="510c36" class="tk">cc</a>.<a id="510c39" class="tk">fcnId</a>) <a id="510c46" class="tk">!=</a> <a id="510c49" class="tk">XIL_INTERFACE_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="511" id="511">
+<td><a id="l511" class='ln'>511</a></td><td>                    <span class="kw">if</span> (<a id="511c25" class="tk">finalizeCommandResponse</a>(<a id="511c49" class="tk">XIL_RESPONSE_ERROR_SYSTEM_RESET</a>, 1) <a id="511c85" class="tk">!=</a> <a id="511c88" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="512" id="512">
+<td><a id="l512" class='ln'>512</a></td><td>                        <a id="512c25" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="513" id="513">
+<td><a id="l513" class='ln'>513</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="514" id="514">
+<td><a id="l514" class='ln'>514</a></td><td>                    <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="515" id="515">
+<td><a id="l515" class='ln'>515</a></td><td>                        <a id="515c25" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="516" id="516">
+<td><a id="l516" class='ln'>516</a></td><td>                    <span class="br">}</span></td></tr>
+<tr name="517" id="517">
+<td><a id="l517" class='ln'>517</a></td><td>                <span class="br">}</span>                     </td></tr>
+<tr name="518" id="518">
+<td><a id="l518" class='ln'>518</a></td><td>                <span class="kw">break</span>;</td></tr>
+<tr name="519" id="519">
+<td><a id="l519" class='ln'>519</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="520" id="520">
+<td><a id="l520" class='ln'>520</a></td><td>            <span class="kw">default</span><a id="520c20" class="tk">:</a></td></tr>
+<tr name="521" id="521">
+<td><a id="l521" class='ln'>521</a></td><td>                <a id="521c17" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="522" id="522">
+<td><a id="l522" class='ln'>522</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="523" id="523">
+<td><a id="l523" class='ln'>523</a></td><td>        <span class="ct">/* compute next state */</span></td></tr>
+<tr name="524" id="524">
+<td><a id="l524" class='ln'>524</a></td><td>        <a id="524c9" class="tk">cc</a>.<a id="524c12" class="tk">state</a> = <a id="524c20" class="tk">computeNextState</a>(<a id="524c37" class="tk">cc</a>.<a id="524c40" class="tk">state</a>, <a id="524c47" class="tk">cc</a>.<a id="524c50" class="tk">command</a>);</td></tr>
+<tr name="525" id="525">
+<td><a id="l525" class='ln'>525</a></td><td>        <a id="525c9" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a>;</td></tr>
+<tr name="526" id="526">
+<td><a id="l526" class='ln'>526</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="527" id="527">
+<td><a id="l527" class='ln'>527</a></td><td>    <span class="kw">if</span> (<a id="527c9" class="tk">cc</a>.<a id="527c12" class="tk">state</a> <a id="527c18" class="tk">==</a> <a id="527c21" class="tk">XIL_PROCESS_TARGET_TO_HOST_DATA</a>) <span class="br">{</span></td></tr>
+<tr name="528" id="528">
+<td><a id="l528" class='ln'>528</a></td><td>        <a id="528c9" class="tk">XIL_PROCESSDATA_ERROR_CODE</a> <a id="528c36" class="tk">processDataError</a>;</td></tr>
+<tr name="529" id="529">
+<td><a id="l529" class='ln'>529</a></td><td>        <span class="ct">/* process data from target */</span></td></tr>
+<tr name="530" id="530">
+<td><a id="l530" class='ln'>530</a></td><td>        <a id="530c9" class="tk">processDataError</a> = <a id="530c28" class="tk">processTargetToHostData</a>(<a id="530c52" class="tk">cc</a>.<a id="530c55" class="tk">fcnId</a>, <a id="530c62" class="tk">XIL_RESPONSE_OUTPUT_DATA</a>, <a id="530c88" class="tk">cc</a>.<a id="530c91" class="tk">command</a>, <a id="530c100" class="tk">cc</a>.<a id="530c103" class="tk">commandIdx</a>);</td></tr>
+<tr name="531" id="531">
+<td><a id="l531" class='ln'>531</a></td><td>        <span class="kw">if</span> (<a id="531c13" class="tk">processDataError</a> <a id="531c30" class="tk">==</a> <a id="531c33" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>) <span class="br">{</span></td></tr>
+<tr name="532" id="532">
+<td><a id="l532" class='ln'>532</a></td><td>            <a id="532c13" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="533" id="533">
+<td><a id="l533" class='ln'>533</a></td><td>        <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="533c20" class="tk">processDataError</a> <a id="533c37" class="tk">!=</a> <a id="533c40" class="tk">XIL_PROCESSDATA_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="534" id="534">
+<td><a id="l534" class='ln'>534</a></td><td>            <span class="kw">if</span> (<a id="534c17" class="tk">finalizeCommandResponse</a>(<a id="534c41" class="tk">XIL_RESPONSE_ERROR_PROCESS_YDATA</a>, 1) <a id="534c78" class="tk">!=</a> <a id="534c81" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="535" id="535">
+<td><a id="l535" class='ln'>535</a></td><td>                <a id="535c17" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="536" id="536">
+<td><a id="l536" class='ln'>536</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="537" id="537">
+<td><a id="l537" class='ln'>537</a></td><td>            <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="538" id="538">
+<td><a id="l538" class='ln'>538</a></td><td>                <a id="538c17" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="539" id="539">
+<td><a id="l539" class='ln'>539</a></td><td>            <span class="br">}</span></td></tr>
+<tr name="540" id="540">
+<td><a id="l540" class='ln'>540</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="541" id="541">
+<td><a id="l541" class='ln'>541</a></td><td>        <span class="ct">/* compute next state */</span></td></tr>
+<tr name="542" id="542">
+<td><a id="l542" class='ln'>542</a></td><td>        <a id="542c9" class="tk">cc</a>.<a id="542c12" class="tk">state</a> = <a id="542c20" class="tk">computeNextState</a>(<a id="542c37" class="tk">cc</a>.<a id="542c40" class="tk">state</a>, <a id="542c47" class="tk">cc</a>.<a id="542c50" class="tk">command</a>);</td></tr>
+<tr name="543" id="543">
+<td><a id="l543" class='ln'>543</a></td><td>        <a id="543c9" class="tk">XIL_EXIT_ERROR_IF_INVALID_STATE</a>;</td></tr>
+<tr name="544" id="544">
+<td><a id="l544" class='ln'>544</a></td><td>        <span class="ct">/*break;*/</span></td></tr>
+<tr name="545" id="545">
+<td><a id="l545" class='ln'>545</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="546" id="546">
+<td><a id="l546" class='ln'>546</a></td><td>        </td></tr>
+<tr name="547" id="547">
+<td><a id="l547" class='ln'>547</a></td><td></td></tr>
+<tr name="548" id="548">
+<td><a id="l548" class='ln'>548</a></td><td><span class="pp">#ifdef</span> <a id="548c8" class="tk">LDRA_ENABLED</a></td></tr>
+<tr name="549" id="549">
+<td><a id="l549" class='ln'>549</a></td><td>    <span class="ct">/* upload code coverage execution history from target*/</span></td></tr>
+<tr name="550" id="550">
+<td><a id="l550" class='ln'>550</a></td><td>    <span class="kw">if</span> (<a id="550c9" class="tk">cc</a>.<a id="550c12" class="tk">command</a> <a id="550c20" class="tk">==</a> <a id="550c23" class="tk">XIL_TERMINATE_COMMAND</a>) <span class="br">{</span></td></tr>
+<tr name="551" id="551">
+<td><a id="l551" class='ln'>551</a></td><td>        <a id="551c9" class="tk">callTargetUploadFcns</a>();</td></tr>
+<tr name="552" id="552">
+<td><a id="l552" class='ln'>552</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="553" id="553">
+<td><a id="l553" class='ln'>553</a></td><td><span class="pp">#endif</span> <span class="ct">/* LDRA_ENABLED */</span></td></tr>
+<tr name="554" id="554">
+<td><a id="l554" class='ln'>554</a></td><td>                </td></tr>
+<tr name="555" id="555">
+<td><a id="l555" class='ln'>555</a></td><td>    <span class="ct">/* client/server commands could be executed in the middle of a step */</span></td></tr>
+<tr name="556" id="556">
+<td><a id="l556" class='ln'>556</a></td><td>    <span class="kw">if</span> ((<a id="556c10" class="tk">cc</a>.<a id="556c13" class="tk">state</a> <a id="556c19" class="tk">==</a> <a id="556c22" class="tk">XIL_COMPLETE</a>) <a id="556c36" class="tk">&amp;&amp;</a> (<a id="556c40" class="tk">cc</a>.<a id="556c43" class="tk">command</a> <a id="556c51" class="tk">!=</a> <a id="556c54" class="tk">XIL_CLIENT_SERVER_COMMAND</a>)) <span class="br">{</span> </td></tr>
+<tr name="557" id="557">
+<td><a id="l557" class='ln'>557</a></td><td>        <span class="ct">/* finalize the response */</span></td></tr>
+<tr name="558" id="558">
+<td><a id="l558" class='ln'>558</a></td><td>        <a id="558c9" class="tk">MemUnit_T</a> <a id="558c19" class="tk">isEndOfXILStep</a> = 1;</td></tr>
+<tr name="559" id="559">
+<td><a id="l559" class='ln'>559</a></td><td>        <span class="kw">if</span> (<a id="559c13" class="tk">finalizeCommandResponse</a>(<a id="559c37" class="tk">XIL_RESPONSE_ERROR_SUCCESS</a>, <a id="559c65" class="tk">isEndOfXILStep</a>) <a id="559c81" class="tk">!=</a> <a id="559c84" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="560" id="560">
+<td><a id="l560" class='ln'>560</a></td><td>            <a id="560c13" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="561" id="561">
+<td><a id="l561" class='ln'>561</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="562" id="562">
+<td><a id="l562" class='ln'>562</a></td><td>        </td></tr>
+<tr name="563" id="563">
+<td><a id="l563" class='ln'>563</a></td><td>        <span class="ct">/* reset state */</span></td></tr>
+<tr name="564" id="564">
+<td><a id="l564" class='ln'>564</a></td><td>        <a id="564c9" class="tk">cc</a>.<a id="564c12" class="tk">state</a> = <a id="564c20" class="tk">XIL_READ_COMMAND_CODE</a>;</td></tr>
+<tr name="565" id="565">
+<td><a id="l565" class='ln'>565</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="566" id="566">
+<td><a id="l566" class='ln'>566</a></td><td></td></tr>
+<tr name="567" id="567">
+<td><a id="l567" class='ln'>567</a></td><td>    <a id="567c5" class="tk">XIL_RUN_EXIT</a>;</td></tr>
+<tr name="568" id="568">
+<td><a id="l568" class='ln'>568</a></td><td>    </td></tr>
+<tr name="569" id="569">
+<td><a id="l569" class='ln'>569</a></td><td><span class="br">}</span></td></tr>
+<tr name="570" id="570">
+<td><a id="l570" class='ln'>570</a></td><td></td></tr>
+<tr name="571" id="571">
+<td><a id="l571" class='ln'>571</a></td><td><span class="ct">/* Call xilProcessMsg to process host to target data */</span></td></tr>
+<tr name="572" id="572">
+<td><a id="l572" class='ln'>572</a></td><td><a id="572c1" class="tk">uint8_T</a> <a id="572c9" class="tk">commsRun</a>(<span class="kw">void</span>)</td></tr>
+<tr name="573" id="573">
+<td><a id="l573" class='ln'>573</a></td><td><span class="br">{</span>            </td></tr>
+<tr name="574" id="574">
+<td><a id="l574" class='ln'>574</a></td><td>    <span class="kw">const</span> <a id="574c11" class="tk">uint8_T</a> <a id="574c19" class="tk">success</a> = 1;</td></tr>
+<tr name="575" id="575">
+<td><a id="l575" class='ln'>575</a></td><td></td></tr>
+<tr name="576" id="576">
+<td><a id="l576" class='ln'>576</a></td><td>    <a id="576c5" class="tk">xilProcessMsg</a>();</td></tr>
+<tr name="577" id="577">
+<td><a id="l577" class='ln'>577</a></td><td>    <span class="kw">return</span> <a id="577c12" class="tk">success</a>;</td></tr>
+<tr name="578" id="578">
+<td><a id="l578" class='ln'>578</a></td><td><span class="br">}</span></td></tr>
+<tr name="579" id="579">
+<td><a id="l579" class='ln'>579</a></td><td></td></tr>
+<tr name="580" id="580">
+<td><a id="l580" class='ln'>580</a></td><td><a id="580c1" class="tk">XIL_INTERFACE_LIB_ERROR_CODE</a> <a id="580c30" class="tk">xilRun</a>(<span class="kw">void</span>) <span class="br">{</span></td></tr>
+<tr name="581" id="581">
+<td><a id="l581" class='ln'>581</a></td><td>    <a id="581c5" class="tk">XIL_INTERFACE_LIB_ERROR_CODE</a> <a id="581c34" class="tk">errorCode</a> = <a id="581c46" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>;</td></tr>
+<tr name="582" id="582">
+<td><a id="l582" class='ln'>582</a></td><td>    <span class="kw">int</span> <a id="582c9" class="tk">success</a>;             </td></tr>
+<tr name="583" id="583">
+<td><a id="l583" class='ln'>583</a></td><td></td></tr>
+<tr name="584" id="584">
+<td><a id="l584" class='ln'>584</a></td><td>    <span class="ct">/* read one msg and pass to owning application */</span></td></tr>
+<tr name="585" id="585">
+<td><a id="l585" class='ln'>585</a></td><td>    <a id="585c5" class="tk">success</a> = <a id="585c15" class="tk">commsRun</a>();</td></tr>
+<tr name="586" id="586">
+<td><a id="l586" class='ln'>586</a></td><td>    </td></tr>
+<tr name="587" id="587">
+<td><a id="l587" class='ln'>587</a></td><td>    <a id="587c5" class="tk">success</a> = <a id="587c15" class="tk">success</a> <a id="587c23" class="tk">&amp;&amp;</a> <a id="587c26" class="tk">processMsgSuccess</a>;</td></tr>
+<tr name="588" id="588">
+<td><a id="l588" class='ln'>588</a></td><td>    <span class="kw">if</span> (<a id="588c9" class="tk">success</a>) <span class="br">{</span>        </td></tr>
+<tr name="589" id="589">
+<td><a id="l589" class='ln'>589</a></td><td>        <span class="kw">if</span> (<a id="589c13" class="tk">isShutdownCommand</a>) <span class="br">{</span></td></tr>
+<tr name="590" id="590">
+<td><a id="l590" class='ln'>590</a></td><td>            <a id="590c13" class="tk">errorCode</a> = <a id="590c25" class="tk">XIL_INTERFACE_LIB_TERMINATE</a>;</td></tr>
+<tr name="591" id="591">
+<td><a id="l591" class='ln'>591</a></td><td>        <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="592" id="592">
+<td><a id="l592" class='ln'>592</a></td><td>            <a id="592c13" class="tk">errorCode</a> = <a id="592c25" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>;</td></tr>
+<tr name="593" id="593">
+<td><a id="l593" class='ln'>593</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="594" id="594">
+<td><a id="l594" class='ln'>594</a></td><td>        </td></tr>
+<tr name="595" id="595">
+<td><a id="l595" class='ln'>595</a></td><td>    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="596" id="596">
+<td><a id="l596" class='ln'>596</a></td><td>        <a id="596c9" class="tk">errorCode</a> = <a id="596c21" class="tk">XIL_INTERFACE_LIB_ERROR</a>;</td></tr>
+<tr name="597" id="597">
+<td><a id="l597" class='ln'>597</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="598" id="598">
+<td><a id="l598" class='ln'>598</a></td><td>    <span class="kw">return</span> <a id="598c12" class="tk">errorCode</a>;</td></tr>
+<tr name="599" id="599">
+<td><a id="l599" class='ln'>599</a></td><td><span class="br">}</span></td></tr>
+<tr name="600" id="600">
+<td><a id="l600" class='ln'>600</a></td><td></td></tr>
+<tr name="601" id="601">
+<td><a id="l601" class='ln'>601</a></td><td><span class="ct">/* Dispatch and receive client/server commands within a step */</span></td></tr>
+<tr name="602" id="602">
+<td><a id="l602" class='ln'>602</a></td><td><span class="kw">void</span> <a id="602c6" class="tk">xilCommandDispatchAndResponse</a>(<a id="602c36" class="tk">XIL_COMMAND_TYPE_ENUM</a> <a id="602c58" class="tk">xilCommandType</a>, </td></tr>
+<tr name="603" id="603">
+<td><a id="l603" class='ln'>603</a></td><td>                                   <a id="603c36" class="tk">uint32_T</a> <a id="603c45" class="tk">xilCommandIdx</a>, <a id="603c60" class="tk">uint32_T</a> <a id="603c69" class="tk">xilFcnId</a>, </td></tr>
+<tr name="604" id="604">
+<td><a id="l604" class='ln'>604</a></td><td>                                   <a id="604c36" class="tk">uint32_T</a> <a id="604c45" class="tk">svrFcnId</a>, <a id="604c55" class="tk">MemUnit_T</a> <a id="604c65" class="tk">xilResponseId</a>,</td></tr>
+<tr name="605" id="605">
+<td><a id="l605" class='ln'>605</a></td><td>                                   <a id="605c36" class="tk">XIL_PROCESS_MSG_CONTEXT_SWITCH</a> <a id="605c67" class="tk">callerCtx</a>) <span class="br">{</span></td></tr>
+<tr name="606" id="606">
+<td><a id="l606" class='ln'>606</a></td><td></td></tr>
+<tr name="607" id="607">
+<td><a id="l607" class='ln'>607</a></td><td>    <span class="ct">/* define a binary flag, each CS command needs to process a response */</span></td></tr>
+<tr name="608" id="608">
+<td><a id="l608" class='ln'>608</a></td><td>    <span class="kw">int</span> <a id="608c9" class="tk">needToProcessCSResponse</a> = 1;</td></tr>
+<tr name="609" id="609">
+<td><a id="l609" class='ln'>609</a></td><td>    </td></tr>
+<tr name="610" id="610">
+<td><a id="l610" class='ln'>610</a></td><td>    <span class="ct">/* update server function id */</span></td></tr>
+<tr name="611" id="611">
+<td><a id="l611" class='ln'>611</a></td><td>    <a id="611c5" class="tk">serverFcnId</a> = <a id="611c19" class="tk">svrFcnId</a>;        </td></tr>
+<tr name="612" id="612">
+<td><a id="l612" class='ln'>612</a></td><td></td></tr>
+<tr name="613" id="613">
+<td><a id="l613" class='ln'>613</a></td><td>    <span class="ct">/* send input data to the host */</span></td></tr>
+<tr name="614" id="614">
+<td><a id="l614" class='ln'>614</a></td><td>    <span class="kw">if</span> (<a id="614c9" class="tk">processTargetToHostData</a>(<a id="614c33" class="tk">xilFcnId</a>, <a id="614c43" class="tk">xilResponseId</a>, <a id="614c58" class="tk">xilCommandType</a>, </td></tr>
+<tr name="615" id="615">
+<td><a id="l615" class='ln'>615</a></td><td>            <a id="615c13" class="tk">xilCommandIdx</a>) <a id="615c28" class="tk">==</a> <a id="615c31" class="tk">XIL_PROCESSDATA_DATA_STREAM_ERROR</a>) <span class="br">{</span></td></tr>
+<tr name="616" id="616">
+<td><a id="l616" class='ln'>616</a></td><td>        <a id="616c9" class="tk">restoreProcessMsgContext</a>(<a id="616c34" class="tk">callerCtx</a>);</td></tr>
+<tr name="617" id="617">
+<td><a id="l617" class='ln'>617</a></td><td>        <a id="617c9" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="618" id="618">
+<td><a id="l618" class='ln'>618</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="619" id="619">
+<td><a id="l619" class='ln'>619</a></td><td>    </td></tr>
+<tr name="620" id="620">
+<td><a id="l620" class='ln'>620</a></td><td>    <span class="ct">/* finalize the response */</span></td></tr>
+<tr name="621" id="621">
+<td><a id="l621" class='ln'>621</a></td><td>    <span class="br">{</span></td></tr>
+<tr name="622" id="622">
+<td><a id="l622" class='ln'>622</a></td><td>        <a id="622c9" class="tk">MemUnit_T</a> <a id="622c19" class="tk">isEndOfXILStep</a> = 0;</td></tr>
+<tr name="623" id="623">
+<td><a id="l623" class='ln'>623</a></td><td>        <span class="kw">if</span> (<a id="623c13" class="tk">finalizeCommandResponse</a>(<a id="623c37" class="tk">XIL_RESPONSE_ERROR_SUCCESS</a>, <a id="623c65" class="tk">isEndOfXILStep</a>) <a id="623c81" class="tk">!=</a></td></tr>
+<tr name="624" id="624">
+<td><a id="l624" class='ln'>624</a></td><td>                <a id="624c17" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="625" id="625">
+<td><a id="l625" class='ln'>625</a></td><td>            <a id="625c13" class="tk">restoreProcessMsgContext</a>(<a id="625c38" class="tk">callerCtx</a>);</td></tr>
+<tr name="626" id="626">
+<td><a id="l626" class='ln'>626</a></td><td>            <a id="626c13" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="627" id="627">
+<td><a id="l627" class='ln'>627</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="628" id="628">
+<td><a id="l628" class='ln'>628</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="629" id="629">
+<td><a id="l629" class='ln'>629</a></td><td>    </td></tr>
+<tr name="630" id="630">
+<td><a id="l630" class='ln'>630</a></td><td>    <span class="ct">/* reset state for new context, recursive calls are safe because all</span></td></tr>
+<tr name="631" id="631">
+<td><a id="l631" class='ln'>631</a></td><td><span class="ct">     * the caller contexts (callerCtx) are cached in the stack */</span></td></tr>
+<tr name="632" id="632">
+<td><a id="l632" class='ln'>632</a></td><td>    <a id="632c5" class="tk">cc</a>.<a id="632c8" class="tk">state</a> = <a id="632c16" class="tk">XIL_READ_COMMAND_CODE</a>;</td></tr>
+<tr name="633" id="633">
+<td><a id="l633" class='ln'>633</a></td><td>    </td></tr>
+<tr name="634" id="634">
+<td><a id="l634" class='ln'>634</a></td><td>    <span class="kw">while</span>(<a id="634c11" class="tk">needToProcessCSResponse</a>) <span class="br">{</span></td></tr>
+<tr name="635" id="635">
+<td><a id="l635" class='ln'>635</a></td><td>        <span class="ct">/* read next command requested by the host */</span></td></tr>
+<tr name="636" id="636">
+<td><a id="l636" class='ln'>636</a></td><td>        <a id="636c9" class="tk">xilReadCommandCode</a>();</td></tr>
+<tr name="637" id="637">
+<td><a id="l637" class='ln'>637</a></td><td>        <span class="kw">if</span> (<a id="637c13" class="tk">cc</a>.<a id="637c16" class="tk">command</a> <a id="637c24" class="tk">==</a> <a id="637c27" class="tk">XIL_CLIENT_SERVER_COMMAND</a>) <span class="br">{</span></td></tr>
+<tr name="638" id="638">
+<td><a id="l638" class='ln'>638</a></td><td>            <span class="ct">/* if the host sent a response to the server call, process it</span></td></tr>
+<tr name="639" id="639">
+<td><a id="l639" class='ln'>639</a></td><td><span class="ct">             * and then exit the loop. Otherwise, process the current </span></td></tr>
+<tr name="640" id="640">
+<td><a id="l640" class='ln'>640</a></td><td><span class="ct">             * command and read the next one */</span></td></tr>
+<tr name="641" id="641">
+<td><a id="l641" class='ln'>641</a></td><td>            <a id="641c13" class="tk">needToProcessCSResponse</a> = 0;</td></tr>
+<tr name="642" id="642">
+<td><a id="l642" class='ln'>642</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="643" id="643">
+<td><a id="l643" class='ln'>643</a></td><td>        <span class="ct">/* process response data sent by host */</span></td></tr>
+<tr name="644" id="644">
+<td><a id="l644" class='ln'>644</a></td><td>        <span class="kw">if</span> (<a id="644c13" class="tk">xilRun</a>() <a id="644c22" class="tk">!=</a> <a id="644c25" class="tk">XIL_INTERFACE_LIB_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="645" id="645">
+<td><a id="l645" class='ln'>645</a></td><td>            <a id="645c13" class="tk">restoreProcessMsgContext</a>(<a id="645c38" class="tk">callerCtx</a>);</td></tr>
+<tr name="646" id="646">
+<td><a id="l646" class='ln'>646</a></td><td>            <a id="646c13" class="tk">XIL_RUN_EXIT_ERROR</a>;</td></tr>
+<tr name="647" id="647">
+<td><a id="l647" class='ln'>647</a></td><td>        <span class="br">}</span></td></tr>
+<tr name="648" id="648">
+<td><a id="l648" class='ln'>648</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="649" id="649">
+<td><a id="l649" class='ln'>649</a></td><td>    </td></tr>
+<tr name="650" id="650">
+<td><a id="l650" class='ln'>650</a></td><td>    <a id="650c5" class="tk">restoreProcessMsgContext</a>(<a id="650c30" class="tk">callerCtx</a>);</td></tr>
+<tr name="651" id="651">
+<td><a id="l651" class='ln'>651</a></td><td>    </td></tr>
+<tr name="652" id="652">
+<td><a id="l652" class='ln'>652</a></td><td><span class="br">}</span></td></tr>
+<tr name="653" id="653">
+<td><a id="l653" class='ln'>653</a></td><td></td></tr>
+<tr name="654" id="654">
+<td><a id="l654" class='ln'>654</a></td><td><a id="654c1" class="tk">XIL_PROCESS_MSG_CONTEXT_SWITCH</a> <a id="654c32" class="tk">xilGetCurrentProcessMsgContext</a>(<span class="kw">void</span>) <span class="br">{</span></td></tr>
+<tr name="655" id="655">
+<td><a id="l655" class='ln'>655</a></td><td>    <span class="ct">/* return the current context (cc) */</span></td></tr>
+<tr name="656" id="656">
+<td><a id="l656" class='ln'>656</a></td><td>    <span class="kw">return</span> <a id="656c12" class="tk">cc</a>;</td></tr>
+<tr name="657" id="657">
+<td><a id="l657" class='ln'>657</a></td><td><span class="br">}</span></td></tr>
+<tr name="658" id="658">
+<td><a id="l658" class='ln'>658</a></td><td></td></tr>
+<tr name="659" id="659">
+<td><a id="l659" class='ln'>659</a></td><td></td></tr>
+<tr name="660" id="660">
+<td><a id="l660" class='ln'>660</a></td><td><span class="pp">#ifdef</span> <a id="660c8" class="tk">HOST_BIG_ENDIAN_PROTOCOL_TESTING</a></td></tr>
+<tr name="661" id="661">
+<td><a id="l661" class='ln'>661</a></td><td></td></tr>
+<tr name="662" id="662">
+<td><a id="l662" class='ln'>662</a></td><td><span class="kw">void</span> <a id="662c6" class="tk">swapBytes</a>(<a id="662c16" class="tk">MemUnit_T</a> <a id="662c26" class="tk">*</a> <span class="kw">const</span> <a id="662c34" class="tk">buffer</a>, <a id="662c42" class="tk">uint32_T</a> <a id="662c51" class="tk">size</a>) <span class="br">{</span></td></tr>
+<tr name="663" id="663">
+<td><a id="l663" class='ln'>663</a></td><td>    <a id="663c5" class="tk">MemUnit_T</a> <a id="663c15" class="tk">tmp</a>;</td></tr>
+<tr name="664" id="664">
+<td><a id="l664" class='ln'>664</a></td><td>    <a id="664c5" class="tk">MemUnit_T</a> <a id="664c15" class="tk">*</a><a id="664c16" class="tk">headPtr</a>;</td></tr>
+<tr name="665" id="665">
+<td><a id="l665" class='ln'>665</a></td><td>    <a id="665c5" class="tk">MemUnit_T</a> <a id="665c15" class="tk">*</a><a id="665c16" class="tk">tailPtr</a>;</td></tr>
+<tr name="666" id="666">
+<td><a id="l666" class='ln'>666</a></td><td>    <a id="666c5" class="tk">uint32_T</a> <a id="666c14" class="tk">idx</a>;</td></tr>
+<tr name="667" id="667">
+<td><a id="l667" class='ln'>667</a></td><td></td></tr>
+<tr name="668" id="668">
+<td><a id="l668" class='ln'>668</a></td><td>    <span class="kw">for</span>(<a id="668c9" class="tk">idx</a> = 0; <a id="668c18" class="tk">idx</a> <a id="668c22" class="tk">&lt;</a> <a id="668c24" class="tk">size</a><a id="668c28" class="tk">/</a>2; <a id="668c32" class="tk">idx</a> <a id="668c36" class="tk">++</a>) <span class="br">{</span></td></tr>
+<tr name="669" id="669">
+<td><a id="l669" class='ln'>669</a></td><td>        <a id="669c9" class="tk">headPtr</a> = <a id="669c19" class="tk">buffer</a> <a id="669c26" class="tk">+</a> <a id="669c28" class="tk">idx</a>; </td></tr>
+<tr name="670" id="670">
+<td><a id="l670" class='ln'>670</a></td><td>        <a id="670c9" class="tk">tailPtr</a> = <a id="670c19" class="tk">buffer</a> <a id="670c26" class="tk">+</a> <a id="670c28" class="tk">size</a> <a id="670c33" class="tk">-</a>1 <a id="670c36" class="tk">-</a> <a id="670c38" class="tk">idx</a>;</td></tr>
+<tr name="671" id="671">
+<td><a id="l671" class='ln'>671</a></td><td>        <a id="671c9" class="tk">tmp</a> = <a id="671c15" class="tk">*</a><a id="671c16" class="tk">headPtr</a>;</td></tr>
+<tr name="672" id="672">
+<td><a id="l672" class='ln'>672</a></td><td>        <a id="672c9" class="tk">*</a><a id="672c10" class="tk">headPtr</a> = <a id="672c20" class="tk">*</a><a id="672c21" class="tk">tailPtr</a>;</td></tr>
+<tr name="673" id="673">
+<td><a id="l673" class='ln'>673</a></td><td>        <a id="673c9" class="tk">*</a><a id="673c10" class="tk">tailPtr</a> = <a id="673c20" class="tk">tmp</a>;</td></tr>
+<tr name="674" id="674">
+<td><a id="l674" class='ln'>674</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="675" id="675">
+<td><a id="l675" class='ln'>675</a></td><td><span class="br">}</span></td></tr>
+<tr name="676" id="676">
+<td><a id="l676" class='ln'>676</a></td><td></td></tr>
+<tr name="677" id="677">
+<td><a id="l677" class='ln'>677</a></td><td><span class="kw">static</span> <a id="677c8" class="tk">XIL_DATA_STREAM_ERROR_CODE</a> <a id="677c35" class="tk">xilReadDataAndSwapBytes</a>(<a id="677c59" class="tk">MemUnit_T</a> <a id="677c69" class="tk">*</a> <a id="677c71" class="tk">dst</a>, <a id="677c76" class="tk">uint32_T</a> <a id="677c85" class="tk">size</a>) <span class="br">{</span></td></tr>
+<tr name="678" id="678">
+<td><a id="l678" class='ln'>678</a></td><td>    <a id="678c5" class="tk">XIL_DATA_STREAM_ERROR_CODE</a> <a id="678c32" class="tk">readDataVal</a> = <a id="678c46" class="tk">xilReadData</a>(<a id="678c58" class="tk">dst</a>, <a id="678c63" class="tk">size</a>);</td></tr>
+<tr name="679" id="679">
+<td><a id="l679" class='ln'>679</a></td><td></td></tr>
+<tr name="680" id="680">
+<td><a id="l680" class='ln'>680</a></td><td>    <span class="kw">if</span> (<a id="680c9" class="tk">readDataVal</a> <a id="680c21" class="tk">==</a> <a id="680c24" class="tk">XIL_DATA_STREAM_SUCCESS</a>) <span class="br">{</span></td></tr>
+<tr name="681" id="681">
+<td><a id="l681" class='ln'>681</a></td><td>        <a id="681c9" class="tk">swapBytes</a>(<a id="681c19" class="tk">dst</a>, <a id="681c24" class="tk">size</a>);</td></tr>
+<tr name="682" id="682">
+<td><a id="l682" class='ln'>682</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="683" id="683">
+<td><a id="l683" class='ln'>683</a></td><td>    <span class="kw">return</span> <a id="683c12" class="tk">readDataVal</a>;</td></tr>
+<tr name="684" id="684">
+<td><a id="l684" class='ln'>684</a></td><td><span class="br">}</span></td></tr>
+<tr name="685" id="685">
+<td><a id="l685" class='ln'>685</a></td><td></td></tr>
+<tr name="686" id="686">
+<td><a id="l686" class='ln'>686</a></td><td><span class="pp">#endif</span> <span class="ct">/*HOST_BIG_ENDIAN_PROTOCOL_TESTING*/</span></td></tr>
+<tr name="687" id="687">
+<td><a id="l687" class='ln'>687</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

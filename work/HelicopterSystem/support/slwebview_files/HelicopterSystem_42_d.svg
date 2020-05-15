@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="inline" height="332.000000px" preserveAspectRatio="xMinYMin meet" viewBox="-9.00 -1.00 748.00 332.00" width="748.000000px" x="0" y="0" zoomAndPan="disable">
+  <g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel">
+    <!--RAWSTRING-->
+    <g id="HelicopterSystem:42">
+      <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,0,0)">
+        <path d="M0,2 C0,0.895431 0.895431,0 2,0 L728,0 C729.105,0 730,0.895431 730,2 L730,328 C730,329.105 729.105,330 728,330 L2,330 C0.895431,330 0,329.105 0,328 L0,2 z" fill-rule="evenodd" vector-effect="none"/>
+      </g>
+      <!--RAWSTRING-->
+      <g data-tags="SystemBoxCueContainer">
+        <g clip-path="none" fill="#d2d2d2" fill-opacity="1" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,0,0)">
+          <path d="M0,2 C0,0.895431 0.895431,0 2,0 L728,0 C729.105,0 730,0.895431 730,2 L730,25 L0,25 L0,2 z" fill-rule="nonzero" vector-effect="none"/>
+        </g>
+        <!--RAWSTRING-->
+        <g data-tags="SystemPortCue">
+          <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,730,165)">
+            <path d="M8,0 C8,4.41828 4.41828,8 0,8 C-4.41828,8 -8,4.41828 -8,0 C-8,-4.41828 -4.41828,-8 0,-8 C4.41828,-8 8,-4.41828 8,0 z" fill-rule="evenodd" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="none" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,730,165)">
+            <path d="M0,-8 C-4.41828,-8 -8,-4.41828 -8,0 C-8,4.41828 -4.41828,8 0,8" fill-rule="nonzero" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(-1,0,0,-1,738,173)">
+            <image height="18" preserveAspectRatio="none" width="18" x="-1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAABJ0AAASdAHeZh94AAAAuElEQVQ4je2RIQ7CQBREZzaEpodAoYCEG6CpQ1V1N0WBR3ECPCdA/B6gjmA5AgngkRxiPwaB6DaloqrP/GQyeZnkAz2dwaowy7IpgIMxZiMi7yYiUxkaY0iuVPVhrd2laTpsJQIAVb2TXABIoii6WWuTViIAEJFnURRLAHsAJ+fcK8/z8d+in3X8Xg11BnUC59xEVY8kRwDWInIJdYOLSM5U9UryHMfxvE4SXOS99yRLktum7+/pkA+eazoQmpO4pwAAAABJRU5ErkJggg==" y="-1"/>
+          </g>
+          <!--RAWSTRING-->
+          <g data-tags="SystemBoundaryPortBusElementNameLabel">
+            <defs>
+              <clipPath id="clip1">
+                <path d="M-707.688,-158.5 L38.3125,-158.5 L38.3125,172.5 L-707.688,172.5 L-707.688,-158.5 z"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#clip1)" fill="none" opacity="1" stroke="#555555" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,699.688,158)">
+              <text fill="#555555" fill-opacity="1" font-family="Arial" font-size="10" font-style="normal" font-weight="400" stroke="none" textLength="8.3125" x="1" xml:space="preserve" y="10">In</text>
+            </g>
+            <!--RAWSTRING-->
+          </g>
+          <g clip-path="none" fill="none" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,730,165)">
+            <polyline fill="none" points="-8,0 -20,0" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="#808080" fill-opacity="1" opacity="1" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-width="2" transform="matrix(1,0,0,1,710,160)">
+            <path d="M9,5 L5,9 L1,9 L1,1 L5,1 L9,5 z" fill-rule="nonzero" vector-effect="none"/>
+          </g>
+          <!--RAWSTRING-->
+        </g>
+        <!--RAWSTRING-->
+        <g data-tags="SystemPortCue">
+          <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,0,165)">
+            <path d="M8,0 C8,4.41828 4.41828,8 0,8 C-4.41828,8 -8,4.41828 -8,0 C-8,-4.41828 -4.41828,-8 0,-8 C4.41828,-8 8,-4.41828 8,0 z" fill-rule="evenodd" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="none" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,0,165)">
+            <path d="M0,8 C4.41828,8 8,4.41828 8,0 C8,-4.41828 4.41828,-8 0,-8" fill-rule="nonzero" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(-1,0,0,-1,8,173)">
+            <image height="18" preserveAspectRatio="none" width="18" x="-1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAABJ0AAASdAHeZh94AAAAuElEQVQ4je2RIQ7CQBREZzaEpodAoYCEG6CpQ1V1N0WBR3ECPCdA/B6gjmA5AgngkRxiPwaB6DaloqrP/GQyeZnkAz2dwaowy7IpgIMxZiMi7yYiUxkaY0iuVPVhrd2laTpsJQIAVb2TXABIoii6WWuTViIAEJFnURRLAHsAJ+fcK8/z8d+in3X8Xg11BnUC59xEVY8kRwDWInIJdYOLSM5U9UryHMfxvE4SXOS99yRLktum7+/pkA+eazoQmpO4pwAAAABJRU5ErkJggg==" y="-1"/>
+          </g>
+          <!--RAWSTRING-->
+          <g data-tags="SystemBoundaryPortBusElementNameLabel">
+            <defs>
+              <clipPath id="clip2">
+                <path d="M-28,-158.5 L718,-158.5 L718,172.5 L-28,172.5 L-28,-158.5 z"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#clip2)" fill="none" opacity="1" stroke="#555555" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,20,158)">
+              <text fill="#555555" fill-opacity="1" font-family="Arial" font-size="10" font-style="normal" font-weight="400" stroke="none" textLength="16.0781" x="1" xml:space="preserve" y="10">Out</text>
+            </g>
+            <!--RAWSTRING-->
+          </g>
+          <g clip-path="none" fill="none" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,0,165)">
+            <polyline fill="none" points="8,0 20,0" vector-effect="none"/>
+          </g>
+          <g clip-path="none" fill="#808080" fill-opacity="1" opacity="1" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-width="2" transform="matrix(-1,0,0,-1,20,170)">
+            <path d="M9,5 L5,9 L1,9 L1,1 L5,1 L9,5 z" fill-rule="nonzero" vector-effect="none"/>
+          </g>
+          <!--RAWSTRING-->
+        </g>
+        <!--RAWSTRING-->
+      </g>
+      <!--RAWSTRING-->
+      <g data-tags="SystemBoxTitle">
+        <defs>
+          <clipPath id="clip3">
+            <path d="M-10,-6 L736,-6 L736,325 L-10,325 L-10,-6 z"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#clip3)" fill="none" opacity="1" stroke="#000000" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,2,5.5)">
+          <text fill="#000000" fill-opacity="1" font-family="Arial" font-size="10" font-style="normal" font-weight="400" stroke="none" textLength="40.4844" x="1" xml:space="preserve" y="10">Adapter1</text>
+        </g>
+        <!--RAWSTRING-->
+      </g>
+      <!--RAWSTRING-->
+      <g id="HelicopterSystem:44">
+        <g clip-path="none" fill="#808080" fill-opacity="1" opacity="1" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-width="2" transform="matrix(-1,0,0,-1,380,185)">
+          <path d="M9,5 L5,9 L1,9 L1,1 L5,1 L9,5 z" fill-rule="nonzero" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,370,180)">
+          <path d="M8,0 C8,4.41828 4.41828,8 0,8 C-4.41828,8 -8,4.41828 -8,0 C-8,-4.41828 -4.41828,-8 0,-8 C4.41828,-8 8,-4.41828 8,0 z" fill-rule="evenodd" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,370,180)">
+          <path d="M0,-8 C-4.41828,-8 -8,-4.41828 -8,0 C-8,4.41828 -4.41828,8 0,8" fill-rule="nonzero" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,362,172)">
+          <image height="18" preserveAspectRatio="none" width="18" x="-1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAABJ0AAASdAHeZh94AAAAuElEQVQ4je2RIQ7CQBREZzaEpodAoYCEG6CpQ1V1N0WBR3ECPCdA/B6gjmA5AgngkRxiPwaB6DaloqrP/GQyeZnkAz2dwaowy7IpgIMxZiMi7yYiUxkaY0iuVPVhrd2laTpsJQIAVb2TXABIoii6WWuTViIAEJFnURRLAHsAJ+fcK8/z8d+in3X8Xg11BnUC59xEVY8kRwDWInIJdYOLSM5U9UryHMfxvE4SXOS99yRLktum7+/pkA+eazoQmpO4pwAAAABJRU5ErkJggg==" y="-1"/>
+        </g>
+        <!--RAWSTRING-->
+      </g>
+      <!--RAWSTRING-->
+      <g id="HelicopterSystem:43">
+        <g clip-path="none" fill="#808080" fill-opacity="1" opacity="1" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-width="2" transform="matrix(1,0,0,1,350,175)">
+          <path d="M9,5 L5,9 L1,9 L1,1 L5,1 L9,5 z" fill-rule="nonzero" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,360,180)">
+          <path d="M8,0 C8,4.41828 4.41828,8 0,8 C-4.41828,8 -8,4.41828 -8,0 C-8,-4.41828 -4.41828,-8 0,-8 C4.41828,-8 8,-4.41828 8,0 z" fill-rule="evenodd" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,360,180)">
+          <path d="M0,8 C4.41828,8 8,4.41828 8,0 C8,-4.41828 4.41828,-8 0,-8" fill-rule="nonzero" vector-effect="none"/>
+        </g>
+        <g clip-path="none" fill="#ffffff" fill-opacity="1" opacity="1" stroke="none" stroke-opacity="0" transform="matrix(1,0,0,1,352,172)">
+          <image height="18" preserveAspectRatio="none" width="18" x="-1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAABJ0AAASdAHeZh94AAAAuElEQVQ4je2RIQ7CQBREZzaEpodAoYCEG6CpQ1V1N0WBR3ECPCdA/B6gjmA5AgngkRxiPwaB6DaloqrP/GQyeZnkAz2dwaowy7IpgIMxZiMi7yYiUxkaY0iuVPVhrd2laTpsJQIAVb2TXABIoii6WWuTViIAEJFnURRLAHsAJ+fcK8/z8d+in3X8Xg11BnUC59xEVY8kRwDWInIJdYOLSM5U9UryHMfxvE4SXOS99yRLktum7+/pkA+eazoQmpO4pwAAAABJRU5ErkJggg==" y="-1"/>
+        </g>
+        <!--RAWSTRING-->
+      </g>
+      <!--RAWSTRING-->
+      <g id="HelicopterSystem:43#out:1">
+        <!--RAWSTRING-->
+        <g data-tags="PathIntersectionsEnabledTag">
+          <g clip-path="none" fill="none" opacity="1" stroke="#a8a8a8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,0,0)">
+            <path d="M360,180 L370,180" fill-rule="evenodd" vector-effect="none"/>
+          </g>
+          <!--RAWSTRING-->
+        </g>
+        <!--RAWSTRING-->
+      </g>
+      <!--RAWSTRING-->
+    </g>
+  </g>
+  <!--generated on windows @ 2020-05-11 06:43:33 US Mountain Standard Time-->
+</svg>

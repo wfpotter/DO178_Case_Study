@@ -1,0 +1,22 @@
+/* Copyright 2017 The MathWorks, Inc. */
+.cvtablecellinfo {
+    visibility: hidden;
+    position: absolute;
+    text-align: center;
+    background-color: #CCD1D1;
+    left: -10px;
+    bottom: 20px;
+    z-index: 1;
+}
+.cvtablecell:hover .cvtablecellinfo {
+    visibility: visible;
+}
+
+.cvtablecellinfo > table {
+    white-space: nowrap;
+}    
+
+.cvtable {
+    border-collapse: collapse;
+    border: 1px solid black;
+}

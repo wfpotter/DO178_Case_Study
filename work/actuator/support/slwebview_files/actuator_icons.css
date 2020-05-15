@@ -1,0 +1,11 @@
+.actuator0,
+.actuator1,
+.actuator2,
+.actuator3,
+.actuator4 { background-image: url('actuator_icons.png'); width: 16px; height: 16px; }
+
+.actuator0 { background-position: -0px; }
+.actuator1 { background-position: -16px; }
+.actuator2 { background-position: -32px; }
+.actuator3 { background-position: -48px; }
+.actuator4 { background-position: -64px; }
